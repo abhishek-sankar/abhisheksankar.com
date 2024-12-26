@@ -1,0 +1,95 @@
+baseURL = 'https://abhisheksankar.com'
+languageCode = 'en-us'
+title = 'Personal Blog'
+theme = 'typo'
+
+[taxonomies]
+tag = 'tags'
+
+# Google analytics code
+googleAnalytics = "G-xxxxxxxxx"
+
+[params]
+# Meta description
+description = "Abhishek Sankar's Personal Blog"
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = false
+
+# Intro on main page, content is markdown
+homeIntroTitle = 'Hi there!'
+homeIntroContent = """
+
+
+
+I'm Abhishek. I love cats, [phthalo green](https://x.com/simonsarris/status/1860002852909031805), and walking in the rain.
+
+Currently I'm pursuing my MS in Artificial Intelligence and Innovation at [Carnegie Mellon University](https://www.cmu.edu/).
+I previously worked a software engineer at [Providence](https://www.linkedin.com/company/providence-india/), where I got to work on interesting problems in healthcare.
+
+I'm currently working on Sebastian Raschka's book [Build a Large Language Model](https://www.amazon.com/Build-Large-Language-Model-Scratch/dp/1633437167), where I'm learning about the internals of GPT-2 and GPT-3. I'm also working on a few side projects that I hope to share soon.
+
+An idea close to my heart that I'm tinkering with is a an app to make the internet more accessible, leveraging the computer use api by anthropic, along with the gpt-4o voice model. I think these leaps will go a long way toward enabling more and more people to access and interact with more of the internet. Hit me up if you'd be interested in lending a hand with this!
+
+I keep an [open list](./reading-list) of what I read (well, at least post 2020). If you have recommendations, shoot me a DM :\\)
+
+"""
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = true
+listDateFormat = '2 Jan 2006'
+
+# Breadcrumbs
+breadcrumbs = true
+
+# Social icons
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/abhishek-sankar-in/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/abhishek-sankar"
+
+[[params.social]]
+name = "Chemistry SE"
+url = "https://chemistry.stackexchange.com/users/42352/subzero"
+
+# Main menu pages
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.menu]]
+name = "about"
+url = "/about"
+
+[[params.menu]]
+name = "resume"
+url = "/resume"
+
+# Syntax highligth on code blocks
+[markup]
+[markup.highlight]
+style = 'algol'
+
+# Giscus comments
+[params.giscus]
+enable = false
+repo = "user/repo"
+repoid = "repoId"
+category = "General"
+categoryid = "categoryId"
+mapping = "pathname"
+theme = "preferred_color_scheme"

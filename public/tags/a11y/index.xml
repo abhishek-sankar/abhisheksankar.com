@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A11y on Personal Blog</title>
+    <link>https://abhisheksankar.com/tags/a11y/</link>
+    <description>Recent content in A11y on Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 May 2024 10:19:05 +0530</lastBuildDate>
+    <atom:link href="https://abhisheksankar.com/tags/a11y/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Improving internet accessibility with Vision</title>
+      <link>https://abhisheksankar.com/posts/improving-a11y-with-cv/</link>
+      <pubDate>Thu, 02 May 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/improving-a11y-with-cv/</guid>
+      <description>An experiment, to do better.</description>
+    </item>
+  </channel>
+</rss>

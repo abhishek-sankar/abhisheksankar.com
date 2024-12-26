@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Personal Blog</title>
+    <link>https://abhisheksankar.com/</link>
+    <description>Recent content in Home on Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Oct 2024 10:19:05 +0530</lastBuildDate>
+    <atom:link href="https://abhisheksankar.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s diffuse the situation</title>
+      <link>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</link>
+      <pubDate>Thu, 17 Oct 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</guid>
+      <description>Tinkering with UNets to learn how diffusion models work</description>
+    </item>
+    <item>
+      <title>My recommendations</title>
+      <link>https://abhisheksankar.com/reading-list/</link>
+      <pubDate>Thu, 17 Oct 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/reading-list/</guid>
+      <description>a peek into my mind</description>
+    </item>
+    <item>
+      <title>Winning at Pittsburgh Biohack</title>
+      <link>https://abhisheksankar.com/posts/nucleate-biohack/</link>
+      <pubDate>Thu, 10 Oct 2024 10:00:00 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/nucleate-biohack/</guid>
+      <description>The first of many</description>
+    </item>
+    <item>
+      <title>MiniGPT: A Minimalist Implementation of GPT-2</title>
+      <link>https://abhisheksankar.com/posts/optimus-coprime/</link>
+      <pubDate>Sun, 22 Sep 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/optimus-coprime/</guid>
+      <description>You can build a transformer too!</description>
+    </item>
+    <item>
+      <title>Did somebody say startup?</title>
+      <link>https://abhisheksankar.com/posts/pittsburgh-to-peers/</link>
+      <pubDate>Wed, 03 Jul 2024 10:00:00 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/pittsburgh-to-peers/</guid>
+      <description>You miss all the shots you don&amp;rsquo;t take</description>
+    </item>
+    <item>
+      <title>Hack a startup - Gumbo (Post is WiP)</title>
+      <link>https://abhisheksankar.com/posts/hack-a-startup/</link>
+      <pubDate>Mon, 20 May 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/hack-a-startup/</guid>
+      <description>Taking a dive, I&amp;rsquo;m meant for this.</description>
+    </item>
+    <item>
+      <title>Improving internet accessibility with Vision</title>
+      <link>https://abhisheksankar.com/posts/improving-a11y-with-cv/</link>
+      <pubDate>Thu, 02 May 2024 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/improving-a11y-with-cv/</guid>
+      <description>An experiment, to do better.</description>
+    </item>
+    <item>
+      <title>[ Placement Advice ] Probably.</title>
+      <link>https://abhisheksankar.com/posts/placement-advice-probably/</link>
+      <pubDate>Wed, 07 Jul 2021 10:19:05 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/placement-advice-probably/</guid>
+      <description>The hoops to jump through for a job after undergrad at CET</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://abhisheksankar.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abhisheksankar.com/about/</guid>
+      <description>I&amp;rsquo;m Abhishek Sankar, currently pursuing my MS in Artificial Intelligence and Innovation at Carnegie Mellon University. I previously worked a software engineer at Providence, where I got to work on interesting problems in healthcare.&#xA;I&amp;rsquo;m passionate about building products that solve real-world problems. Small ones and the not so small ones. I&amp;rsquo;ve been a part of a few hackathons and have won a few of them.&#xA;I&amp;rsquo;m currently working on Sebastian Raschka&amp;rsquo;s book Build a Large Language Model, where I&amp;rsquo;m learning about the internals of GPT-2 and GPT-3.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://abhisheksankar.com/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://abhisheksankar.com/resume/</guid>
+      <description>Abhishek Sankar Pittsburgh, PA&#xA;(+1) 412.909.9156 abhisheksankar@cmu.edu abhisheksankar.com LinkedIn GitHub Education Carnegie Mellon University • Pittsburgh, PA&#xA;Master of Science • Artificial Intelligence and Innovation • GPA: 4.0&#xA;Expected graduation - May 2026&#xA;College of Engineering Trivandrum • Trivandrum, India&#xA;Bachelor of Technology • Computer Science &amp;amp; Engineering • GPA: 8.99/10&#xA;Graduated - July 2021&#xA;Skills Programming Languages: Python, Java, JavaScript&#xA;Frameworks: PyTorch, FastAPI, React, TypeScript, Azure&#xA;Work Experience Providence Global LLP – Senior Software Engineer Hyderabad, India</description>
+    </item>
+  </channel>
+</rss>

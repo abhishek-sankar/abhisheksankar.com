@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="https://abhisheksankar.com//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://abhisheksankar.com//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://abhisheksankar.com//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://abhisheksankar.com//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://abhisheksankar.com//apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+<title>
+    
+    Let&#39;s diffuse the situation | Personal Blog
+    
+</title>
+
+<link rel="canonical" href="https://abhisheksankar.com/posts/lets-diffuse-the-situation/"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.5ed090fbe864486454651cddae11a16e714bc7341de3586396d30188b9a633e1.css" media="all">
+
+
+
+
+  
+
+
+
+
+
+
+
+  </head>
+
+  
+
+  
+  
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Personal Blog</h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/resume" >
+                /resume
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+
+<div class="breadcrumbs">
+    
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a href="/posts/">Posts</a>
+    <span class="breadcrumbs-separator"> > </span>
+    
+    <a class="breadcrumbs-current" href="/posts/lets-diffuse-the-situation/">Let&#39;s diffuse the situation</a>
+</div>
+
+
+
+<div  class="autonumber" >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Let&#39;s diffuse the situation</h1>
+    
+    <p class="single-summary">Tinkering with UNets to learn how diffusion models work</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-10-17T10:19:05&#43;05:30">October 17, 2024</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      4 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <blockquote>
+<p>Understanding Diffusion Models: A Hands-on Implementation Guide</p>
+</blockquote>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="Diffusion results" src=" ./diffusion_2.png">
+    </div>
+
+    
+</figure></p>
+<p>As someone diving into the world of generative AI, I&rsquo;ve been fascinated by the magic behind diffusion models. In this post, I&rsquo;ll share my journey of implementing a diffusion model from scratch, breaking down the key concepts and code structure. We&rsquo;ll focus on understanding U-Nets and the diffusion process, which are fundamental to models like Stable Diffusion.</p>
+<p>Colab link: <a href="https://colab.research.google.com/drive/1rdh73yBYtgBkLOdcumkAwwN516FJytpF?usp=sharing">Diffusion Model Implementation</a></p>
+<h2 id="the-big-picture">The Big Picture</h2>
+<p>Before we dive into the code, let&rsquo;s understand what we&rsquo;re building. Diffusion models work by:</p>
+<ol>
+<li>Gradually adding noise to images (forward diffusion)</li>
+<li>Learning to remove that noise (reverse diffusion)</li>
+<li>Using this denoising process to generate new images from pure noise</li>
+</ol>
+<p>Think of it like slowly dissolving an image in acid (adding noise) and then learning the exact chemical process needed to reconstruct it (removing noise). Once we know how to &ldquo;un-dissolve&rdquo; images, we can start with random noise and create entirely new images!</p>
+<h2 id="key-components">Key Components</h2>
+<h3 id="1-the-noise-schedule">1. The Noise Schedule</h3>
+<p>The heart of any diffusion model is its noise schedule. This determines how much noise we add at each step:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">def</span> __init__(<span style="font-weight:bold;font-style:italic">self</span>, num_timesteps=1000, beta_start=1e-4, beta_end=0.02):
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic">self</span>.betas = torch.linspace(beta_start, beta_end, num_timesteps)
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic">self</span>.alphas = 1 - <span style="font-weight:bold;font-style:italic">self</span>.betas
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;font-style:italic">self</span>.alphas_cumprod = torch.cumprod(<span style="font-weight:bold;font-style:italic">self</span>.alphas, dim=0)
+</span></span></code></pre></div><p>Think of <code>beta_start</code> and <code>beta_end</code> as controlling how aggressive our &ldquo;image dissolution&rdquo; process is. We start gentle (<code>1e-4</code>) and gradually get more aggressive (<code>0.02</code>). The <code>alphas</code> help us keep track of how much of the original image remains at each step.</p>
+<h3 id="2-the-u-net-architecture">2. The U-Net Architecture</h3>
+<p>The U-Net is our denoising powerhouse. Its structure is particularly clever:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">class</span> <span style="color:#666;font-weight:bold;font-style:italic">UNet</span>(nn.Module):
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">def</span> __init__(<span style="font-weight:bold;font-style:italic">self</span>, input_channels=3, hidden_dims=64, time_emb_dim=256):
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic"># Encoder path</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.conv1 = <span style="font-weight:bold;font-style:italic">self</span>.make_conv_block(input_channels, hidden_dims)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.conv2 = <span style="font-weight:bold;font-style:italic">self</span>.make_conv_block(hidden_dims, hidden_dims * 2)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.conv3 = <span style="font-weight:bold;font-style:italic">self</span>.make_conv_block(hidden_dims * 2, hidden_dims * 4)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic"># Decoder path with skip connections</span>
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.upconv3 = <span style="font-weight:bold;font-style:italic">self</span>.make_upconv_block(hidden_dims * 8, hidden_dims * 2)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.upconv2 = <span style="font-weight:bold;font-style:italic">self</span>.make_upconv_block(hidden_dims * 4, hidden_dims)
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;font-style:italic">self</span>.upconv1 = <span style="font-weight:bold;font-style:italic">self</span>.make_upconv_block(hidden_dims * 2, hidden_dims)
+</span></span></code></pre></div><p>The U-Net gets its name from its shape:</p>
+<ul>
+<li>It first goes down (encoder), compressing the image</li>
+<li>Then back up (decoder), reconstructing the image</li>
+<li>Skip connections (those torch.cat operations) help preserve fine details</li>
+</ul>
+<p>What surprised me most was the time embedding. Each denoising step needs to know &ldquo;how noisy&rdquo; the input is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">class</span> <span style="color:#666;font-weight:bold;font-style:italic">SinusoidalPositionEmbeddings</span>(nn.Module):
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">def</span> <span style="color:#666;font-weight:bold;font-style:italic">forward</span>(<span style="font-weight:bold;font-style:italic">self</span>, time):
+</span></span><span style="display:flex;"><span>        embeddings = math.log(10000) / (half_dim - 1)
+</span></span><span style="display:flex;"><span>        embeddings = torch.exp(torch.arange(half_dim, device=device) * -embeddings)
+</span></span><span style="display:flex;"><span>        embeddings = time[:, <span style="font-weight:bold;text-decoration:underline">None</span>] * embeddings[<span style="font-weight:bold;text-decoration:underline">None</span>, :]
+</span></span></code></pre></div><p>This clever encoding lets our model understand the noise level it&rsquo;s working with at each step.</p>
+<h2 id="the-training-process">The Training Process</h2>
+<p>Training a diffusion model is like teaching someone to solve a puzzle by first showing them how to unmix paint colors:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">def</span> <span style="color:#666;font-weight:bold;font-style:italic">train_diffusion_model</span>(diffusion, model, dataloader, num_epochs, device, learning_rate):
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> epoch <span style="font-weight:bold">in</span> <span style="font-weight:bold;font-style:italic">range</span>(num_epochs):
+</span></span><span style="display:flex;"><span>        <span style="font-weight:bold;text-decoration:underline">for</span> batch <span style="font-weight:bold">in</span> dataloader:
+</span></span><span style="display:flex;"><span>            <span style="color:#888;font-style:italic"># Pick random timesteps</span>
+</span></span><span style="display:flex;"><span>            t = torch.randint(0, diffusion.num_timesteps, (images.shape[0],))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#888;font-style:italic"># Add noise and try to predict it</span>
+</span></span><span style="display:flex;"><span>            loss = diffusion.p_losses(model, images, t)
+</span></span></code></pre></div><p>The fascinating part is that we&rsquo;re not directly teaching the model to generate images. Instead, we:</p>
+<ol>
+<li>Take a real image</li>
+<li>Add a known amount of noise</li>
+<li>Ask our model to predict what noise we added</li>
+<li>Use the difference to improve our model</li>
+</ol>
+<h2 id="generating-images">Generating Images</h2>
+<p>The magic happens during generation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="font-weight:bold;text-decoration:underline">def</span> <span style="color:#666;font-weight:bold;font-style:italic">sample</span>(model, diffusion, shape, device, num_steps=1000):
+</span></span><span style="display:flex;"><span>    <span style="color:#888;font-style:italic"># Start from pure noise</span>
+</span></span><span style="display:flex;"><span>    x = torch.randn(shape, device=device)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="font-weight:bold;text-decoration:underline">for</span> t <span style="font-weight:bold">in</span> <span style="font-weight:bold;font-style:italic">reversed</span>(<span style="font-weight:bold;font-style:italic">range</span>(0, num_steps)):
+</span></span><span style="display:flex;"><span>        <span style="color:#888;font-style:italic"># Gradually denoise</span>
+</span></span><span style="display:flex;"><span>        predicted_noise = model(x, timesteps)
+</span></span><span style="display:flex;"><span>        x = update_x_with_predicted_noise(x, predicted_noise, t)
+</span></span></code></pre></div><p>We start with random noise and repeatedly:</p>
+<ol>
+<li>Ask our model &ldquo;what noise do you see here?&rdquo;</li>
+<li>Remove that predicted noise</li>
+<li>Repeat until we have a clean image</li>
+</ol>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<p>Building this from scratch taught me several key insights:</p>
+<ol>
+<li>The U-Net architecture is surprisingly robust. Those skip connections really make a difference in preserving image details.</li>
+<li>The noise schedule is crucial. Too aggressive, and your model never learns. Too gentle, and training takes forever.</li>
+<li>Time embeddings are essential. Without them, the model has no way to know how much denoising is needed.</li>
+</ol>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="conclusion">Conclusion</h2>
+<p>Building a diffusion model from scratch has been an incredible learning experience. While modern architectures like Stable Diffusion are much more complex, the core principles remain the same. Understanding these fundamentals has given me a much deeper appreciation for how these models work.</p>
+<p>Remember, the key to learning this stuff is experimentation. Try changing parameters, visualizing intermediate steps, and most importantly, don&rsquo;t be afraid to break things. That&rsquo;s often where the best learning happens!</p>
+<hr>
+<p><em>Note: The complete code for this implementation is available in the accompanying repository. Feel free to experiment and extend it further!</em></p>
+
+    
+  </div>
+
+  
+
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/posts/nucleate-biohack/">
+                        Winning at Pittsburgh Biohack
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+
+<link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+
+    </footer>
+    
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

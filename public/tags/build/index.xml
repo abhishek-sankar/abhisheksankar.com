@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build on Personal Blog</title>
+    <link>https://abhisheksankar.com/tags/build/</link>
+    <description>Recent content in Build on Personal Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Oct 2024 10:00:00 +0530</lastBuildDate>
+    <atom:link href="https://abhisheksankar.com/tags/build/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Winning at Pittsburgh Biohack</title>
+      <link>https://abhisheksankar.com/posts/nucleate-biohack/</link>
+      <pubDate>Thu, 10 Oct 2024 10:00:00 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/nucleate-biohack/</guid>
+      <description>The first of many</description>
+    </item>
+    <item>
+      <title>Did somebody say startup?</title>
+      <link>https://abhisheksankar.com/posts/pittsburgh-to-peers/</link>
+      <pubDate>Wed, 03 Jul 2024 10:00:00 +0530</pubDate>
+      <guid>https://abhisheksankar.com/posts/pittsburgh-to-peers/</guid>
+      <description>You miss all the shots you don&amp;rsquo;t take</description>
+    </item>
+  </channel>
+</rss>
