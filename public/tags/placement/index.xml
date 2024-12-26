@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Placement on Personal Blog</title>
-    <link>https://abhisheksankar.com/tags/placement/</link>
+    <link>http://localhost:1313/tags/placement/</link>
     <description>Recent content in Placement on Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 17 Oct 2024 10:19:05 +0530</lastBuildDate>
-    <atom:link href="https://abhisheksankar.com/tags/placement/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/placement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Let&#39;s diffuse the situation</title>
-      <link>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</link>
+      <link>http://localhost:1313/posts/lets-diffuse-the-situation/</link>
       <pubDate>Thu, 17 Oct 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</guid>
+      <guid>http://localhost:1313/posts/lets-diffuse-the-situation/</guid>
       <description>Tinkering with UNets to learn how diffusion models work</description>
     </item>
     <item>
       <title>[ Placement Advice ] Probably.</title>
-      <link>https://abhisheksankar.com/posts/placement-advice-probably/</link>
+      <link>http://localhost:1313/posts/placement-advice-probably/</link>
       <pubDate>Wed, 07 Jul 2021 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/placement-advice-probably/</guid>
+      <guid>http://localhost:1313/posts/placement-advice-probably/</guid>
       <description>The hoops to jump through for a job after undergrad at CET</description>
     </item>
   </channel>

@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Personal Blog</title>
-    <link>https://abhisheksankar.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 17 Oct 2024 10:19:05 +0530</lastBuildDate>
-    <atom:link href="https://abhisheksankar.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advice</title>
-      <link>https://abhisheksankar.com/tags/advice/</link>
+      <link>http://localhost:1313/tags/advice/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/advice/</guid>
+      <guid>http://localhost:1313/tags/advice/</guid>
       <description></description>
     </item>
     <item>
       <title>Books</title>
-      <link>https://abhisheksankar.com/tags/books/</link>
+      <link>http://localhost:1313/tags/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/books/</guid>
+      <guid>http://localhost:1313/tags/books/</guid>
       <description></description>
     </item>
     <item>
       <title>Placement</title>
-      <link>https://abhisheksankar.com/tags/placement/</link>
+      <link>http://localhost:1313/tags/placement/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/placement/</guid>
+      <guid>http://localhost:1313/tags/placement/</guid>
       <description></description>
     </item>
     <item>
       <title>Reading</title>
-      <link>https://abhisheksankar.com/tags/reading/</link>
+      <link>http://localhost:1313/tags/reading/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/reading/</guid>
+      <guid>http://localhost:1313/tags/reading/</guid>
       <description></description>
     </item>
     <item>
       <title>Build</title>
-      <link>https://abhisheksankar.com/tags/build/</link>
+      <link>http://localhost:1313/tags/build/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/build/</guid>
+      <guid>http://localhost:1313/tags/build/</guid>
       <description></description>
     </item>
     <item>
       <title>Hackathon</title>
-      <link>https://abhisheksankar.com/tags/hackathon/</link>
+      <link>http://localhost:1313/tags/hackathon/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/hackathon/</guid>
+      <guid>http://localhost:1313/tags/hackathon/</guid>
       <description></description>
     </item>
     <item>
       <title>We Are So Back</title>
-      <link>https://abhisheksankar.com/tags/we-are-so-back/</link>
+      <link>http://localhost:1313/tags/we-are-so-back/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/we-are-so-back/</guid>
+      <guid>http://localhost:1313/tags/we-are-so-back/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpt-2</title>
-      <link>https://abhisheksankar.com/tags/gpt-2/</link>
+      <link>http://localhost:1313/tags/gpt-2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/gpt-2/</guid>
+      <guid>http://localhost:1313/tags/gpt-2/</guid>
       <description></description>
     </item>
     <item>
       <title>Internet</title>
-      <link>https://abhisheksankar.com/tags/internet/</link>
+      <link>http://localhost:1313/tags/internet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/internet/</guid>
+      <guid>http://localhost:1313/tags/internet/</guid>
       <description></description>
     </item>
     <item>
       <title>Kindle</title>
-      <link>https://abhisheksankar.com/tags/kindle/</link>
+      <link>http://localhost:1313/tags/kindle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/kindle/</guid>
+      <guid>http://localhost:1313/tags/kindle/</guid>
       <description></description>
     </item>
     <item>
       <title>Transformer</title>
-      <link>https://abhisheksankar.com/tags/transformer/</link>
+      <link>http://localhost:1313/tags/transformer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/transformer/</guid>
+      <guid>http://localhost:1313/tags/transformer/</guid>
       <description></description>
     </item>
     <item>
       <title>Startup</title>
-      <link>https://abhisheksankar.com/tags/startup/</link>
+      <link>http://localhost:1313/tags/startup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/startup/</guid>
+      <guid>http://localhost:1313/tags/startup/</guid>
       <description></description>
     </item>
     <item>
       <title>Data</title>
-      <link>https://abhisheksankar.com/tags/data/</link>
+      <link>http://localhost:1313/tags/data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/data/</guid>
+      <guid>http://localhost:1313/tags/data/</guid>
       <description></description>
     </item>
     <item>
       <title>Hack-a-Startup</title>
-      <link>https://abhisheksankar.com/tags/hack-a-startup/</link>
+      <link>http://localhost:1313/tags/hack-a-startup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/hack-a-startup/</guid>
+      <guid>http://localhost:1313/tags/hack-a-startup/</guid>
       <description></description>
     </item>
     <item>
       <title>A11y</title>
-      <link>https://abhisheksankar.com/tags/a11y/</link>
+      <link>http://localhost:1313/tags/a11y/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://abhisheksankar.com/tags/a11y/</guid>
+      <guid>http://localhost:1313/tags/a11y/</guid>
       <description></description>
     </item>
   </channel>

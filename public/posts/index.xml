@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Personal Blog</title>
-    <link>https://abhisheksankar.com/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 17 Oct 2024 10:19:05 +0530</lastBuildDate>
-    <atom:link href="https://abhisheksankar.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Let&#39;s diffuse the situation</title>
-      <link>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</link>
+      <link>http://localhost:1313/posts/lets-diffuse-the-situation/</link>
       <pubDate>Thu, 17 Oct 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</guid>
+      <guid>http://localhost:1313/posts/lets-diffuse-the-situation/</guid>
       <description>Tinkering with UNets to learn how diffusion models work</description>
     </item>
     <item>
       <title>Winning at Pittsburgh Biohack</title>
-      <link>https://abhisheksankar.com/posts/nucleate-biohack/</link>
+      <link>http://localhost:1313/posts/nucleate-biohack/</link>
       <pubDate>Thu, 10 Oct 2024 10:00:00 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/nucleate-biohack/</guid>
+      <guid>http://localhost:1313/posts/nucleate-biohack/</guid>
       <description>The first of many</description>
     </item>
     <item>
       <title>MiniGPT: A Minimalist Implementation of GPT-2</title>
-      <link>https://abhisheksankar.com/posts/optimus-coprime/</link>
+      <link>http://localhost:1313/posts/optimus-coprime/</link>
       <pubDate>Sun, 22 Sep 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/optimus-coprime/</guid>
+      <guid>http://localhost:1313/posts/optimus-coprime/</guid>
       <description>You can build a transformer too!</description>
     </item>
     <item>
       <title>Did somebody say startup?</title>
-      <link>https://abhisheksankar.com/posts/pittsburgh-to-peers/</link>
+      <link>http://localhost:1313/posts/pittsburgh-to-peers/</link>
       <pubDate>Wed, 03 Jul 2024 10:00:00 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/pittsburgh-to-peers/</guid>
+      <guid>http://localhost:1313/posts/pittsburgh-to-peers/</guid>
       <description>You miss all the shots you don&amp;rsquo;t take</description>
     </item>
     <item>
       <title>Hack a startup - Gumbo (Post is WiP)</title>
-      <link>https://abhisheksankar.com/posts/hack-a-startup/</link>
+      <link>http://localhost:1313/posts/hack-a-startup/</link>
       <pubDate>Mon, 20 May 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/hack-a-startup/</guid>
+      <guid>http://localhost:1313/posts/hack-a-startup/</guid>
       <description>Taking a dive, I&amp;rsquo;m meant for this.</description>
     </item>
     <item>
       <title>Improving internet accessibility with Vision</title>
-      <link>https://abhisheksankar.com/posts/improving-a11y-with-cv/</link>
+      <link>http://localhost:1313/posts/improving-a11y-with-cv/</link>
       <pubDate>Thu, 02 May 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/improving-a11y-with-cv/</guid>
+      <guid>http://localhost:1313/posts/improving-a11y-with-cv/</guid>
       <description>An experiment, to do better.</description>
     </item>
     <item>
       <title>[ Placement Advice ] Probably.</title>
-      <link>https://abhisheksankar.com/posts/placement-advice-probably/</link>
+      <link>http://localhost:1313/posts/placement-advice-probably/</link>
       <pubDate>Wed, 07 Jul 2021 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/placement-advice-probably/</guid>
+      <guid>http://localhost:1313/posts/placement-advice-probably/</guid>
       <description>The hoops to jump through for a job after undergrad at CET</description>
     </item>
   </channel>

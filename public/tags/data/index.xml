@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Data on Personal Blog</title>
-    <link>https://abhisheksankar.com/tags/data/</link>
+    <link>http://localhost:1313/tags/data/</link>
     <description>Recent content in Data on Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 May 2024 10:19:05 +0530</lastBuildDate>
-    <atom:link href="https://abhisheksankar.com/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/data/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hack a startup - Gumbo (Post is WiP)</title>
-      <link>https://abhisheksankar.com/posts/hack-a-startup/</link>
+      <link>http://localhost:1313/posts/hack-a-startup/</link>
       <pubDate>Mon, 20 May 2024 10:19:05 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/hack-a-startup/</guid>
+      <guid>http://localhost:1313/posts/hack-a-startup/</guid>
       <description>Taking a dive, I&amp;rsquo;m meant for this.</description>
     </item>
   </channel>

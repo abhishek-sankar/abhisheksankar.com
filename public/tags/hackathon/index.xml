@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hackathon on Personal Blog</title>
-    <link>https://abhisheksankar.com/tags/hackathon/</link>
+    <link>http://localhost:1313/tags/hackathon/</link>
     <description>Recent content in Hackathon on Personal Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Oct 2024 10:00:00 +0530</lastBuildDate>
-    <atom:link href="https://abhisheksankar.com/tags/hackathon/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hackathon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Winning at Pittsburgh Biohack</title>
-      <link>https://abhisheksankar.com/posts/nucleate-biohack/</link>
+      <link>http://localhost:1313/posts/nucleate-biohack/</link>
       <pubDate>Thu, 10 Oct 2024 10:00:00 +0530</pubDate>
-      <guid>https://abhisheksankar.com/posts/nucleate-biohack/</guid>
+      <guid>http://localhost:1313/posts/nucleate-biohack/</guid>
       <description>The first of many</description>
     </item>
   </channel>

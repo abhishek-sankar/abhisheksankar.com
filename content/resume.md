@@ -4,7 +4,7 @@ date: 2024-12-17
 draft: false
 ---
 
-- [Download PDF resume](/static/Abhishek_Sankar_Resume.pdf)
+- [Download PDF resume](/Abhishek_Sankar_Resume.pdf)
 
 # Contact
 

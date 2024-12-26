@@ -2,88 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://abhisheksankar.com/tags/advice/</loc>
+    <loc>http://localhost:1313/resume/</loc>
+    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/advice/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/books/</loc>
+    <loc>http://localhost:1313/tags/books/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/</loc>
+    <loc>http://localhost:1313/posts/lets-diffuse-the-situation/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/lets-diffuse-the-situation/</loc>
+    <loc>http://localhost:1313/reading-list/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/reading-list/</loc>
+    <loc>http://localhost:1313/tags/placement/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/placement/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/</loc>
+    <loc>http://localhost:1313/tags/reading/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/reading/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-10-17T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/</loc>
-    <lastmod>2024-10-17T10:19:05+05:30</lastmod>
-  </url><url>
-    <loc>https://abhisheksankar.com/tags/build/</loc>
+    <loc>http://localhost:1313/tags/build/</loc>
     <lastmod>2024-10-10T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/hackathon/</loc>
+    <loc>http://localhost:1313/tags/hackathon/</loc>
     <lastmod>2024-10-10T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/we-are-so-back/</loc>
+    <loc>http://localhost:1313/tags/we-are-so-back/</loc>
     <lastmod>2024-10-10T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/nucleate-biohack/</loc>
+    <loc>http://localhost:1313/posts/nucleate-biohack/</loc>
     <lastmod>2024-10-10T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/gpt-2/</loc>
+    <loc>http://localhost:1313/tags/gpt-2/</loc>
     <lastmod>2024-09-22T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/internet/</loc>
+    <loc>http://localhost:1313/tags/internet/</loc>
     <lastmod>2024-09-22T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/kindle/</loc>
+    <loc>http://localhost:1313/tags/kindle/</loc>
     <lastmod>2024-09-22T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/optimus-coprime/</loc>
+    <loc>http://localhost:1313/posts/optimus-coprime/</loc>
     <lastmod>2024-09-22T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/transformer/</loc>
+    <loc>http://localhost:1313/tags/transformer/</loc>
     <lastmod>2024-09-22T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/pittsburgh-to-peers/</loc>
+    <loc>http://localhost:1313/posts/pittsburgh-to-peers/</loc>
     <lastmod>2024-07-03T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/startup/</loc>
+    <loc>http://localhost:1313/tags/startup/</loc>
     <lastmod>2024-07-03T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/data/</loc>
+    <loc>http://localhost:1313/tags/data/</loc>
     <lastmod>2024-05-20T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/hack-a-startup/</loc>
+    <loc>http://localhost:1313/posts/hack-a-startup/</loc>
     <lastmod>2024-05-20T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/hack-a-startup/</loc>
+    <loc>http://localhost:1313/tags/hack-a-startup/</loc>
     <lastmod>2024-05-20T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/tags/a11y/</loc>
+    <loc>http://localhost:1313/tags/a11y/</loc>
     <lastmod>2024-05-02T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/improving-a11y-with-cv/</loc>
+    <loc>http://localhost:1313/posts/improving-a11y-with-cv/</loc>
     <lastmod>2024-05-02T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/posts/placement-advice-probably/</loc>
+    <loc>http://localhost:1313/posts/placement-advice-probably/</loc>
     <lastmod>2021-07-07T10:19:05+05:30</lastmod>
   </url><url>
-    <loc>https://abhisheksankar.com/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://abhisheksankar.com/resume/</loc>
+    <loc>http://localhost:1313/ieee-xtreme/</loc>
   </url><url>
-    <loc>https://abhisheksankar.com/g-xxxxxxxxx/</loc>
+    <loc>http://localhost:1313/g-xxxxxxxxx/</loc>
   </url>
 </urlset>
