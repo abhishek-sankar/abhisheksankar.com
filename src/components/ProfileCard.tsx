@@ -55,13 +55,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             </div>
             <div>
               <p className="text-xl mb-1 font-bold">Abhishek Sankar</p>
-              <p className="text-light">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-600">CMU</a></p>
-              <p className="text-light">Prev. Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-600">Providence Health</a></p>
+              <p className="text-light">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">CMU</a></p>
+              <p className="text-light">Prev. Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
             </div>
           </header>
         {showDescription && (
           <div className="text-base text-gray-700 dark:text-gray-300 mb-6">
-            I'm a graduate student at <a href="https://msaii.cs.cmu.edu/directory/students/current/s" target="_blank" rel="noopener noreferrer" className="text-indigo-500 hover:text-indigo-600">Carnegie Mellon University</a> studying Artificial Intelligence.
+            I'm a graduate student at <a href="https://msaii.cs.cmu.edu/directory/students/current/s" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Carnegie Mellon University</a> studying Artificial Intelligence.
             I'm interested in learning what makes LLMs tick, and how we can better understand emergent behaviours. 
             
             Previously, I worked on behaviourial health and async care products at Providence Health and Services, 

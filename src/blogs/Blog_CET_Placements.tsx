@@ -64,7 +64,7 @@ export const Blog_CET_Placements: React.FC = () => (
       Be extremely careful when applying for these kind of companies. Be sure you want to be there, if you're applying. There's also a concept of Day 1 companies, where you can appear for all interviews and choose in the end. They all offer similar packages (and are supposed to recruit on the first day the college starts recruiting, hence the name) but generally actually recruit across a few months, but getting placed in one of these didn't bar us from sitting for the other Day 1 companies. Eg: Capgemeni, L&T etc.
     </p>
     <p className="mb-4">
-      How do you plan better? Well, having an idea of which companies to target could be a first. Now I don't have access to CGPU data but I do certainly have the emails they sent me. <strong>I've aggregated them into a <a href="https://www.notion.so/CET-Recruitment-2020-2b9dda814a744f4fa93180f61d3d2627" target="_blank" rel="noopener noreferrer">timeline</a> of when which company came</strong>. You can take a look there and have at least a start for planning it out. (Go click that link. I put a lot of effort into making it)
+      How do you plan better? Well, having an idea of which companies to target could be a first. Now I don't have access to CGPU data but I do certainly have the emails they sent me. <strong>I've aggregated them into a <a href="https://www.notion.so/CET-Recruitment-2020-2b9dda814a744f4fa93180f61d3d2627" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">timeline</a> of when which company came</strong>. You can take a look there and have at least a start for planning it out. (Go click that link. I put a lot of effort into making it)
     </p>
     <figure className="mb-4">
       <img src={img5} alt="Sample sheeet" />
@@ -85,7 +85,7 @@ export const Blog_CET_Placements: React.FC = () => (
       For the most part, the resume is the document that helps get you an interview and it isn't entirely what you are selected based on. As long as it looks professional, you're gonna be fine here. (For off-campus placements, this is the exact reason why a super-strong resume is mandatory since yours has to stand apart from the 100k others).
     </p>
     <p className="mb-4">
-      I like to follow this format called the careercup resume, which neatly puts out everything a recruiter may wanna see in the most elegant yet compact way possible. (Feel free to experiment as well. I did add a few of my own touches to mine). This template was made by <a href="https://www.gayle.com/" target="_blank" rel="noopener noreferrer">recruiters</a> who hire for Google, Amazon and the like.
+      I like to follow this format called the careercup resume, which neatly puts out everything a recruiter may wanna see in the most elegant yet compact way possible. (Feel free to experiment as well. I did add a few of my own touches to mine). This template was made by <a href="https://www.gayle.com/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">recruiters</a> who hire for Google, Amazon and the like.
     </p>
     <p className="mb-4">
       In a nutshell, make sure you list out the following (In my opinion, in this same order)
@@ -97,7 +97,7 @@ export const Blog_CET_Placements: React.FC = () => (
       <li>Projects - Especially hosted ones. Clicking a link and seeing something real is a huge plus.
         <ul className="list-disc list-inside ml-6">
           <li>
-            <a href="https://towardsdatascience.com/simple-guide-to-hosting-project-on-github-aebf6f3c6f97" target="_blank" rel="noopener noreferrer">
+            <a href="https://towardsdatascience.com/simple-guide-to-hosting-project-on-github-aebf6f3c6f97" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">
               Here's how you can host simple ones.
             </a>
           </li>
@@ -107,7 +107,7 @@ export const Blog_CET_Placements: React.FC = () => (
       <li>Certifications (Relevant ones ONLY)</li>
     </ul>
     <p className="mb-4">
-      There's like a more generic but detailed guide available for the same. Feel free to check it out <a href="https://www.careercup.com/resume" target="_blank" rel="noopener noreferrer">here</a>.
+      There's like a more generic but detailed guide available for the same. Feel free to check it out <a href="https://www.careercup.com/resume" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">here</a>.
     </p>
     <h3 className="text-xl font-semibold mt-8 mb-2">The Aptitude Round</h3>
     <hr className="mb-4" />
@@ -157,7 +157,7 @@ export const Blog_CET_Placements: React.FC = () => (
       Everyone says that you can just jump onto someplace like HackerRank or CodeChef and practice and come out feeling all Chad. I'm sure a lot of you at some point have in fact tried that. Guess what? It's not exactly a piece of cake. I'm gonna walk you through how I actually ended up getting through these. (Yes. I know. I'll keep it super short).
     </p>
     <p className="mb-4">
-      <strong>Step 1</strong>: Type <a href="https://hackerrank.com" target="_blank" rel="noopener noreferrer">hackerrank.com</a> into the browser. Trust me, this was the hard thing for me. Once Im done with the frustration that I have to solve problems, it gets easier. (Its H for HackerRank and not Y for YouTube, for that sly section of you guys who get confused once you start typing).
+      <strong>Step 1</strong>: Type <a href="https://hackerrank.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">hackerrank.com</a> into the browser. Trust me, this was the hard thing for me. Once Im done with the frustration that I have to solve problems, it gets easier. (Its H for HackerRank and not Y for YouTube, for that sly section of you guys who get confused once you start typing).
     </p>
     <p className="mb-4">
       <strong>Step 2</strong>: Pick up a language that you're comfortable with and pace into a question. Click one of the easier ones to feel good about yourself at least in the beginning.
@@ -172,7 +172,7 @@ export const Blog_CET_Placements: React.FC = () => (
       <img src={img10} alt="Hackerrank evergiven" />
     </figure>
     <p className="mb-4">
-      And here's the list everyone puts at you - <a href="http://exercism.io" target="_blank" rel="noopener noreferrer">exercism.io</a>, <a href="http://hackerrank.com" target="_blank" rel="noopener noreferrer">hackerrank.com</a>, <a href="http://interviewbit.com" target="_blank" rel="noopener noreferrer">interviewbit.com</a> (slightly more advanced), <a href="http://codechef.com" target="_blank" rel="noopener noreferrer">codechef.com</a>, <a href="http://hackerearth.com" target="_blank" rel="noopener noreferrer">hackerearth.com</a> and <a href="http://geeksforgeeks.com" target="_blank" rel="noopener noreferrer">geeksforgeeks.com</a> if you wanna practice at your own pace.
+      And here's the list everyone puts at you - <a href="http://exercism.io" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">exercism.io</a>, <a href="http://hackerrank.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">hackerrank.com</a>, <a href="http://interviewbit.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">interviewbit.com</a> (slightly more advanced), <a href="http://codechef.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">codechef.com</a>, <a href="http://hackerearth.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">hackerearth.com</a> and <a href="http://geeksforgeeks.com" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500">geeksforgeeks.com</a> if you wanna practice at your own pace.
     </p>
     <p className="mb-4">
       This is not the easiest thing to do and keep up with, motivation is hard so I would suggest you do this with someone who could tag along. Kind of a peer system. I must admit again, I don't know what the right answer here is for everyone. It depends. I can assure you that if you stick to practicing, you'll be reaping the benefits pretty soon.
