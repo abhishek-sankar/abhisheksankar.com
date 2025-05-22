@@ -18,7 +18,7 @@ export const ProfileSummary: React.FC = () => {
           <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
           <div className="text-sm mt-1">
             {project.links.map((link: { label: string; url: string }) => (
-              <a href="#" className="text-phthalo-green-500 mr-3" key={link.url}>{link.label}</a>
+              <a href={link.url} target="_blank" className="text-phthalo-green-500 mr-3" key={link.url}>{link.label}</a>
             ))}
           </div>
         </div>

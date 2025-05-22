@@ -36,7 +36,7 @@ export const ProjectDetail = () => {
       <div className="text-base text-gray-700 dark:text-gray-300 underline">
         {project.links.map((link, idx) => (
           <span key={link.url}>
-            <a href="#" className="text-phthalo-green-500">{link.label}</a>
+            <a href={link.url} className="text-phthalo-green-500">{link.label}</a>
             {idx < project.links.length - 1 && <span> &bull; </span>}
           </span>
         ))}
