@@ -10,6 +10,15 @@ export interface Blog {
 
 export const blogs: Blog[] = [
   {
+    id: "hack-a-startup",
+    title: "The Anything API",
+    date: "Oct 8, 2024",
+    readTime: "15 min read",
+    summary: 'What if you could call an endpoint and get ANY data in structured form?',
+    content: `Full blog post content goes here...`,
+    component: 'Blog_Anything_API'
+  },
+  {
     id: "cet-placements",
     title: "You got into CET, how do you get out?",
     date: "May 21, 2021",
