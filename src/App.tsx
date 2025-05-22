@@ -22,7 +22,7 @@ function App() {
         <main className="w-full max-w-3xl px-4 sm:px-8 py-10 flex-1 flex flex-col">
           <ProfileCardWithRouteControl />
           <Routes>
-            <Route path="/" element={<><ProfileSummary /><BlogSummary /></>} />
+            <Route path="/" element={<><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><ProfileSummary /><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><BlogSummary /></>} />
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/blogs" element={<BlogList />} />

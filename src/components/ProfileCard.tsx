@@ -68,7 +68,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             where I led frontend engineering and analytics. 
           </div>
         )}
-        <div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div>
         </div>
   );
 };
