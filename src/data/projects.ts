@@ -22,9 +22,11 @@ export const projects: Project[] = [
     id: "shadowgram",
     title: "ShadowGram",
     date: "April 21, 2025",
-    description: "A social media platform, inspired by a tweet, my submission for CMU's Deepmind AI Agents Hackathon.",
+    description: "A social media platform inspired by a tweet, and my submission for CMU's Deepmind AI Agents Hackathon, where it won the replicate.com prize.",
     links: [
       { label: "Website", url: "https://cmudsc.abhisheksankar.com/" },
+      { label: "Demo", url: "https://www.youtube.com/watch?v=SlBdFZolMbM" },
+      { label: "Deck", url: "https://www.figma.com/slides/n73xhMmL7IpX7dZmJDH5H2/AI-Agents-Hackathon?node-id=1-447&t=Q5GIeNCUFkzkyRIk-1" },
       { label: "Code", url: "https://github.com/abhishek-sankar/ai-shadow-social-feed" }
     ]
   },
