@@ -38,8 +38,11 @@ export const Blog_Anything_API: React.FC = () => (
     <p className="mb-4">
       We geared up toward the event, attended a bunch of "workshops" and very quickly learnt that this was less of a hackathon in its raw sense and more of a pitch competition; Your product being real didn't matter as much as the proposed business opportunity.
     </p>
+    <a href="https://docs.google.com/presentation/d/1QjlS469J54581CYcB8TO5K0RUUSavgRp36RtLjB28-E/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 underline mb-4">Adam's 20-10-10 Exercise</a>
     <p className="mb-4">
-      Welp, that's new for me. We pitched a bunch of versions of what this could be on Day 1,
+      Welp, that's new for me. We pitched a bunch of versions of what this could be on Day 1, and by the end of it, we had a working {' '}
+      <a href="https://gumbo-ui.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 underline">demo</a>. An all nighter got us a decent {' '}
+      <a href="/Gumbo_Initial_Pitch.pdf" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 underline">pitch deck</a> too.
     </p>
     <figure className="mb-4">
       <img src={img2} alt="Day 1 Pitch" className="rounded shadow" />
