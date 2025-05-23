@@ -14,7 +14,7 @@ export const projects: Project[] = [
     description: "A project from CMU's Hack a Startup competition with my team from MSAII, building a platform to create structured datasets from the internet. Finalist in the competition and continuing development through AI Venture Studio.",
     links: [
       { label: "Website", url: "https://gumbodata.com" },
-      { label: "Pitch Deck", url: "https://docs.google.com/presentation/d/1GnXg0lus0it-m9svAB0SsdIZbfhdA0w38t3gpuBAj48/edit" },
+      { label: "Deck", url: "https://docs.google.com/presentation/d/1GnXg0lus0it-m9svAB0SsdIZbfhdA0w38t3gpuBAj48/edit" },
       { label: "Announcement & Details", url: "https://pittsburghstartupnews.substack.com/p/want-a-free-list-of-2000-venture" }
     ]
   },
