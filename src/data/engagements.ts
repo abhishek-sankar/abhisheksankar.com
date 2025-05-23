@@ -44,7 +44,8 @@ export const engagements: Engagement[] = [
     date: "Dec 2020",
     description: "Gave a talk at MEC, Cochin, on Competitive coding for IEEE Xtreme 14.0",
     links: [
-      { label: "YouTube", url: "https://youtu.be/cow5QDOIQPU" }
+      { label: "YouTube", url: "https://youtu.be/cow5QDOIQPU" },
+      { label: "Deck", url: "https://drive.google.com/file/d/1DcT_NHfBcWs0jbIp_CpaW5XTCBklU3I5/view" }
     ]
   }
 ];

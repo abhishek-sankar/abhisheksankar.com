@@ -37,6 +37,7 @@ export const projects: Project[] = [
     description: "A web app helping Pittsburgh students share rides, coordinate moves, and build community. Launched with 1,000+ visits and 150+ completed requests in its first two weeks.",
     links: [
       { label: "Website", url: "https://pittsburgh2peers.vercel.app/" },
+      { label: "Demo", url: "https://drive.google.com/file/u/1/d/1s66ymQwJZS2dXAcxsINda0tIlEeZwTeS/view" },
       { label: "Code", url: "https://github.com/abhishek-sankar/Pittsburgh2Peers" }
     ]
   },
