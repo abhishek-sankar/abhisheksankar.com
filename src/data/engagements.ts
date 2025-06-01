@@ -35,7 +35,7 @@ export const engagements: Engagement[] = [
     description: null,
     links: [
       { label: "Team", url: "https://ieee.cet.ac.in/execom2020" },
-      { label: "Charter", url: "" }
+      { label: "Charter", url: "https://docs.google.com/spreadsheets/d/1CZJTmmIVIK5WLxUKfVlCVuTtHue4WpXW/edit" }
     ]
   },
   {

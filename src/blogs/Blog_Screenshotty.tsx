@@ -26,11 +26,11 @@ export const Blog_Screenshotty: React.FC = () => (
     </p>
 
     <p className="mb-4">
-      Last week I was sitting around and I remember that one of my friends had sent me a couple of songs, but then in the same fashion, because they didn't want to type it out or they didn't have it saved as a specific playlist, they sent a couple of screenshots of a bunch of random playlists that they have. then in the same fashion, because they didn't want to type it out or they didn't have it saved as a specific playlist, they sent a couple of screenshots of a bunch of random playlists that they have.
+      Last week I was sitting around and I remember that one of my friends had sent me a couple of songs, but then in the same fashion, because they didn't want to type it out or they didn't have it saved as a specific playlist, they sent a couple of screenshots of a bunch of random playlists that they have. 
     </p>
 
     <p className="mb-4">
-      Now, what does my engineer brain do? It just says, what if you could have personal software that takes all of this and creates a playlist for you? And in extension, make a useful screenshot app. But for now, let's start with the playlist idea. extension, make a useful screenshot app. But for now, let's start with the playlist idea.
+      Now, what does my engineer brain do? It goes ... WRITE A SCRIPT WRITE A SCRIPT WRITE A SCRIPT ... that takes all of this and creates a playlist for you? And in extension, make a useful screenshot app. But for now, let's start with the playlist idea. extension, make a useful screenshot app. But for now, let's start with the playlist idea.
     </p>
 
     <figure className="mb-4">
@@ -39,7 +39,7 @@ export const Blog_Screenshotty: React.FC = () => (
     </figure>
 
     <p className="mb-4">
-      Anyways, at this point, Building personal software is less about actually knowing how to code and more about thinking through with the idea and saving if it's actually viable to vibe code it. And that's what I did. I popped up Cursor and here we are. what I did. I popped up Cursor and here we go.
+      Anyways, at this point, building personal software is less about actually knowing how to code and more about thinking through with the idea and saving if it's actually viable to vibe code it. And that's what I did. I popped up Cursor and here we are.
     </p>
 
     <p className="mb-4">
@@ -51,11 +51,11 @@ export const Blog_Screenshotty: React.FC = () => (
     </blockquote>
 
     <p className="mb-4">
-      Surprisingly, Cursor got a good amount of it right. The initial implementation tried using Tesseract to perform OCR on the images and kind of get a hang of what the song and artists are. But then the problem was that the screenshots contained way more information than just the song names; and obviously I don't want to deal with actually parsing out exactly what is what for every different kind of screenshot, be it as a YouTube screenshot, be it Spotify screenshot, be it an Apple Music screenshot. out exactly what is what for every different kind of screenshot, be it as a YouTube screenshot, be it Spotify screenshot, be it an Apple Music screenshot.
+      Surprisingly, Cursor got a good amount of it right. The initial implementation tried using Tesseract to perform OCR on the images and kind of get a hang of what the song and artists are. But then the problem was that the screenshots contained way more information than just the song names; and obviously I don't want to deal with actually parsing out exactly what is what for every different kind of picture, be it as a YouTube, Spotify or an Apple Music image.
     </p>
 
     <p className="mb-4">
-      Monkey brain went, okay, let's just pass it to a VLLM and then be run with it. The initial passing should be the easiest step. So I did that and I had like an old project on Spotify that had API keys already created. So I pulled that in, pulled in the YouTube API keys and my open API key and boom, we kind of have a working prototype ready. API key and boom, we kind of have a working prototype ready.
+      Monkey brain went, okay, let's just pass it to a VLLM and then be run with it. The initial passing should be the easiest step. A bit of prompt engineering and a bit of sticthing together old api keys from projects from before and boom, we kind of have a working prototype ready.
     </p>
 
     <figure className="mb-4">
@@ -96,18 +96,20 @@ export const Blog_Screenshotty: React.FC = () => (
         <a 
           href="https://open.spotify.com/playlist/2vKO7RqxLRxVWdmTpNGvjD" 
           target="_blank" 
-          rel="noopener noreferrer" 
           className="text-phthalo-green-500 hover:underline"
         >
           View on Spotify
         </a>
+      </p>
+
+      <p className="mb-2">
+      End of the day this turned out to be like a cool 2 hour thing to keep me busy. But I don't know, I'm kind of impressed by the fact that you can literally talk your way through creating something that's useful probably just for you and a couple of other nerds online.
       </p>
       <p>
         <strong>Code:</strong>{" "}
         <a 
           href="https://github.com/abhishek-sankar/spotify-screenshot-to-playlist" 
           target="_blank" 
-          rel="noopener noreferrer" 
           className="text-phthalo-green-500 hover:underline"
         >
           GitHub Repository
