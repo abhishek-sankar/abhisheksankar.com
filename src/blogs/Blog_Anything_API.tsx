@@ -1,8 +1,8 @@
 import React from 'react';
-import img1 from '../assets/anythingapi_1_tweet.png';
-import img2 from '../assets/anythingapi_2_team.jpeg';
-import img3 from '../assets/anythingapi_4_work.jpeg';
-import img4 from '../assets/anythingapi_3_pitch.jpeg';
+import img1 from '../assets/anything_api/anythingapi_1_tweet.png';
+import img2 from '../assets/anything_api/anythingapi_2_team.jpeg';
+import img3 from '../assets/anything_api/anythingapi_4_work.jpeg';
+import img4 from '../assets/anything_api/anythingapi_3_pitch.jpeg';
 
 export const Blog_Anything_API: React.FC = () => (
   <article className="max-w-3xl mx-auto">

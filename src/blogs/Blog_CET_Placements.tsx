@@ -1,17 +1,17 @@
-import img1 from "../assets/1_minecraft.png";
-import img2 from "../assets/2_gru.jpg";
-import img3 from "../assets/3_CGPU_regular.png";
-import img4 from "../assets/4_CGPU_core.png";
-import img5 from "../assets/5_sample_sheet.png";
-import img6 from "../assets/6_interview_wojaks.jpg";
-import img7 from "../assets/7_lightning_mcqueen_aptitude.jpg";
-import img8 from "../assets/8_coding_questions_car_drift.jpg";
-import img9 from "../assets/9_rick_rolling.jpg";
-import img10 from "../assets/10_hackerrank_evergiven.jpeg";
-import img11 from "../assets/11_breaking_bad_danger.jpg";
-import img12 from "../assets/12_tyrion_advice.jpg";
-import img13 from "../assets/13_hr_questions.png";
-import img14 from "../assets/14_samwell_got_ending.png";
+import img1 from "../assets/CET_Blog/1_minecraft.png";
+import img2 from "../assets/CET_Blog/2_gru.jpg";
+import img3 from "../assets/CET_Blog/3_CGPU_regular.png";
+import img4 from "../assets/CET_Blog/4_CGPU_core.png";
+import img5 from "../assets/CET_Blog/5_sample_sheet.png";
+import img6 from "../assets/CET_Blog/6_interview_wojaks.jpg";
+import img7 from "../assets/CET_Blog/7_lightning_mcqueen_aptitude.jpg";
+import img8 from "../assets/CET_Blog/8_coding_questions_car_drift.jpg";
+import img9 from "../assets/CET_Blog/9_rick_rolling.jpg";
+import img10 from "../assets/CET_Blog/10_hackerrank_evergiven.jpeg";
+import img11 from "../assets/CET_Blog/11_breaking_bad_danger.jpg";
+import img12 from "../assets/CET_Blog/12_tyrion_advice.jpg";
+import img13 from "../assets/CET_Blog/13_hr_questions.png";
+import img14 from "../assets/CET_Blog/14_samwell_got_ending.png";
 
 export const Blog_CET_Placements: React.FC = () => (
   <article>

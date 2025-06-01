@@ -10,6 +10,15 @@ export interface Blog {
 
 export const blogs: Blog[] = [
   {
+    id: "screenshotty",
+    title: "Screenshotty",
+    date: "May 31, 2025",
+    readTime: "10 min read",
+    summary: "Let's put that screenshots folder on your phone to some use",
+    content: `Full blog post content goes here...`,
+    component: "Blog_Screenshotty",
+  },
+  {
     id: "hack-a-startup",
     title: "The Anything API",
     date: "Oct 8, 2024",
