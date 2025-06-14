@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build:seo": "npm run build && npm run sitemap && npm run prerender:test",
+    "preview": "vite preview",
+    "prerender:test": "echo 'To pre-render, run: npm run preview in one terminal, then npm run prerender in another'",
+    "prerender": "node scripts/prerender.cjs",
+    "sitemap": "node scripts/generate-sitemap.cjs",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
@@ -25,8 +29,10 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "puppeteer": "^24.10.1",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-ssr": "^0.4.142"
   }
 }
