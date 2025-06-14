@@ -2,12 +2,47 @@ const fs = require('fs');
 const path = require('path');
 
 const domain = 'https://abhisheksankar.com';
-const routes = [
+
+// Function to get blog data
+function getBlogRoutes() {
+  try {
+    // Read the blogs data file
+    const blogsDataPath = path.join(__dirname, '../src/data/blogs.ts');
+    const blogsData = fs.readFileSync(blogsDataPath, 'utf8');
+    
+    // Extract blog IDs using regex
+    const blogIdMatches = blogsData.match(/id:\s*["']([^"']+)["']/g);
+    
+    if (!blogIdMatches) {
+      console.warn('No blog IDs found in blogs.ts');
+      return [];
+    }
+    
+    const blogIds = blogIdMatches.map(match => {
+      const idMatch = match.match(/id:\s*["']([^"']+)["']/);
+      return idMatch ? idMatch[1] : null;
+    }).filter(Boolean);
+    
+    return blogIds.map(id => ({
+      path: `/blogs/${id}`,
+      changefreq: 'monthly',
+      priority: '0.7'
+    }));
+  } catch (error) {
+    console.warn('Error reading blog data:', error.message);
+    return [];
+  }
+}
+
+const staticRoutes = [
   { path: '/', changefreq: 'monthly', priority: '1.0' },
   { path: '/projects', changefreq: 'monthly', priority: '0.8' },
   { path: '/blogs', changefreq: 'weekly', priority: '0.8' },
   { path: '/engagements', changefreq: 'monthly', priority: '0.7' }
 ];
+
+// Combine static routes with dynamic blog routes
+const routes = [...staticRoutes, ...getBlogRoutes()];
 
 function generateSitemap() {
   const currentDate = new Date().toISOString().split('T')[0];
