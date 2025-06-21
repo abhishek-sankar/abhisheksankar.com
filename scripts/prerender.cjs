@@ -5,6 +5,7 @@ const path = require('path');
 const routes = [
   { path: '/', filename: 'index.html' },
   { path: '/projects', filename: 'projects.html' },
+  { path: '/reading', filename: 'reading.html' },
   { path: '/blogs', filename: 'blogs.html' },
   { path: '/engagements', filename: 'engagements.html' }
 ];
@@ -62,13 +63,18 @@ function enhanceHtmlForSEO(html, routePath) {
   switch (routePath) {
     case '/':
       title = 'Abhishek Sankar - Software Engineer & Full Stack Developer';
-      description = 'Abhishek Sankar - Software Engineer and Full Stack Developer. Explore my projects, blog posts, and public engagements.';
+      description = 'Abhishek Sankar - Software Engineer and Full Stack Developer. Explore my projects, blog posts, reading lists, and public engagements.';
       keywords = 'Abhishek Sankar, Software Engineer, Full Stack Developer, React, JavaScript, TypeScript';
       break;
     case '/projects':
       title = 'Projects - Abhishek Sankar';
       description = 'Explore the software projects and applications built by Abhishek Sankar, showcasing skills in full-stack development.';
       keywords = 'Projects, Software Development, Full Stack, React, Node.js, Abhishek Sankar';
+      break;
+    case '/reading':
+      title = 'Reading Lists - Abhishek Sankar';
+      description = 'Monthly curated reading lists by Abhishek Sankar featuring articles on software engineering, AI, technology, and personal development.';
+      keywords = 'Reading Lists, Articles, Software Engineering, AI, Technology, Curated Content, Abhishek Sankar';
       break;
     case '/blogs':
       title = 'Blog - Abhishek Sankar';

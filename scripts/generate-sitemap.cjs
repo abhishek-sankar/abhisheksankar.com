@@ -34,15 +34,47 @@ function getBlogRoutes() {
   }
 }
 
+// Function to get reading list data
+function getReadingRoutes() {
+  try {
+    // Read the readings data file
+    const readingsDataPath = path.join(__dirname, '../src/data/readings.ts');
+    const readingsData = fs.readFileSync(readingsDataPath, 'utf8');
+    
+    // Extract reading IDs using regex
+    const readingIdMatches = readingsData.match(/id:\s*["']([^"']+)["']/g);
+    
+    if (!readingIdMatches) {
+      console.warn('No reading IDs found in readings.ts');
+      return [];
+    }
+    
+    const readingIds = readingIdMatches.map(match => {
+      const idMatch = match.match(/id:\s*["']([^"']+)["']/);
+      return idMatch ? idMatch[1] : null;
+    }).filter(Boolean);
+    
+    return readingIds.map(id => ({
+      path: `/reading/${id}`,
+      changefreq: 'monthly',
+      priority: '0.6'
+    }));
+  } catch (error) {
+    console.warn('Error reading reading data:', error.message);
+    return [];
+  }
+}
+
 const staticRoutes = [
   { path: '/', changefreq: 'monthly', priority: '1.0' },
   { path: '/projects', changefreq: 'monthly', priority: '0.8' },
+  { path: '/reading', changefreq: 'weekly', priority: '0.8' },
   { path: '/blogs', changefreq: 'weekly', priority: '0.8' },
   { path: '/engagements', changefreq: 'monthly', priority: '0.7' }
 ];
 
-// Combine static routes with dynamic blog routes
-const routes = [...staticRoutes, ...getBlogRoutes()];
+// Combine static routes with dynamic blog and reading routes
+const routes = [...staticRoutes, ...getBlogRoutes(), ...getReadingRoutes()];
 
 function generateSitemap() {
   const currentDate = new Date().toISOString().split('T')[0];
