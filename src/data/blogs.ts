@@ -10,6 +10,15 @@ export interface Blog {
 
 export const blogs: Blog[] = [
   {
+    id: "hack-cmu-2025",
+    title: "Hack CMU 2025",
+    date: "September 19, 2025",
+    readTime: "8 min read",
+    summary: "My experience at Hack CMU 2025.",
+    content: `Full blog post content goes here...`,
+    component: "Blog_Hack_CMU_2025",
+  },
+  {
     id: "screenshotty",
     title: "Screenshotty",
     date: "May 31, 2025",
