@@ -12,6 +12,47 @@ export interface Reading {
 
 export const readings: Reading[] = [
   {
+    id: "september-2025",
+    title: "September 2025",
+    date: "September 2025",
+    items: [
+      {
+        title: "You Have To Be In The Water - chris@pacecapital.com",
+        url: "https://docs.google.com/document/d/1UBodINa93Tf7s5xTnXN5-ckrWI_HMwOv9bZXi3eYRaU/edit?tab=t.0"
+      }
+    ]
+  },
+  {
+    id: "august-2025",
+    title: "August 2025",
+    date: "August 2025",
+    items: [
+      {
+        title: "Don't get one shotted",
+        url: "https://writing.nikunjk.com/p/dont-get-one-shotted"
+      },
+      {
+        title: "ast-grep for claude",
+        url: "https://x.com/alxfazio/status/1962801127251915011"
+      },
+      {
+        title: "A clock that doesn't snap - React",
+        url: "https://ethanniser.dev/blog/a-clock-that-doesnt-snap/"
+      }
+    ]
+  },
+  {
+    id: "july-2025",
+    title: "July 2025",
+    date: "July 2025",
+    items: [
+      {
+        title: "Asymmetry of verification and verifiers law",
+        url: "https://www.jasonwei.net/blog/asymmetry-of-verification-and-verifiers-law"
+      }
+    ]
+  },
+  {
     id: "june-2025",
     title: "June 2025",
     date: "June 2025",
