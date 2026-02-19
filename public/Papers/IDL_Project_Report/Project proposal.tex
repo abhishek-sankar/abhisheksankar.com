@@ -1,0 +1,270 @@
+\documentclass[10pt]{article}
+\usepackage{ragged2e} % Enables text justification
+
+% 2. **Apply global text justification:**
+\justifying % Makes all text justified by default
+\usepackage[left=0.75in,right=0.75in,top=0.5in,bottom=1in]{geometry} % Wider left/right margins, keep top margin small
+\usepackage{ragged2e}
+\justifying % Justify all text throughout the document
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=2pt, leftmargin=5pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\setlength{\parindent}{0pt} % No indentation for all paragraphs
+
+
+\usepackage{natbib}
+\usepackage{sectsty}
+\sectionfont{\large}
+\subsectionfont{\normalsize}
+\usepackage{titlesec}
+\titlespacing{\subsection}{0pt}{*0.4}{*0.4}
+\titlespacing{\subsubsection}{0pt}{*0.3}{*0.4}
+
+% \title{ProjeXion: Precision 3-D Modeling from 2-D Inputs}
+% \author{
+%     Team 18: ProjeXion \\[0.5em] % Team name with spacing
+%     Nikita Chaudhari \\ % Team member 1
+%     Maitri Gada \\ % Team member 2
+%     Abhishek Sankar \\ % Team member 3
+%     Santiago Arámbulo \\ % Team member 4
+% }
+
+% \date{}
+% \begin{document}
+% \maketitle{\vspace{-0.8cm}}
+
+\title{\huge ProjeXion: Precision 3-D Modeling from 2-D Inputs} % Larger title for academic paper style
+\author{\small Team 18: ProjeXion \\ 
+    \small Nikita Chaudhari, Maitri Gada, Abhishek Sankar, Santiago Arámbulo \\
+    \small \{nikitac, mbgada, asankar2, sarambul\} @cs.cmu.edu}
+\date{}
+\begin{document}
+\maketitle{\vspace{-0.8cm}}
+
+% Added CMU email addresses under team names in small font for academic-style formatting.
+
+% \title{ProjeXion: Precision 3-D Modeling from 2-D Inputs}
+% \author{ Team 18: ProjeXion \\ \small Nikita Chaudhari, Maitri Gada, Abhishek Sankar, Santiago Arámbulo}
+
+% \date{}
+% \begin{document}
+% \maketitle{\vspace{-0.8cm}}
+
+
+% \title{ProjeXion: Precision 3-D Modeling from 2-D Inputs}
+% \author{Team 18: ProjeXion}
+% \date{}
+
+% \begin{document}
+
+% \maketitle{\vspace{-0.8cm}}
+
+
+
+
+% Updated layout: Wider left and right margins without changing the top margin. All text is justified.
+
+
+\begin{abstract}
+    3D reconstruction from 2D images is a central problem in computer vision, with critical applications in robotics, AR/VR, digital twins, and autonomous systems. Despite progress, challenges such as occlusion, scale ambiguity, lighting variation, and multiview fusion persist. Traditional photogrammetry methods are often slow and fragile and require extensive manual calibration. In this work, we implement and extend MVSNet, a deep learning-based multiview stereo framework that constructs depth maps via differentiable homography warping and 3D CNN-based cost volume regularization. Our model is trained on the BlendedMVS dataset and evaluated on held-out scenes. We introduce ProjeXion, an extension of MVSNet with an attention-based recurrent fusion module for improved multiview aggregation and training stabilization techniques such as gradient accumulation. While our baseline implementation achieves high-fidelity depth reconstructions, we observe divergence between training and validation losses due to outlier sensitivity, motivating future work in robust loss functions. Although ProjeXion shows limited quantitative gains over the baseline, it highlights the complexity of enhancing strong MVS backbones. We conclude with insights from failed ablations (such as removing cost volume regularization) and outline directions including lightweight deployment, better fusion mechanisms, and robust optimization for improving MVS-based 3D reconstruction.
+
+\end{abstract}
+
+\section{Motivation and Objective}
+    Constructing 3D models from 2D images allows robots without depth sensors to build volumetric representations of their surroundings. Additionally, cellphone applications could build these representations just using their integrated cameras.
+
+\section{Related Work and Background}    
+    The state-of-the-art approaches to 3D reconstruction using Multi-View Stereo (MVS) include COLMAP \cite{COLMAP}, DPSNet \cite{DPSNet}, and Atlas \cite{Atlas}, which have demonstrated significant advancements in MVS-based 3D scene reconstruction. 
+
+    \paragraph{Atlas}\cite{Atlas} is an end-to-end learned approach for 3D reconstruction that predicts a Truncated Signed Distance Function (TSDF) from a sequence of posed RGB images. Unlike traditional methods that require explicit depth fusion, Atlas accumulates 2D image features into a voxel grid and refines them using a 3D CNN. This removes the need for explicit depth fusion but may struggle with small intricate objects due to potential information loss in 3D feature aggregation. 
+
+    \paragraph{COLMAP} \cite{COLMAP} is a widely used structure-from-motion (SfM) and multi-view stereo (MVS) pipeline. It follows an incremental SfM pipeline that starts with feature extraction and matching, followed by geometric verification, image registration, and bundle adjustment to refine camera poses and 3D points. COLMAP then generates dense depth maps through pixelwise view selection and fuses them for 3D model reconstruction. While achieving high geometric accuracy, COLMAP depends on hand-crafted photometric consistency metrics, making it sensitive to textureless regions and viewpoint variations. 
+
+    \paragraph{DPSNet}\cite{DPSNet} is a deep learning-based MVS method that builds a cost volume via plane sweep stereo. It improves upon traditional methods by warping deep features instead of raw pixel intensities, enabling better performance on low-texture and reflective surfaces. Additionally, DPSNet introduces cost aggregation using a context aware filtering network, improving depth estimation. This end-to-end learned framework has demonstrated SOTA results on MVS benchmarks.
+
+
+\section{Methodology}
+    \subsection{Model Description}
+    The general architecture of the model is based on \cite{Atlas}. Like in \cite{Atlas}, the proposed model is a Recurrent Neural Network (RNN) that applies multiple 2D Convolutions over each input image and then uses camera intrinsic and extrinsic information to project the resulting 2D features to 3D space. These 3D features are accumulated in the hidden state of the RNN. Finally, the last hidden state is passed through a Vision Transformer layer to generate the final output.
+    
+    \subsection{Dataset Selection}
+    We plan to use the ScanNet dataset~\cite{Scannet}, which offers indoor RGB image sequences along with camera intrinsics, extrinsics, and annotated depth and semantic labels. This is a collection of over 2.5 million views of over 1500 scenes (1TB) from diverse real-world environments. In addition, ScanNet provides accurate camera calibration details that are essential for precise 3D reconstruction. The dataset is already split by the authors into train, validation and test subsets.
+    
+    \subsection{Evaluation}
+    Our evaluation framework is grounded in complementary metrics to assess both the depth estimation and 3D reconstruction quality, like in with prior works such as ~\cite{Atlas}.
+
+\subsubsection{2D Depth Estimation Metrics}
+We will employ the following metrics for depth evaluation:
+\begin{itemize}
+    \item \textbf{Structural Similarity Index (SSIM):} Measures perceptual similarity between predicted and ground truth depth maps, evaluating luminance, contrast, and structure.
+    \item \textbf{Absolute Relative Error (AbsRel):} Average relative error between predicted and ground truth depths.
+    \item \textbf{Absolute Difference (AbsDiff):} Mean absolute error in depth values.
+    \item \textbf{Squared Relative Error (SqRel):} Measures squared error relative to ground truth.
+    \item \textbf{Root Mean Square Error (RMSE):} Standard deviation of depth prediction errors.
+    \item \textbf{Thresholded Accuracy ($\delta$):} Percentage of pixels with prediction-to-ground truth ratio below $1.25^i$ for $i=1,2,3$.
+\end{itemize}
+
+\subsubsection{3D Reconstruction Metrics}
+For 3D quality assessment, we will assess:
+\begin{itemize}
+    \item \textbf{Completeness:} Proportion of the ground truth surface reconstructed.
+    \item \textbf{Geometric Accuracy:} Chamfer Distance between predicted and ground truth point clouds.
+    \item \textbf{L1 Error:} Mean absolute difference of predicted and ground truth TSDF values.
+    \item \textbf{Precision and Recall:} Points predicted within a 5cm radius of ground truth and vice versa.
+    \item \textbf{F-score:} Harmonic mean of precision and recall.
+\vspace{1em}
+
+\end{itemize}
+
+% \subsubsection{Semantic Segmentation Metric}
+% For models incorporating semantics, we compute:
+% \begin{itemize}
+%     \item \textbf{Mean Intersection over Union (mIoU):} Measures class-level overlap between predicted labels and ground truth.
+% \end{itemize}
+
+\subsection{Loss Function}
+Our model utilizes a weighted combination of losses for depth and reconstruction quality:
+\[\mathcal{L}_{\text{total}} = \lambda_1\mathcal{L}_{\text{SSIM}} + \lambda_2\mathcal{L}_{\text{MAE}} + \lambda_3\mathcal{L}_{\text{edge}}\]
+where:
+\begin{itemize}
+    \item $\mathcal{L}_{\text{SSIM}}$: Structural similarity loss for perceptual quality preservation.
+    \item $\mathcal{L}_{\text{MAE}}$: Mean Absolute Error for direct depth supervision.
+    \item $\mathcal{L}_{\text{edge}}$: Edge-aware smoothness loss to maintain structural details.
+\end{itemize}
+
+The weights $\lambda_1$, $\lambda_2$, and $\lambda_3$ are tuned using grid search on the validation set, following best practices from Atlas and related works. This formulation effectively balances perceptual quality, structural integrity, and depth precision for 3D reconstruction tasks.
+
+
+
+% \subsection{Evaluation}
+% Our evaluation framework employs multiple complementary metrics to assess both the quality of depth estimation and 3D reconstruction:
+
+% \subsubsection{Depth Estimation Metrics}
+% We evaluate the depth estimation quality using the following metrics:
+% \begin{itemize}
+%     \item \textbf{Structural Similarity Index (SSIM)}: Measures the perceptual similarity between predicted and ground truth depth maps, considering luminance, contrast, and structure \cite{diagnostics14020196}.
+%     \item \textbf{3D Root Mean Square Error (3D-RMSE)}: Calculates the geometric accuracy of the reconstruction by measuring the point-wise distance between predicted and ground truth 3D points \cite{Hafeez_2024}.
+% \end{itemize}
+
+% \subsubsection{3D Reconstruction Quality}
+% For evaluating the overall 3D reconstruction quality, we employ:
+% \begin{itemize}
+%     \item \textbf{Completeness}: Measures the percentage of ground truth surface covered by the reconstruction \cite{refId0}.
+%     \item \textbf{Geometric Accuracy}: Assessed through point-cloud comparison using Chamfer Distance between predicted and ground truth 3D points \cite{refId0}.
+    
+% \end{itemize}
+
+
+% \subsection{Loss Function}
+% Our model employs a weighted combination of multiple loss terms to optimize both depth estimation and 3D reconstruction quality:
+
+% \[\mathcal{L}_{\text{total}} = \lambda_1\mathcal{L}_{\text{SSIM}} + \lambda_2\mathcal{L}_{\text{MAE}} + \lambda_3\mathcal{L}_{\text{edge}}\]
+
+% where:
+% \begin{itemize}
+%     \item $\mathcal{L}_{\text{SSIM}}$: Structural similarity loss to preserve perceptual quality \cite{diagnostics14020196}
+%     \item $\mathcal{L}_{\text{MAE}}$: Mean Absolute Error for direct depth supervision \cite{Hafeez_2024}
+%     \item $\mathcal{L}_{\text{edge}}$: Edge-aware smoothness loss to preserve structural details \cite{Hafeez_2024}
+% \end{itemize}
+
+% The weights $\lambda_1$, $\lambda_2$, and $\lambda_3$ are determined through grid search optimization on the validation set \cite{Hafeez_2024}. This combination has proven effective in recent depth estimation research, particularly for handling complex geometric structures and maintaining edge consistency.
+
+
+    
+    
+    % \subsection{Loss Function}
+    % \textbf{TODO}: Define the loss function used for training the model.
+
+\section{Baseline and Extension}
+    \subsection{Baseline Selection and Evaluation}
+    
+    \paragraph{ATLAS}
+     Atlas\cite{Atlas} achieves an L1 error 0.162, accuracy of 0.130 and an F-score of 0.499, excelling in minimizing depth estimation errors but lacking in completeness and precision. An enhanced version integrates semantic segmentation, improving object boundary preservation and achieving an F-score of 0.520, a precision of 0.413 and a completeness fo 0.074 at the cost of a slight increase in L1 error to 0.172. 
+    \paragraph{COLMAP}
+     COLMAP \cite{COLMAP} reports an L1 error of 0.599, accuracy of 0.135, and an F-score of 0.558, demonstrating strong geometric consistency but struggling with high reconstruction errors and completeness.
+     \paragraph{DPSNet}
+      DPSNet \cite{DPSNet} attains an L1 error of 0.421, accuracy of 0.284, and an F-score of 0.344, leveraging deep learning for robust feature matching but under-performing in geometric precision compared to traditional methods. 
+      \\
+      \\
+    Each of these methods present a different trade-offs. Atlas simplifies the pipeline by removing explicit depth fusion, COLMAP offers high-geometric accuracy but it is computationally expensive, and DPSNet integrates deep learning for robust feature matching. Our approach aims to combine the strengths of these methods while addressing their respective limitations.
+    \\
+
+
+    \subsection{Implemented Extensions / Experiments}
+    Unlike \cite{Atlas}, the proposed model uses the hidden state of the RNN to accumulate features over the 3D space, instead of taking a running average. Additionally, we use a Visual Transformer Layer to generate the final output of the model. In contrast, \cite{Atlas} applies a 3D Convolutional Encoder-Decoder Layer.
+
+\section{Results and Analysis}
+    \subsection{Results}
+    We expect to improve the L1 and Acc metrics on the ScanNet \cite{Scannet} dataset beyond what was achieved by \cite{Atlas}, \cite{COLMAP}, \cite{MVDepthNet}, \cite{GPMVS} and \cite{DPSNet}, specially for regions with small intricate objects, where the 3D Convolutional Encoder-Decoder applied by \cite{Atlas} could have lower performance due to a loss of information.
+    
+%    \subsection{Completeness}
+%    Discuss what has been achieved so far and what remains.
+    
+    \subsection{Discussion}
+    The main difficulty we might face is not having access to enough computational resources as the authors of the baselines presented. For example, \cite{Atlas} trained their model for \textit{"24 hours on 8 Titan RTX GPUs"}.
+
+% \section{Future Directions}
+% To maximize the impact of our 3D reconstruction project and address gaps identified in our baseline comparisons, we propose a comprehensive set of next steps focusing on evaluation, experimentation, and literature expansion.
+
+% We will conduct extensive testing using depth estimation and 3D reconstruction metrics, such as SSIM, RMSE, Chamfer Distance, and F-score. Comparisons with baseline models (COLMAP, DPSNet, Atlas) will help assess improvements and identify areas for refinement. Metrics most aligned with project goals, such as L1 Error for depth precision and F-score for object reconstruction, will be prioritized for detailed analysis.
+
+% We plan to explore alternative techniques such as 3D Gaussian splatting for scene representation and expand the literature review with recent advancements. Simultaneously, we will develop a comprehensive literature survey that analyzes existing methods, their trade-offs, and gaps, providing context for our proposed approach.
+
+% Further experimentation will include ablation studies to evaluate the contributions of individual components, such as RNN hidden state accumulation and the Vision Transformer output layer. Additionally, we aim to test the model on datasets like Matterport3D and KITTI to assess its generalization capabilities.
+
+% Finally, we will explore methods for improving efficiency, such as model pruning and quantization, to optimize inference speed and resource usage, supporting practical deployment.
+
+
+\section{Future Directions}
+To maximize the impact of our 3D reconstruction project and address gaps identified in our baseline comparisons, we propose a detailed roadmap with clearly defined short-term and long-term objectives:
+
+\subsection{Short-Term Goals (Before Midterm Report)}
+\begin{itemize}
+    \item \textbf{Extensive Testing with Evaluation Metrics:} Conduct comprehensive evaluations using depth estimation and 3D reconstruction metrics, such as SSIM, RMSE, Chamfer Distance, and F-score. Compare results with baseline models (COLMAP, DPSNet, Atlas) to assess improvements and highlight areas for optimization.
+    \item \textbf{Baseline Comparison and Metric Focus:} Prioritize metrics that align with project goals, such as L1 Error for depth precision, Chamfer Distance for geometric accuracy, and F-score for object reconstruction.
+    \item \textbf{Ablation Studies:} Perform systematic ablations to evaluate the contributions of RNN hidden state accumulation and Vision Transformer output layers.
+\end{itemize}
+
+\subsection{Long-Term Goals (After Midterm Report)}
+\begin{itemize}
+    \item \textbf{Exploration of 3D Gaussian Splatting:} Investigate 3D Gaussian splatting for scene representation and incorporate findings into an expanded literature review.
+    \item \textbf{Comprehensive Literature Survey:} Develop an in-depth literature survey paper alongside the solution, analyzing existing methods, their trade-offs, and research gaps.
+    \item \textbf{Multi-Dataset Generalization Testing:} Test the model on additional datasets to evaluate generalization beyond ScanNet.
+    \item \textbf{Real-Time Optimization:} Research techniques like model pruning, quantization, and distillation to improve inference speed and resource efficiency.
+\end{itemize}
+
+% These directions aim to enhance the project's scientific contribution, practical relevance, and overall robustness.
+
+\section{Administrative Details}
+
+    \subsection{Team Contributions}
+    Maitri Gada: Related work \& Background, Baseline Selection and Evaluation
+    
+    Abhishek Sankar: Dataset Selection, References
+    
+    Nikita Chaudhari : Evaluation Metrics \& Loss Function, Future Directions, References
+    
+    Santiago Arámbulo: Abstract, Motivation and Objective, Model Description, Extensions / Experiments
+    
+    Everyone: Literature Review, Results, Discussion
+    \vspace{1em}
+
+    
+\subsection{GitHub Repository}
+\href{https://github.com/nikitachaudharicodes/ProjeXion}{https://github.com/nikitachaudharicodes/ProjeXion}
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+\nocite{*}
+
+\end{document}

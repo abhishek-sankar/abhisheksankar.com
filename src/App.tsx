@@ -4,7 +4,8 @@ import { ProfileSummary } from './components/ProfileSummary'
 import { BlogSummary } from './components/BlogSummary'
 import { ReadingSummary } from './components/ReadingSummary'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { ProjectDetail, ProjectList } from './components/ProjectPages';
+import { ProjectList, ProjectRedirect } from './components/ProjectPages';
+import { ProjectPaper } from './components/ProjectPaper';
 import { BlogList, BlogDetail } from './components/BlogPages';
 import { ReadingList } from './components/ReadingPages';
 import { EngagementDetail, EngagementList, PublicEngagements } from './components/PublicEngagements';
@@ -39,7 +40,10 @@ function App() {
           <Routes>
             <Route path="/" element={<><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><ProfileSummary /><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><ReadingSummary /><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><BlogSummary /><div className="border-b border-gray-200 dark:border-neutral-800 mb-10"></div><PublicEngagements /></>} />
             <Route path="/projects" element={<ProjectList />} />
-            <Route path="/projects/:id" element={<ProjectDetail />} />
+            <Route path="/projects/:id" element={<ProjectRedirect />} />
+            <Route path="/projects/:id/paper" element={<ProjectPaper />} />
+            <Route path="/project/:id" element={<ProjectRedirect />} />
+            <Route path="/project/:id/paper" element={<ProjectPaper />} />
             <Route path="/reading" element={<ReadingList />} />
             <Route path="/blogs" element={<BlogList />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />

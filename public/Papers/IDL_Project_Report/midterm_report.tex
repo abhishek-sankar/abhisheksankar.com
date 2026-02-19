@@ -1,0 +1,217 @@
+\documentclass[10pt]{article}
+\usepackage{ragged2e} % Enables text justification
+% 2. **Apply global text justification:**
+\justifying % Makes all text justified by default
+\usepackage[left=0.75in,right=0.75in,top=0.5in,bottom=1in]{geometry} % Wider left/right margins, keep top margin small
+\usepackage{ragged2e}
+
+\usepackage{booktabs}
+\justifying % Justify all text throughout the document
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=2pt, leftmargin=5pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\setlength{\parindent}{0pt} % No indentation for all paragraphs
+
+\usepackage{natbib}
+\usepackage{sectsty}
+\sectionfont{\large}
+\subsectionfont{\normalsize}
+\usepackage{titlesec}
+\titlespacing{\subsection}{0pt}{*0.4}{*0.4}
+\titlespacing{\subsubsection}{0pt}{*0.3}{*0.4}
+
+\title{\huge ProjeXion: Precision 3-D Modeling from 2-D Inputs} % Larger title for academic paper style
+\author{\small Team 18: ProjeXion \\ 
+    \small Nikita Chaudhari, Maitri Gada, Abhishek Sankar, Santiago Arámbulo \\
+    \small \{nikitac, mbgada, asankar2, sarambul\}@cs.cmu.edu}
+\date{}
+\begin{document}
+\maketitle{\vspace{-0.8cm}}
+
+\begin{abstract}
+Reconstructing detailed 3-D models from 2-D images is a challenging vision problem with broad applications. \textit{ProjeXion} addresses this by building on an existing volumetric fusion approach (Atlas) and introducing a novel fusion mechanism. Instead of Atlas’s simple averaging-based feature aggregation, we accumulate multi-view features using a recurrent neural network (RNN) to incrementally fuse information from each image. Furthermore, we replace Atlas’s 3-D convolutional refinement stage with attention-based layers to better capture long-range dependencies. This RNN + attention architecture is designed to produce more precise reconstructions from 2-D inputs while using only posed RGB images.
+\end{abstract}
+
+\section{Motivation and Objective}
+Reconstructing 3-D models from 2-D images is significant for many domains. In robotics, autonomous agents often rely on a single camera for navigation and environment understanding, so recovering accurate 3-D structure from images can enhance obstacle detection and path planning. On mobile devices and AR/VR applications, turning RGB photos into 3-D models enables scene visualization, interior mapping, and augmented reality experiences without specialized depth sensors. The objective of \textit{ProjeXion} is to improve the precision of 3-D modeling from 2-D inputs, making high-quality reconstructions attainable even on platforms with only cameras. By focusing on precision reducing reconstruction error and preserving fine details, our approach aims to push the boundaries of what purely image-based 3-D reconstruction can achieve, ultimately benefiting real-world use cases in resource-constrained settings like robots and smartphones.
+
+\section{Related Work and Background}    
+The state-of-the-art approaches to 3D reconstruction using Multi-View Stereo (MVS) include COLMAP \cite{COLMAP}, DPSNet \cite{DPSNet}, and Atlas \cite{Atlas}, which have demonstrated significant advancements in MVS-based 3D scene reconstruction.
+
+\paragraph{Atlas}\cite{Atlas}
+is an end-to-end learned approach for 3D reconstruction that predicts a volumetric representation from a sequence of posed RGB images. Unlike traditional methods that require explicit depth fusion, Atlas accumulates 2D image features into a voxel grid and refines them using a 3D CNN. This removes the need for explicit depth fusion but may struggle with small intricate objects due to potential information loss in 3D feature aggregation. 
+
+\paragraph{COLMAP} \cite{COLMAP}
+is a widely used structure-from-motion (SfM) and multi-view stereo (MVS) pipeline. It follows an incremental SfM pipeline that starts with feature extraction and matching, followed by geometric verification, image registration, and bundle adjustment to refine camera poses and 3D points. COLMAP then generates dense depth maps through pixelwise view selection and fuses them for 3D model reconstruction. While achieving high geometric accuracy, COLMAP depends on hand-crafted photometric consistency metrics, making it sensitive to textureless regions and viewpoint variations.
+
+\paragraph{DPSNet}\cite{DPSNet}
+is a deep learning-based MVS method that builds a cost volume via plane sweep stereo. It improves upon traditional methods by warping deep features instead of raw pixel intensities, enabling better performance on low-texture and reflective surfaces. Additionally, DPSNet introduces cost aggregation using a context-aware filtering network, improving depth estimation. This end-to-end learned framework has demonstrated SOTA results on MVS benchmarks.
+
+\section{Methodology}
+\subsection{Model Description}
+The general architecture of the model is based on \textbf{Atlas} \cite{Atlas}. Like in Atlas, the proposed model:
+\begin{enumerate}
+    \item Applies multiple 2D convolutions over each input image (multi stereo view) to extract feature maps.
+    \item Uses camera intrinsic and extrinsic information to project these 2D features into a common 3D space.
+    \item Accumulates 3D features in the hidden state of a Recurrent Neural Network (RNN). 
+\end{enumerate}
+Finally, the last hidden state of the RNN is passed through a Vision Transformer (ViT) layer to generate the final 3D depth map output. Unlike Atlas’s simple averaging-based aggregation and 3D convolutional refinement, our RNN-based feature fusion and attention-based refinement aim to preserve detailed structures and exploit global context in the scene.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l l l}
+        \toprule
+        \textbf{Model} & \textbf{Hidden layers} & \textbf{Hyper-parameters} \\
+        \midrule
+        CNN & 1 × \{CNN, MaxPooling\} & \parbox{5cm}{
+            Kernels: 16, 32, 64, 96 \\
+            Kernel size: 9, 15 \\
+            Learning Rate: 0.001, 0.005, 0.01 \\
+            Batch Size: 50, 100
+        } \\
+        \midrule
+        CNN+RNN & 2 × \{CNN, MaxPooling\} & Same as CNN \\
+        \midrule
+        CNN+RNN+ViT & 3 × \{CNN, MaxPooling\} & Same as CNN \\
+        \bottomrule
+    \end{tabular}
+    \caption{Description of different baseline models, their hidden layers, and hyper-parameters.}
+    \label{tab:cnn_models}
+\end{table}
+
+\subsection{Dataset Selection}
+We plan to use the \textbf{BlendedMVS} dataset \cite{yao2020blendedmvslargescaledatasetgeneralized} as our primary source of training and evaluation. BlendedMVS is a large-scale multi-view stereo dataset that combines real-world scenes with synthetic data, offering a diverse set of objects and environments for high-quality 3D reconstruction. It contains over 70,000 images across 113 different scenes, each with carefully calibrated camera poses and dense depth maps.
+
+Key advantages:
+\begin{itemize}
+    \item \textbf{Accurate Depth Maps:} Facilitates direct comparison between predicted and ground-truth depth.
+    \item \textbf{Scene Diversity:} Mixture of indoor, outdoor, and synthetic scans helps generalization.
+    \item \textbf{Benchmark Compatibility:} Widely used in MVS research, enabling straightforward comparison to other methods.
+    \item \textbf{Manageable Scale:} Pre-defined subsets for each scene simplify data loading and reduce storage overhead.
+\end{itemize}
+
+\subsection{Evaluation}
+To assess our model’s performance thoroughly, we evaluate:
+\begin{enumerate}[leftmargin=15pt]
+    \item \textbf{Depth Estimation} at the 2D level.
+    \item \textbf{3D Reconstruction} after merging depth or volumetric predictions into a final 3D model.
+\end{enumerate}
+All metrics are considered equally important, ensuring balanced improvements in both per-view accuracy and overall scene structure.
+
+\subsubsection{2D Depth Estimation Metrics}
+For each input (or held-out) view, we compare the predicted depth map to the BlendedMVS ground-truth depth. We compute:
+
+\begin{itemize}[leftmargin=10pt]
+    \item \textbf{Abs Rel}: \( \text{mean}\left(\frac{| \text{pred} - \text{gt} |}{\text{gt}}\right) \)
+    \item \textbf{Sq Rel}: \( \text{mean}\left(\frac{(\text{pred} - \text{gt})^2}{\text{gt}}\right) \)
+    \item \textbf{RMSE}: \( \sqrt{\text{mean}((\text{pred} - \text{gt})^2)} \)
+    \item \textbf{Threshold Accuracy}: \(\delta < 1.25^i\) for \(i = 1,2,3\), i.e., the fraction of pixels for which
+          \(\max(\tfrac{\text{pred}}{\text{gt}}, \tfrac{\text{gt}}{\text{pred}}) < 1.25^i\).
+\end{itemize}
+
+These metrics quantify both absolute and relative errors, as well as whether predictions deviate from the ground truth by more than a factor of 1.25. High threshold accuracy and low error values indicate the model is capturing geometry well at each pixel.
+
+\subsubsection{3D Reconstruction Metrics}
+Although our emphasis is on high-quality depth predictions, we ultimately create a 3D reconstruction e.g., by back-projecting predicted depth maps into 3D space or maintaining an internal volumetric representation. To measure final geometry quality without referencing a TSDF-specific metric (as it is absent in , we plan to:
+
+\begin{itemize}[leftmargin=10pt]
+    \item \textbf{Chamfer Distance (CD)}: Sample point clouds from the predicted mesh and the ground-truth mesh (or ground-truth point cloud from BlendedMVS). The Chamfer distance is the average nearest-neighbor distance between these point sets, quantifying overall shape fidelity.
+    \item \textbf{Accuracy \& Completeness:} For multi-view stereo tasks, standard metrics include measuring how many predicted points lie within a given threshold of the ground truth (accuracy) and how much of the ground truth is recovered by the prediction (completeness). We can then compute an F-Score balancing these two.
+\end{itemize}
+
+These mesh- or point-based metrics capture geometric alignment without relying on a voxel-wise TSDF comparison. In practice, a small Chamfer distance and a high F-Score suggest the reconstruction accurately matches the true scene geometry and covers most visible surfaces.
+
+\subsection{Loss Function}
+Our training loss emphasizes producing perceptually coherent depth maps while preserving structural details:
+
+\begin{itemize}[leftmargin=10pt]
+    \item \textbf{Depth Regression Loss:} A standard L1 or L2 loss that directly compares predicted depths to ground-truth depths at each pixel. This enforces numerical consistency.
+    \item \textbf{SSIM Loss:} Encourages preserving edges and fine structures by measuring structural similarity between predicted depth maps and ground-truth. SSIM can penalize blur more strongly than typical regression losses.
+    \item \textbf{Regularization:} Could include weight decay, dropout, or other techniques to prevent overfitting.
+\end{itemize}
+
+By combining these terms, we guide the model to produce accurate depth predictions that also maintain crisp boundaries and overall scene layout.
+
+\section{Baseline and Extension}
+
+\subsection{Baseline Selection and Evaluation}
+\paragraph{Atlas \cite{Atlas}}
+Our initial baseline is a heavily inspired implementation of Atlas, which averages 2D features into a 3D grid before applying a 3D CNN. While Atlas performed strongly on prior datasets, it can miss details if averaging obscures small or thin structures.
+
+\paragraph{COLMAP \cite{COLMAP}}
+A classical SfM + MVS pipeline that achieves solid accuracy but depends on handcrafted metrics and can be computationally expensive on large scenes.
+
+\paragraph{DPSNet \cite{DPSNet}}
+A deep stereo method that constructs plane-sweep volumes and uses context-aware filtering. It offers robust per-view depth estimation but may not incorporate global 3D context as effectively as a recurrent approach.
+
+Each baseline exhibits trade-offs: Atlas removes explicit fusion steps, COLMAP offers strong geometry but is slower, and DPSNet excels at depth estimation but may have less holistic 3D fusion. Our approach aims to combine strengths, an efficient learned pipeline that integrates multi-view information with minimal blur or loss of detail.
+
+\subsection{Implemented Extensions / Experiments}
+We introduce two main innovations beyond Atlas:
+\begin{enumerate}[leftmargin=12pt]
+    \item \textbf{RNN-based Fusion:} Instead of naive averaging, we feed sequential feature maps (one per view) into a convolutional GRU or LSTM that updates a hidden state volume. This learned accumulation adapts to varying viewpoints and scene complexities.
+    \item \textbf{Attention-based Refinement:} We replace Atlas’s 3D convolutional decoder with attention layers (e.g., transformer blocks), leveraging global context to refine the reconstruction. Long-range dependencies can help maintain consistent surfaces even when some views are partially occluded or low-resolution.
+\end{enumerate}
+
+\section{Results and Analysis}
+
+\subsection{Results}
+
+\includegraphics[width=0.5\textwidth]{training.jpeg}
+
+We currently have an Absolute Relative Error of \( 1023.35 \), a Squared Relative Error of \( 4379.24 \), and a Root Mean Squared Error (RMSE) of \( 16.19 \). Additionally, the accuracy metrics are as follows: \( \delta < 1.25 \): \( 0.0298 \), \( \delta < 1.25^2 \): \( 0.0571 \), and \( \delta < 1.25^3 \): \( 0.0835 \). \\
+
+
+\subsection{Discussion}
+Key challenges encountered so far include:
+\begin{itemize}[leftmargin=10pt]
+    \item \textbf{Computational Resources:} RNN + attention layers on volumetric data can be memory-intensive, limiting our batch sizes and requiring careful engineering to fit on standard GPUs.
+    \item \textbf{Data Scale:} BlendedMVS has many high-resolution images, so data loading and preprocessing can become a bottleneck. Subsampling or multi-resolution strategies may be required.
+    \item \textbf{Model Convergence and Stability:} Adding an RNN can introduce sequence-level complexities, and attention layers can explode memory usage if not managed carefully (e.g., factorized or sparse attention).
+\end{itemize}
+Despite these hurdles, early qualitative checks suggest our method is capturing scene structure without blurring small details, supporting the idea that learned fusion and global attention help preserve finer geometry.
+
+\section{Future Directions}
+We outline short- and long-term goals:
+
+\subsection{Short-Term Goals}
+\begin{itemize}
+    \item \textbf{Extensive Testing with Depth Metrics:} Evaluate Abs Rel, Sq Rel, RMSE, and threshold accuracy on various BlendedMVS subsets to confirm stable performance across diverse scenes.
+    \item \textbf{Fusion Ablation Studies:} Quantify how much each extension (RNN vs. attention) improves depth predictions and final 3D shape. 
+    \item \textbf{Code Optimization:} Address memory bottlenecks (e.g., gradient checkpointing, lower-resolution intermediate volumes) to speed up training.
+\end{itemize}
+
+\subsection{Long-Term Goals}
+\begin{itemize}
+    \item \textbf{Real-Time Optimization:} Investigate model pruning, quantization, or distillation for faster inference. 
+    \item \textbf{Multi-Dataset Generalization:} Test on other public benchmarks (e.g., Tanks and Temples) to validate generalizability.
+    \item \textbf{Additional Modalities:} Incorporate normals or semantics for improved regularization and boundary precision.
+    \item \textbf{Research Dissemination:} Potentially submit a paper or technical report detailing the approach, evaluation, and findings.
+\end{itemize}
+
+\section{Administrative Details}
+\subsection{Team Contributions}
+\begin{itemize}[leftmargin=10pt]
+    \item \textbf{Maitri Gada:} Related work \& Background, Baseline Selection, Evaluation
+    \item \textbf{Abhishek Sankar:} Abstract, Motivation, Dataset Selection, Methodology, Experiments
+    \item \textbf{Nikita Chaudhari:} Evaluation Metrics \& Loss Function, Future Directions
+    \item \textbf{Santiago Arámbulo:} Abstract, Motivation and Objective, Model Description, Extensions / Experiments
+    \item \textbf{Everyone:} Literature Review, Results, Discussion
+\end{itemize}
+
+\subsection{GitHub Repository}
+\href{https://github.com/nikitachaudharicodes/ProjeXion}{\texttt{https://github.com/nikitachaudharicodes/ProjeXion}}
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{references}
+
+\nocite{*}
+
+\end{document}

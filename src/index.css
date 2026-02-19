@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import "tailwindcss";
+@import "katex/dist/katex.min.css";
 
 @theme {
   --color-mint-500: oklch(0.72 0.11 178);
@@ -76,4 +77,117 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.paper-content {
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.paper-content h1,
+.paper-content h2,
+.paper-content h3 {
+  line-height: 1.25;
+  margin-top: 1.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.paper-content h1 {
+  font-size: 1.22rem;
+}
+
+.paper-content h2 {
+  font-size: 1.12rem;
+}
+
+.paper-content h3 {
+  font-size: 1.05rem;
+}
+
+.paper-content .paper-h1,
+.paper-content .paper-h2,
+.paper-content .paper-h3 {
+  font-weight: 600;
+}
+
+.paper-content .paper-p {
+  margin: 0 0 0.85rem;
+}
+
+.paper-content .paper-list {
+  margin: 0 0 0.85rem;
+  padding-left: 1.2rem;
+}
+
+.paper-content .paper-li {
+  margin: 0.16rem 0;
+}
+
+.paper-content p,
+.paper-content ul,
+.paper-content ol,
+.paper-content blockquote,
+.paper-content pre {
+  margin: 0 0 1rem;
+}
+
+.paper-content ul,
+.paper-content ol {
+  padding-left: 1.2rem;
+}
+
+.paper-content li {
+  margin: 0.25rem 0;
+}
+
+.paper-content hr {
+  border: none;
+  border-top: 1px solid rgb(212 212 212);
+  margin: 2rem 0;
+}
+
+.dark .paper-content hr {
+  border-top-color: rgb(82 82 82);
+}
+
+.paper-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.paper-content th,
+.paper-content td {
+  border-bottom: 1px solid rgb(212 212 212);
+  padding: 0.45rem 0.35rem;
+  text-align: left;
+}
+
+.dark .paper-content th,
+.dark .paper-content td {
+  border-bottom-color: rgb(82 82 82);
+}
+
+.paper-content .katex-display {
+  margin: 0.85rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.paper-content img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0.7rem 0 0.3rem;
+  border-radius: 0.375rem;
+}
+
+.paper-content p em {
+  color: rgb(107 114 128);
+  font-size: 0.94rem;
+}
+
+.dark .paper-content p em {
+  color: rgb(163 163 163);
 }
