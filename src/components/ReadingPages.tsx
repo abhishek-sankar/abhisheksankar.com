@@ -8,7 +8,7 @@ export const ReadingList = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = readings.map((r) => document.getElementById(r.id));
-      const scrollPosition = window.scrollY + 150; // Offset for sticky header
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // trigger when section is in middle of screen
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -20,7 +20,6 @@ export const ReadingList = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Initial check
     handleScroll();
     
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,33 +36,62 @@ export const ReadingList = () => {
     }
   };
 
+  const activeIdx = readings.findIndex((r) => r.id === activeId);
+  const safeActiveIdx = activeIdx >= 0 ? activeIdx : 0;
+  
+  let startIdx = safeActiveIdx - 2;
+  let endIdx = safeActiveIdx + 2;
+  
+  if (startIdx < 0) {
+    endIdx += Math.abs(startIdx);
+    startIdx = 0;
+  }
+  if (endIdx >= readings.length) {
+    startIdx -= (endIdx - readings.length + 1);
+    endIdx = readings.length - 1;
+  }
+  
+  startIdx = Math.max(0, startIdx);
+  endIdx = Math.min(readings.length - 1, endIdx);
+  
+  const visibleReadings = readings.slice(startIdx, endIdx + 1);
+
   return (
     <div className="flex flex-col md:flex-row gap-8 mb-12 relative">
-      {/* Back button above sidebar */}
+      {/* Sidebar Container */}
       <div className="w-full md:w-16 shrink-0 relative z-20">
         <Link to="/" className="text-phthalo-green-500 hover:underline inline-block mb-8 whitespace-nowrap">&larr; Home</Link>
         
         {/* Sticky Sidebar */}
-        <div className="sticky top-10 flex group w-fit">
+        <div className="sticky top-[50vh] -translate-y-1/2 flex group w-fit h-fit">
           {/* Icon Column */}
-          <div className="flex-shrink-0 w-8 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex flex-col gap-2 py-3 px-1.5 mt-0.5 h-fit border border-gray-200 dark:border-neutral-700 relative z-20 cursor-pointer">
-            {readings.map((reading, idx) => (
-              <div 
-                key={`line-${reading.id}`} 
-                className={`h-0.5 rounded-full w-full transition-colors duration-200 ${
-                  activeId === reading.id || (activeId === "" && idx === 0) 
-                    ? "bg-phthalo-green-500" 
-                    : "bg-gray-300 dark:bg-gray-600"
-                }`}
-              />
-            ))}
+          <div className="flex-shrink-0 w-8 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex flex-col gap-1 py-3 px-1.5 border border-gray-200 dark:border-neutral-700 relative z-20">
+            {readings.map((reading, idx) => {
+              const isActive = activeId === reading.id || (activeId === "" && idx === 0);
+              return (
+                <button
+                  key={`line-${reading.id}`}
+                  onClick={() => scrollToSection(reading.id)}
+                  className="w-full py-1.5 cursor-pointer flex items-center group/line"
+                  aria-label={`Scroll to ${reading.title}`}
+                >
+                  <div 
+                    className={`h-0.5 rounded-full w-full transition-colors duration-200 ${
+                      isActive
+                        ? "bg-phthalo-green-500" 
+                        : "bg-gray-300 dark:bg-gray-600 group-hover/line:bg-gray-400 dark:group-hover/line:bg-gray-500"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
 
           {/* Text Column Popover */}
-          <div className="absolute left-full ml-3 top-0 transition-all duration-300 opacity-0 -translate-x-2 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 z-10">
-            <div className="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 shadow-xl rounded-xl p-2 flex flex-col gap-1 w-48 max-h-[60vh] overflow-y-auto no-scrollbar">
-              {readings.map((reading, idx) => {
-                const isActive = activeId === reading.id || (activeId === "" && idx === 0);
+          <div className="absolute left-full top-1/2 -translate-y-1/2 pl-3 transition-all duration-300 opacity-0 -translate-x-2 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 z-10">
+            <div className="bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-700 shadow-xl rounded-xl p-2 flex flex-col gap-1 w-48">
+              {visibleReadings.map((reading) => {
+                const isActive = activeId === reading.id || (activeId === "" && reading.id === readings[0].id);
                 return (
                   <button
                     key={`nav-${reading.id}`}
