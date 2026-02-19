@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
+import { DateText } from "./DateText";
 
 export const ProfileSummary: React.FC = () => {
   return (
@@ -11,9 +12,9 @@ export const ProfileSummary: React.FC = () => {
 
       {projects.slice(0, 3).map((project: Project) => (
         <div className="mb-5" key={project.id}>
-          <div className="font-semibold flex flex-row justify-start">
+          <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{project.title}</p>
-            <span className="text-gray-400 font-normal text-sm ml-2">{project.date}</span>
+            <DateText date={project.date} className="text-gray-400 font-normal text-sm" />
           </div>
           <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
           <div className="text-sm mt-1">

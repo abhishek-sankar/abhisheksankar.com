@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
 import { useEffect } from "react";
+import { DateText } from "./DateText";
 
 export const ProjectList = () => {
   useEffect(() => {
@@ -14,9 +15,9 @@ export const ProjectList = () => {
       <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Projects</h2>
       {projects.map((project: Project) => (
         <div className="mb-5" key={project.id}>
-          <div className="font-semibold flex flex-row justify-start">
+          <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{project.title}</p>
-            <span className="text-gray-400 font-normal text-sm ml-2">{project.date}</span>
+            <DateText date={project.date} className="text-gray-400 font-normal text-sm" />
           </div>
           <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
           <div className="text-sm mt-1">
@@ -43,7 +44,9 @@ export const ProjectDetail = () => {
     <section className="max-w-3xl mx-auto">
       <Link to="/projects" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Projects</Link>
       <h1 className="text-4xl font-bold mb-2">{project.title}</h1>
-      <p className="text-lg text-gray-500 mb-6">{project.date}</p>
+      <p className="text-lg text-gray-500 mb-6">
+        <DateText date={project.date} />
+      </p>
       <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{project.description}</div>
       <div className="text-base text-gray-700 dark:text-gray-300 underline">
         {project.links.map((link, idx) => (

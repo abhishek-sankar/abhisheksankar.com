@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { engagements } from "../data/engagements";
 import type { Engagement } from "../data/engagements";
+import { DateText } from "./DateText";
 
 export const PublicEngagements: React.FC = () => {
   return (
@@ -11,9 +12,9 @@ export const PublicEngagements: React.FC = () => {
 
       {engagements.slice(0, 3).map((engagement: Engagement) => (
         <div className="mb-5" key={engagement.id}>
-          <div className="font-semibold flex flex-row justify-start">
+          <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{engagement.title}</p>
-            <span className="text-gray-400 font-normal text-sm ml-2">{engagement.date}</span>
+            <DateText date={engagement.date} className="text-gray-400 font-normal text-sm" />
           </div>
           {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
           {engagement.links && (
@@ -35,9 +36,9 @@ export const EngagementList = () => (
     <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Volunteering / Engagements</h2>
     {engagements.map((engagement: Engagement) => (
       <div className="mb-5" key={engagement.id}>
-        <div className="font-semibold flex flex-row justify-start">
+        <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
           <p>{engagement.title}</p>
-          <span className="text-gray-400 font-normal text-sm ml-2">{engagement.date}</span>
+          <DateText date={engagement.date} className="text-gray-400 font-normal text-sm" />
         </div>
         {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
         {engagement.links && (
@@ -60,7 +61,9 @@ export const EngagementDetail = () => {
     <section className="max-w-3xl mx-auto">
       <Link to="/engagements" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Engagements</Link>
       <h1 className="text-4xl font-bold mb-2">{engagement.title}</h1>
-      <p className="text-lg text-gray-500 mb-6">{engagement.date}</p>
+      <p className="text-lg text-gray-500 mb-6">
+        <DateText date={engagement.date} />
+      </p>
       {engagement.description && <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{engagement.description}</div>}
       {engagement.links && (
         <div className="text-base text-gray-700 dark:text-gray-300 underline">
