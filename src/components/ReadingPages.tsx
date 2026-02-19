@@ -1,51 +1,115 @@
-import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { readings } from "../data/readings";
-import type { Reading } from "../data/readings";
 
-export const ReadingList = () => (
-  <section className="mb-12">
-    <Link to="/" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home</Link>
-    <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Reading Lists</h2>
-    {readings.map((reading: Reading) => (
-      <div key={reading.id} className="mb-5">
-        <div className="font-semibold">
-          <Link to={`/reading/${reading.id}`} className="text-phthalo-green-500">{reading.title}</Link>
-          <span className="text-gray-400 font-normal text-sm ml-2">{reading.date}</span>
-        </div>
-        <div className="text-base text-gray-700 dark:text-gray-300">
-          {reading.items.length} articles
-        </div>
-        <Link to={`/reading/${reading.id}`} className="text-phthalo-green-500 text-sm">View reading list</Link>
-      </div>
-    ))}
-  </section>
-);
+export const ReadingList = () => {
+  const [activeId, setActiveId] = useState<string>("");
 
-export const ReadingDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const reading = readings.find((r: Reading) => r.id === id);
-  if (!reading) return <div>Reading list not found</div>;
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = readings.map((r) => document.getElementById(r.id));
+      const scrollPosition = window.scrollY + 150; // Offset for sticky header
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveId(section.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 100, // Offset
+        behavior: "smooth",
+      });
+      setActiveId(id);
+    }
+  };
+
   return (
-    <section className="max-w-3xl mx-auto">
-      <Link to="/reading" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home / Reading</Link>
-      <h1 className="text-4xl font-bold mb-2">{reading.title}</h1>
-      <p className="text-lg text-gray-500 mb-6">{reading.date}</p>
-      <div className="space-y-3">
-        {reading.items.map((item, index) => (
-          <div key={index} className="flex items-start gap-2">
-            <span className="text-gray-400 mt-1">•</span>
-            <a 
-              href={item.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-phthalo-green-500 hover:underline"
-            >
-              {item.title}
-            </a>
+    <div className="flex flex-col md:flex-row gap-8 mb-12 relative">
+      {/* Back button above sidebar */}
+      <div className="w-full md:w-16 shrink-0 relative z-20">
+        <Link to="/" className="text-phthalo-green-500 hover:underline inline-block mb-8 whitespace-nowrap">&larr; Home</Link>
+        
+        {/* Sticky Sidebar */}
+        <div className="sticky top-10 flex group w-fit">
+          {/* Icon Column */}
+          <div className="flex-shrink-0 w-8 bg-neutral-100 dark:bg-neutral-800 rounded-lg flex flex-col gap-2 py-3 px-1.5 mt-0.5 h-fit border border-gray-200 dark:border-neutral-700 relative z-20 cursor-pointer">
+            {readings.map((reading, idx) => (
+              <div 
+                key={`line-${reading.id}`} 
+                className={`h-0.5 rounded-full w-full transition-colors duration-200 ${
+                  activeId === reading.id || (activeId === "" && idx === 0) 
+                    ? "bg-phthalo-green-500" 
+                    : "bg-gray-300 dark:bg-gray-600"
+                }`}
+              />
+            ))}
           </div>
-        ))}
+
+          {/* Text Column Popover */}
+          <div className="absolute left-full ml-3 top-0 transition-all duration-300 opacity-0 -translate-x-2 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-x-0 z-10">
+            <div className="bg-white dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 shadow-xl rounded-xl p-2 flex flex-col gap-1 w-48 max-h-[60vh] overflow-y-auto no-scrollbar">
+              {readings.map((reading, idx) => {
+                const isActive = activeId === reading.id || (activeId === "" && idx === 0);
+                return (
+                  <button
+                    key={`nav-${reading.id}`}
+                    onClick={() => scrollToSection(reading.id)}
+                    className={`text-left transition-colors duration-200 leading-snug whitespace-nowrap px-3 py-2 rounded-lg text-sm ${
+                      isActive
+                        ? "bg-neutral-100 dark:bg-neutral-800 text-phthalo-green-500 font-medium"
+                        : "bg-neutral-50 dark:bg-neutral-800/50 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                    }`}
+                  >
+                    {reading.title}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+
+      {/* Main Content */}
+      <div className="flex-1 min-w-0 md:mt-14">
+        <div className="space-y-16">
+          {readings.map((reading) => (
+            <section key={`content-${reading.id}`} id={reading.id} className="scroll-mt-32">
+              <h3 className="text-xl font-semibold mb-1">{reading.title}</h3>
+              <div className="text-gray-400 text-sm mb-6">{reading.date}</div>
+              <ul className="space-y-4">
+                {reading.items.map((item, idx) => (
+                  <li key={`item-${reading.id}-${idx}`} className="flex items-start gap-3">
+                    <span className="text-gray-300 mt-1">•</span>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-phthalo-green-500 hover:underline text-base leading-relaxed"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </div>
+    </div>
   );
-}; 
+};
+ 

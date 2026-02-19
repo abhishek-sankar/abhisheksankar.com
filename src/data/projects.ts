@@ -8,6 +8,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "persona-drift",
+    title: "Minimizing Persona Drift in Open Source LLMs",
+    date: "December 2025",
+    description: "Geometric and agentic approaches (Persona Vectors and Identity-Grounded Recursive Critique) to maintain LLM identity consistency over multi-turn interactions without fine-tuning.",
+    links: [
+      { label: "Report", url: "/ANLP___Project_Report.pdf" },
+      { label: "Code", url: "https://github.com/abhishek-sankar/persona-drift-project" }
+    ]
+  },
+  {
+    id: "i-in-attention",
+    title: "There is an I in Attention",
+    date: "December 2025",
+    description: "Addressed parameter redundancy in multi-head self-attention via canonical parameterization (I-Attention), reducing 2r² parameters per attention head while maintaining expressive capability and improving training convergence.",
+    links: [
+      { label: "Report", url: "/Gen_AI_Project_Proposal.pdf" }
+    ]
+  },
+  {
+    id: "projexion",
+    title: "ProjeXion: Precision 3-D Modeling from 2-D Inputs",
+    date: "April 2025",
+    description: "Extended MVSNet architecture for 3D reconstruction from 2D images. Introduced a self-attention-based fusion module and Cauchy loss to improve multi-view feature aggregation and outlier robustness.",
+    links: [
+      { label: "Report", url: "/IDL_Project_Report.pdf" },
+      { label: "Code", url: "https://github.com/nikitachaudharicodes/ProjeXion" }
+    ]
+  },
+  {
     id: "gumbo",
     title: "Gumbo",
     date: "April 30, 2025",

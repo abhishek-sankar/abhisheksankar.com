@@ -6,8 +6,19 @@ import { ReadingSummary } from './components/ReadingSummary'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ProjectDetail, ProjectList } from './components/ProjectPages';
 import { BlogList, BlogDetail } from './components/BlogPages';
-import { ReadingList, ReadingDetail } from './components/ReadingPages';
+import { ReadingList } from './components/ReadingPages';
 import { EngagementDetail, EngagementList, PublicEngagements } from './components/PublicEngagements';
+import { useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function ProfileCardWithRouteControl() {
   const location = useLocation();
@@ -21,6 +32,7 @@ function ProfileCardWithRouteControl() {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen w-full flex flex-col justify-center items-center bg-white dark:bg-neutral-900">
         <main className="w-full max-w-3xl px-4 sm:px-8 py-10 flex-1 flex flex-col">
           <ProfileCardWithRouteControl />
@@ -29,7 +41,6 @@ function App() {
             <Route path="/projects" element={<ProjectList />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/reading" element={<ReadingList />} />
-            <Route path="/reading/:id" element={<ReadingDetail />} />
             <Route path="/blogs" element={<BlogList />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
             <Route path="/engagements" element={<EngagementList />} />
