@@ -12,6 +12,75 @@ export interface Reading {
 
 export const readings: Reading[] = [
   {
+    id: "february-2026",
+    title: "February 2026",
+    date: "February 2026",
+    items: [
+      {
+        title: "Context Engineering for AI Agents: Lessons from Building Manus",
+        url: "https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus"
+      },
+      {
+        title: "Using CC",
+        url: "https://teltam.github.io/posts/using-cc.html"
+      },
+      {
+        title: "In defense of attempting hard things",
+        url: "https://cathleensdiscoveries.com/livinglifewell/in-defense-of-attempting-hard-things"
+      }
+    ]
+  },
+  {
+    id: "november-2025",
+    title: "November 2025",
+    date: "November 2025",
+    items: [
+      {
+        title: "Design engineering",
+        url: "https://www.floguo.com/notes/design-engineering"
+      },
+      {
+        title: "How we built OWL, the new architecture behind our ChatGPT-based browser, Atlas",
+        url: "https://openai.com/index/building-chatgpt-atlas/"
+      },
+      {
+        title: "How to demo",
+        url: "https://thorstenball.com/how-to-demo/"
+      },
+      {
+        title: "A curated collection of app and web screens for design inspiration",
+        url: "https://toolfolio.io/blog/a-curated-collection-of-app-and-web-screens-for-design-inspiration"
+      },
+      {
+        title: "Inside the real gold rush in AI: RL environments where models learn to work",
+        url: "https://docs.google.com/document/d/1GvEG7Y_Wbtm-_okOmwb7zvZuLwqHkTgfPX_1kMP3lWA/edit?tab=t.0"
+      },
+      {
+        title: "Minus One",
+        url: "https://minusone.com/"
+      }
+    ]
+  },
+  {
+    id: "october-2025",
+    title: "October 2025",
+    date: "October 2025",
+    items: [
+      {
+        title: "Marijana Pav",
+        url: "https://marijanapav.com/"
+      },
+      {
+        title: "Hiring design-minded frontend engineers",
+        url: "https://brianlovin.notion.site/frontend-quality"
+      },
+      {
+        title: "Anomalous tokens reveal the original identities of Instruct models",
+        url: "https://generative.ink/posts/anomalous-tokens-reveal-the-original-identities-of-instruct-models/"
+      }
+    ]
+  },
+  {
     id: "september-2025",
     title: "September 2025",
     date: "September 2025",
@@ -19,6 +88,34 @@ export const readings: Reading[] = [
       {
         title: "You Have To Be In The Water - chris@pacecapital.com",
         url: "https://docs.google.com/document/d/1UBodINa93Tf7s5xTnXN5-ckrWI_HMwOv9bZXi3eYRaU/edit?tab=t.0"
+      },
+      {
+        title: "Why do LLMs attend to the first token?",
+        url: "https://arxiv.org/html/2504.02732v4"
+      },
+      {
+        title: "Attention sinks from the graph perspective",
+        url: "https://publish.obsidian.md/the-tensor-throne/Transformers+as+GNNs/Attention+sinks+from+the+graph+perspective"
+      },
+      {
+        title: "Becoming a Research Engineer at a Big LLM Lab — 18 Months of Strategic Job Hunting",
+        url: "https://www.maxmynter.com/pages/blog/jobhunt"
+      },
+      {
+        title: "Teach Yourself CS",
+        url: "https://teachyourselfcs.com/#programming"
+      },
+      {
+        title: "The correlation between effort and results",
+        url: "https://map.sistilli.dev/public/essays/The+correlation+between+effort+and+results"
+      },
+      {
+        title: "Unrot your brain",
+        url: "https://plumpits.substack.com/p/unrot-your-brain"
+      },
+      {
+        title: "PyTorch internals",
+        url: "https://blog.ezyang.com/2019/05/pytorch-internals/"
       }
     ]
   },
