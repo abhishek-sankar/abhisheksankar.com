@@ -8,24 +8,20 @@ import { projects } from "../data/projects";
 
 type PaperMeta = {
   markdownPath: string;
-  sourceTexPath: string;
   originalPdfPath: string;
 };
 
 const PAPER_META_BY_PROJECT_ID: Record<string, PaperMeta> = {
   "persona-drift": {
     markdownPath: "/Papers/ANLP___Project_Report/web.md",
-    sourceTexPath: "/Papers/ANLP___Project_Report/latex/acl_latex.tex",
     originalPdfPath: "/ANLP___Project_Report.pdf",
   },
   "i-in-attention": {
     markdownPath: "/Papers/Gen_AI_Project_Proposal/web.md",
-    sourceTexPath: "/Papers/Gen_AI_Project_Proposal/main.tex",
     originalPdfPath: "/Gen_AI_Project_Proposal.pdf",
   },
   "projexion": {
     markdownPath: "/Papers/IDL_Project_Report/web.md",
-    sourceTexPath: "/Papers/IDL_Project_Report/final_report.tex",
     originalPdfPath: "/IDL_Project_Report.pdf",
   },
 };
@@ -124,10 +120,6 @@ export const ProjectPaper = () => {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
         <div className="text-sm text-gray-500 dark:text-gray-400">
-          <a href={paperMeta.sourceTexPath} className="text-phthalo-green-500" target="_blank" rel="noreferrer">
-            Source .tex
-          </a>
-          <span> • </span>
           <a href={paperMeta.originalPdfPath} className="text-phthalo-green-500" target="_blank" rel="noreferrer">
             Original PDF
           </a>

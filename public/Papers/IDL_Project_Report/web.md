@@ -81,4 +81,4 @@ Improving reconstruction requires both architectural innovation and careful opti
 
 ## Notes
 
-This is a curated web reading version for single-column browsing. For full experiments, tables, and visuals, use the source `.tex` and original PDF links.
+This is a curated web reading version for single-column browsing. For full experiments, tables, and visuals, see the original PDF link above.

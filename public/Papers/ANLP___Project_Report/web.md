@@ -56,4 +56,4 @@ This "System 2" style process preserves coherence better than direct activation 
 
 ## Notes
 
-This web version is a curated reading format. For full tables/figures and formatting details, see the source `.tex` and original PDF links at the top of the page.
+This web version is a curated reading format. For full tables/figures and formatting details, see the PDF link at the top of the page.

@@ -81,4 +81,4 @@ The paper proposes a canonical parameterization ("I-Attention") that removes thi
 - This is not a low-rank approximation; it keeps expressive capacity while improving parameter efficiency.
 
 ## Notes
-- This page is a curated single-column web reading version; use source `.tex` and PDF for full detail.
+- This page is a curated single-column web reading version; use the PDF for full detail.
