@@ -64,7 +64,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             I'm a graduate student at <a href="https://msaii.cs.cmu.edu/directory/students/current/s" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Carnegie Mellon University</a> studying Artificial Intelligence.
             I'm interested in efforts toward systems that make English the main programming language.
             
-            Previously, I worked as an Applied AI engineer at Bank of New York, where I dillydallied with coding agents.
+            Previously, I worked as an Applied AI engineer at the Bank of New York, where I dillydallied with coding agents.
           </div>
         )}
         </div>

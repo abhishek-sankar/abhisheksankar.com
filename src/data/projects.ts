@@ -13,7 +13,7 @@ export const projects: Project[] = [
     date: "December 2025",
     description: "Addressed parameter redundancy in multi-head self-attention via canonical parameterization (I-Attention), reducing 2r² parameters per attention head while maintaining expressive capability and improving training convergence.",
     links: [
-      { label: "Report", url: "/projects/i-in-attention/paper" },
+      { label: "Read more", url: "/projects/i-in-attention/paper" },
       { label: "Code pending release", url: "/" }
     ]
   },
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     date: "December 2025",
     description: "Geometric and agentic approaches (Persona Vectors and Identity-Grounded Recursive Critique) to maintain LLM identity consistency over multi-turn interactions without fine-tuning.",
     links: [
-      { label: "Report", url: "/projects/persona-drift/paper" },
+      { label: "Read more", url: "/projects/persona-drift/paper" },
       { label: "Code", url: "https://github.com/abhishek-sankar/persona-drift-project" }
     ]
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     date: "April 2025",
     description: "Extended MVSNet architecture for 3D reconstruction from 2D images. Introduced a self-attention-based fusion module and Cauchy loss to improve multi-view feature aggregation and outlier robustness.",
     links: [
-      { label: "Report", url: "/projects/projexion/paper" },
+      { label: "Read more", url: "/projects/projexion/paper" },
       { label: "Code", url: "https://github.com/nikitachaudharicodes/ProjeXion" }
     ]
   },
