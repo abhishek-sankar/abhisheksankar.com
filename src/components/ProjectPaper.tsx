@@ -12,6 +12,10 @@ type PaperMeta = {
 };
 
 const PAPER_META_BY_PROJECT_ID: Record<string, PaperMeta> = {
+  "pittsburgh-cmu-rag": {
+    markdownPath: "/Papers/Pittsburgh_CMU_RAG_Report/web.md",
+    originalPdfPath: "/Pittsburgh_CMU_RAG_Report.pdf",
+  },
   "persona-drift": {
     markdownPath: "/Papers/ANLP___Project_Report/web.md",
     originalPdfPath: "/ANLP___Project_Report.pdf",
