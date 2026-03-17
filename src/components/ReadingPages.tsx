@@ -82,6 +82,10 @@ export const ReadingList = () => {
 
   return (
     <section className="w-full mb-12">
+      <Link to="/" className="text-phthalo-green-500 hover:underline block mb-8 w-fit whitespace-nowrap">
+        &larr; Home
+      </Link>
+
       <div className="relative md:grid md:grid-cols-[2.5rem_minmax(0,1fr)] md:gap-6">
         <aside className="hidden md:block">
           <div
@@ -127,35 +131,32 @@ export const ReadingList = () => {
         </aside>
 
         <div className="w-full">
-        <Link to="/" className="text-phthalo-green-500 hover:underline block mb-8 w-fit whitespace-nowrap">
-          &larr; Home
-        </Link>
-        <div className="space-y-16">
-          {readings.map((r) => (
-            <section key={r.id} id={r.id} className="scroll-mt-24">
-              <h3 className="text-xl font-semibold mb-1">{r.title}</h3>
-              <p className="text-neutral-500 text-sm mb-6">
-                <DateText date={r.date} />
-              </p>
-              <ul className="space-y-4">
-                {r.items.map((item, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="text-neutral-400 mt-1">•</span>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-phthalo-green-500 hover:underline"
-                    >
-                      {item.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
+          <div className="space-y-16">
+            {readings.map((r) => (
+              <section key={r.id} id={r.id} className="scroll-mt-24">
+                <h3 className="text-xl font-semibold mb-1">{r.title}</h3>
+                <p className="text-neutral-500 text-sm mb-6">
+                  <DateText date={r.date} />
+                </p>
+                <ul className="space-y-4">
+                  {r.items.map((item, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span className="text-neutral-400 mt-1">•</span>
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-phthalo-green-500 hover:underline"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );
