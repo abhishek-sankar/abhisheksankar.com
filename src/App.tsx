@@ -24,9 +24,9 @@ function ScrollToTop() {
 function ProfileCardWithRouteControl() {
   const location = useLocation();
   const path = location.pathname;
-  // Hide description on projects/blog routes; keep it on reading for homepage parity
   const hideDescription =
-    path.startsWith('/projects') || path.startsWith('/blogs');
+    path.startsWith('/projects') || path.startsWith('/blogs') || path.startsWith('/reading');
+
   return <ProfileCard showDescription={!hideDescription} />;
 }
 
