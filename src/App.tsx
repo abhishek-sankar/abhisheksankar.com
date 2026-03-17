@@ -1,4 +1,5 @@
 import './index.css'
+<<<<<<< ours
 import { ProfileCard } from './components/ProfileCard'
 import { ProfileSummary } from './components/ProfileSummary'
 import { BlogSummary } from './components/BlogSummary'
@@ -57,6 +58,12 @@ function App() {
       </div>
     </Router>
   )
+=======
+import { HomePage } from './components/home/HomePage'
+
+function App() {
+  return <HomePage />
+>>>>>>> theirs
 }
 
 export default App
