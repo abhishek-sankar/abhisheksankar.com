@@ -18,7 +18,7 @@ Given calibrated multi-view images, estimate depth maps and reconstruct scene ge
 
 ## Project Diagram
 
-![ProjeXion project diagram](./IDL%20Project%20Diagram.jpg)
+![ProjeXion project diagram](./IDL%20Project%20Diagram.webp)
 *High-level pipeline used for feature extraction, homography warping, attention-based fusion, depth prediction, and refinement.*
 
 ## Baseline: MVSNet
@@ -61,21 +61,21 @@ Improving reconstruction requires both architectural innovation and careful opti
 
 ### Summary Result Panel
 
-![Summary results panel](./results.jpeg)
+![Summary results panel](./results.webp)
 *Overall qualitative comparison panel from the report.*
 
 ### Result Samples
 
-![Result sample 58c4b_00000000](./results/58c4b_00000000.jpeg)
+![Result sample 58c4b_00000000](./results/58c4b_00000000.webp)
 *Sample qualitative output: input, ground truth, ProjeXion prediction, and MVSNet prediction.*
 
-![Result sample 58d36_00000000](./results/58d36_00000000.jpeg)
+![Result sample 58d36_00000000](./results/58d36_00000000.webp)
 *Sample qualitative output: input, ground truth, ProjeXion prediction, and MVSNet prediction.*
 
-![Result sample 59056_00000023](./results/59056_00000023.jpeg)
+![Result sample 59056_00000023](./results/59056_00000023.webp)
 *Sample qualitative output: input, ground truth, ProjeXion prediction, and MVSNet prediction.*
 
-![Result sample 59f36_00000002](./results/59f36_00000002.jpeg)
+![Result sample 59f36_00000002](./results/59f36_00000002.webp)
 *Sample qualitative output: input, ground truth, ProjeXion prediction, and MVSNet prediction.*
 
 

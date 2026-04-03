@@ -1,8 +1,8 @@
 import React from 'react';
-import img1 from '../assets/anything_api/anythingapi_1_tweet.png';
-import img2 from '../assets/anything_api/anythingapi_2_team.jpeg';
-import img3 from '../assets/anything_api/anythingapi_4_work.jpeg';
-import img4 from '../assets/anything_api/anythingapi_3_pitch.jpeg';
+import img1 from '../assets/anything_api/anythingapi_1_tweet.webp';
+import img2 from '../assets/anything_api/anythingapi_2_team.webp';
+import img3 from '../assets/anything_api/anythingapi_4_work.webp';
+import img4 from '../assets/anything_api/anythingapi_3_pitch.webp';
 
 export const Blog_Anything_API: React.FC = () => (
   <article className="max-w-3xl mx-auto">
@@ -61,4 +61,3 @@ export const Blog_Anything_API: React.FC = () => (
     </div>
   </article>
 );
-

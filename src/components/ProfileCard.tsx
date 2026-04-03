@@ -1,7 +1,7 @@
 import TwitterIcon from '../assets/twitter.svg'
 import GitHubIcon from '../assets/github.svg'
 import LinkedInIcon from '../assets/linkedin.svg'
-import AbhishekSankar from '../assets/Abhishek_Sankar.png'
+import AbhishekSankar from '../assets/Abhishek_Sankar.webp'
 import { TWITTER_URL, GITHUB_URL, LINKEDIN_URL } from '../constants'
 import React from 'react';
 
