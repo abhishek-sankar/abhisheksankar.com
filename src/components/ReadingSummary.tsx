@@ -23,7 +23,7 @@ export const ReadingSummary: React.FC = () => {
                 {latestItems.map((item, index) => (
                     <div key={index} className="flex flex-col mb-2">
                         <div className="flex items-start gap-2">
-                            <span className="text-gray-400 mt-1">•</span>
+                            <span className="text-gray-500 dark:text-gray-400 mt-1">•</span>
                             <a 
                                 href={item.url} 
                                 target="_blank" 
