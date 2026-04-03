@@ -46,24 +46,24 @@ The paper proposes a canonical parameterization ("I-Attention") that removes thi
 
 ### Perplexity Curves Across Head Configurations
 
-![Single-head attention perplexity curve](./fig/ppl_vs_epoch_12l_1h_768e.png)
+![Single-head attention perplexity curve](./fig/ppl_vs_epoch_12l_1h_768e.webp)
 *Single-head attention (standard vs I-Attention).*
 
-![4-head attention perplexity curve](./fig/ppl_vs_epoch_12l_4h_768e.png)
+![4-head attention perplexity curve](./fig/ppl_vs_epoch_12l_4h_768e.webp)
 *4-head configuration (standard vs I-Attention).*
 
-![8-head attention perplexity curve](./fig/ppl_vs_epoch_12l_8h_768e.png)
+![8-head attention perplexity curve](./fig/ppl_vs_epoch_12l_8h_768e.webp)
 *8-head configuration (standard vs I-Attention).*
 
-![12-head attention perplexity curve](./fig/ppl_vs_epoch_12l_12h_768e.png)
+![12-head attention perplexity curve](./fig/ppl_vs_epoch_12l_12h_768e.webp)
 *12-head configuration (standard vs I-Attention).*
 
 ### Best-Validation Scaling Results
 
-![Best validation perplexity vs number of heads](./fig/best_val_ppl_vs_heads.png)
+![Best validation perplexity vs number of heads](./fig/best_val_ppl_vs_heads.webp)
 *Best validation perplexity as head count scales.*
 
-![Epoch of best validation perplexity vs number of heads](./fig/best_val_ppl_epoch_vs_heads.png)
+![Epoch of best validation perplexity vs number of heads](./fig/best_val_ppl_epoch_vs_heads.webp)
 *Epoch at which the best validation perplexity is reached.*
 
 ### Summary Table

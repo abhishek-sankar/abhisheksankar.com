@@ -1,11 +1,11 @@
-import img1 from "../assets/screenshotty/screenshotty_1_gallery.png";
-import img2 from "../assets/screenshotty/screenshotty_2_brain_meme.jpeg";
-import img3 from "../assets/screenshotty/screenshotty_3_demo.png";
-import img4 from "../assets/screenshotty/screenshotty_4_spotify.png";
-import photo1 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-21.jpg";
-import photo2 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-22.jpg";
-import photo3 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-22 2.jpg";
-import photo4 from "../assets/screenshotty/PHOTO-2024-07-27-15-33-54.jpg";
+import img1 from "../assets/screenshotty/screenshotty_1_gallery.webp";
+import img2 from "../assets/screenshotty/screenshotty_2_brain_meme.webp";
+import img3 from "../assets/screenshotty/screenshotty_3_demo.webp";
+import img4 from "../assets/screenshotty/screenshotty_4_spotify.webp";
+import photo1 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-21.webp";
+import photo2 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-22.webp";
+import photo3 from "../assets/screenshotty/PHOTO-2024-07-27-15-31-22 2.webp";
+import photo4 from "../assets/screenshotty/PHOTO-2024-07-27-15-33-54.webp";
 
 export const Blog_Screenshotty: React.FC = () => (
   <article>

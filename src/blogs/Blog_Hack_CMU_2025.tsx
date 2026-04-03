@@ -1,12 +1,12 @@
-import website from "../assets/hack_cmu_2025/website.png";
-import img1 from "../assets/hack_cmu_2025/stage.jpeg";
-import img2 from "../assets/hack_cmu_2025/IMG_2564.jpeg";
-import img3 from "../assets/hack_cmu_2025/IMG_2570.jpeg";
-import img4 from "../assets/hack_cmu_2025/IMG_2575.jpeg";
+import website from "../assets/hack_cmu_2025/website.webp";
+import img1 from "../assets/hack_cmu_2025/stage.webp";
+import img2 from "../assets/hack_cmu_2025/IMG_2564.webp";
+import img3 from "../assets/hack_cmu_2025/IMG_2570.webp";
+import img4 from "../assets/hack_cmu_2025/IMG_2575.webp";
 import video1 from "../assets/hack_cmu_2025/backpack.mov";
 import video2 from "../assets/hack_cmu_2025/HackCMUVid.mp4";
-import demo1 from "../assets/hack_cmu_2025/demo_1.jpeg";
-import demo2 from "../assets/hack_cmu_2025/demo_2.jpeg";
+import demo1 from "../assets/hack_cmu_2025/demo_1.webp";
+import demo2 from "../assets/hack_cmu_2025/demo_2.webp";
 
 
 export const Blog_Hack_CMU_2025: React.FC = () => (
