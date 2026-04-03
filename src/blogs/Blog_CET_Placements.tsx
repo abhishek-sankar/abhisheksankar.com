@@ -243,13 +243,13 @@ export const Blog_CET_Placements: React.FC = () => (
       <img src={img13} alt="HR questions" />
     </figure>
     <p className="mb-4">
-      The ones in the graphic are very generic questions but with very specific answers depending on who you are, making them really good questions to rank all potential hires. Like in the interview, there are no default right answers but what I've seen and heard is <strong>honesty + 10% thallu</strong> (h/t <a href="http://instagram.com/bumblebitchblues" target="_blank" rel="noopener noreferrer">@bumblebitchblues</a>) generally works out.
+      The ones in the graphic are very generic questions but with very specific answers depending on who you are, making them really good questions to rank all potential hires. Like in the interview, there are no default right answers but what I've seen and heard is <strong>honesty + 10% thallu</strong> (h/t <a href="http://instagram.com/bumblebitchblues" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">@bumblebitchblues</a>) generally works out.
     </p>
     <p className="mb-4">
       My thumb rule was to prepare in advance for the default questions and linking those around to the new questions that come up, while still being myself ie not pretending to be the perfect person. The key here again is to keep talking but this time, not about the technical aspects rather about the team aspect, where maybe you took initiative to do something under a tight deadline, or maybe you led a team through a tough task. Basically, the idea is to give the interviewer confidence in you as a person, to show that you have values that they'd want to have at their organisation.
     </p>
     <p className="mb-4">
-      Take a look at <a href="https://www.upgrad.com/blog/hr-interview-questions-answers/" target="_blank" rel="noopener noreferrer">this</a> blog. They give a neat framework for how to think when crafting your HR answers.
+      Take a look at <a href="https://www.upgrad.com/blog/hr-interview-questions-answers/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">this</a> blog. They give a neat framework for how to think when crafting your HR answers.
     </p>
     <p className="mb-4">
       Among the important things they look for here are if you'll pair along well with the existing teams. If you can figure out how to convey <strong>"Yes I will!"</strong> to the interviewer, then you're mostly good here too.

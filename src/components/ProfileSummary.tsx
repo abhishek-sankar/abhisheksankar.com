@@ -14,7 +14,7 @@ export const ProfileSummary: React.FC = () => {
         <div className="mb-5" key={project.id}>
           <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{project.title}</p>
-            <DateText date={project.date} className="text-gray-400 font-normal text-sm" />
+            <DateText date={project.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
           </div>
           <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
           <div className="text-sm mt-1">

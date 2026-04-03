@@ -19,7 +19,7 @@ export const ProjectList = () => {
             <Link to={`/projects/${project.id}/paper`} className="text-phthalo-green-500 hover:underline">
               {project.title}
             </Link>
-            <DateText date={project.date} className="text-gray-400 font-normal text-sm" />
+            <DateText date={project.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
           </div>
           <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
           <div className="text-sm mt-1">

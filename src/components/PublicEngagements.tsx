@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { engagements } from "../data/engagements";
 import type { Engagement } from "../data/engagements";
 import { DateText } from "./DateText";
@@ -14,67 +14,18 @@ export const PublicEngagements: React.FC = () => {
         <div className="mb-5" key={engagement.id}>
           <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{engagement.title}</p>
-            <DateText date={engagement.date} className="text-gray-400 font-normal text-sm" />
+            <DateText date={engagement.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
           </div>
           {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
           {engagement.links && (
             <div className="text-sm mt-1">
               {engagement.links.map((link: { label: string; url: string }) => (
-                <a href={link.url} target="_blank" className="text-phthalo-green-500 mr-3" key={link.url}>{link.label}</a>
+                <a href={link.url} target="_blank" rel="noreferrer" className="text-phthalo-green-500 mr-3" key={link.url}>{link.label}</a>
               ))}
             </div>
           )}
         </div>
       ))}
-    </section>
-  );
-};
-
-export const EngagementList = () => (
-  <section className="mb-12">
-    <Link to="/" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home</Link>
-    <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Volunteering / Engagements</h2>
-    {engagements.map((engagement: Engagement) => (
-      <div className="mb-5" key={engagement.id}>
-        <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
-          <p>{engagement.title}</p>
-          <DateText date={engagement.date} className="text-gray-400 font-normal text-sm" />
-        </div>
-        {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
-        {engagement.links && (
-          <div className="text-sm mt-1">
-            {engagement.links.map((link: { label: string; url: string }) => (
-              <a href={link.url} target="_blank" className="text-phthalo-green-500 mr-3" key={link.url}>{link.label}</a>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-  </section>
-);
-
-export const EngagementDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const engagement = engagements.find((e: Engagement) => e.id === id);
-  if (!engagement) return <div>Engagement not found</div>;
-  return (
-    <section className="max-w-3xl mx-auto">
-      <Link to="/engagements" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Engagements</Link>
-      <h1 className="text-4xl font-bold mb-2">{engagement.title}</h1>
-      <p className="text-lg text-gray-500 mb-6">
-        <DateText date={engagement.date} />
-      </p>
-      {engagement.description && <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{engagement.description}</div>}
-      {engagement.links && (
-        <div className="text-base text-gray-700 dark:text-gray-300 underline">
-          {engagement.links.map((link, idx) => (
-            <span key={link.url}>
-              <a href={link.url} target="_blank" className="text-phthalo-green-500">{link.label}</a>
-              {idx < engagement.links!.length - 1 && <span> &bull; </span>}
-            </span>
-          ))}
-        </div>
-      )}
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import TwitterIcon from '../assets/twitter.svg'
 import GitHubIcon from '../assets/github.svg'
 import LinkedInIcon from '../assets/linkedin.svg'
-import AbhishekSankar from '../assets/Abhishek_Sankar.webp'
+import AbhishekSankar from '../assets/Abhishek_Sankar_avatar.webp'
 import { TWITTER_URL, GITHUB_URL, LINKEDIN_URL } from '../constants'
 import React from 'react';
 
@@ -45,9 +45,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             <div className="mr-6">
               <img
                 alt="Profile photo of Abhishek Sankar"
-                width="100"
-                height="100"
+                width={96}
+                height={96}
                 decoding="async"
+                loading="eager"
+                fetchPriority="high"
+                sizes="96px"
                 className="profile-image object-cover rounded-full w-24 h-24"
                 src={AbhishekSankar}
                 style={{ color: "transparent" }}
@@ -56,7 +59,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             <div>
               <p className="text-xl mb-1 font-bold">Abhishek Sankar</p>
               <p className="text-light">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">CMU</a></p>
-              <p className="text-light">Prev. Applied AI @ <a href="https://www.bny.com/corporate/global/en/about-us/technology-innovation/artificial-intelligence.html" target='_blank'>BNY AI Hub</a>, Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
+              <p className="text-light">Prev. Applied AI @ <a href="https://www.bny.com/corporate/global/en/about-us/technology-innovation/artificial-intelligence.html" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">BNY AI Hub</a>, Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
             </div>
           </header>
         {showDescription && (
