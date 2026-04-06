@@ -15,9 +15,9 @@ export const ReadingSummary: React.FC = () => {
     const latestItems = allItems.slice(0, 5);
 
     return (
-        <section>
+        <section className="mb-12">
             <h2 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
-                Reading <Link to="/reading" className="text-blue-600 dark:text-blue-400 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
+                Reading <Link to="/reading" className="text-emerald-800 dark:text-emerald-300 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
             </h2>
             <ul className="list-none space-y-3 m-0 p-0">
                 {latestItems.map((item) => (
@@ -26,7 +26,7 @@ export const ReadingSummary: React.FC = () => {
                             href={item.url} 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-blue-600 dark:text-blue-400 hover:underline text-base"
+                            className="text-emerald-800 dark:text-emerald-300 hover:underline text-base"
                         >
                             {item.title}
                         </a>
