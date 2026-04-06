@@ -13,7 +13,7 @@ export const projects: Project[] = [
     date: "Jan 2026",
     description: "Addressed parameter redundancy in multi-head self-attention via canonical parameterization (I-Attention), reducing 2r² parameters per attention head while maintaining expressive capability and improving training convergence.",
     links: [
-      { label: "Read the There is an I in Attention paper", url: "/projects/i-in-attention/paper" },
+      { label: "Read more", url: "/projects/i-in-attention/paper" },
       { label: "Code pending release", url: "/" }
     ]
   },
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     date: "December 2025",
     description: "Geometric and agentic approaches (Persona Vectors and Identity-Grounded Recursive Critique) to maintain LLM identity consistency over multi-turn interactions without fine-tuning.",
     links: [
-      { label: "Read the Minimizing Persona Drift in Open Source LLMs paper", url: "/projects/persona-drift/paper" },
+      { label: "Read more", url: "/projects/persona-drift/paper" },
       { label: "Code", url: "https://github.com/abhishek-sankar/persona-drift-project" }
     ]
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     date: "November 2025",
     description: "Built a hybrid retrieval-augmented generation system for Pittsburgh and Carnegie Mellon, combining FAISS, BM25, and fusion-based reranking to improve factual local question answering.",
     links: [
-      { label: "Read the Grounded QA for Pittsburgh and CMU paper", url: "/projects/pittsburgh-cmu-rag/paper" },
+      { label: "Read more", url: "/projects/pittsburgh-cmu-rag/paper" },
       { label: "Code", url: "mailto:abhisheksankar@cmu.edu?subject=Request%20for%20Code%20(Pittsburgh%20and%20CMU%20RAG%20project)&body=Hi%20Abhishek%2C%0A%0AI%27d%20like%20to%20request%20access%20to%20the%20code%20for%20your%20Pittsburgh%20and%20CMU%20Grounded%20QA%20project.%0A%0ABest%2C%0A%0AP.S.%20Requesting%20by%20email%20to%20comply%20with%20AIV%20rules%20at%20CMU." }
     ]
   },
