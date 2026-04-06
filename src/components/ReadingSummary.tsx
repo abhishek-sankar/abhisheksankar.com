@@ -17,25 +17,22 @@ export const ReadingSummary: React.FC = () => {
     return (
         <section>
             <h2 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
-                Reading <Link to="/reading" className="text-phthalo-green-500 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
+                Reading <Link to="/reading" className="text-blue-600 dark:text-blue-400 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
             </h2>
-            <div className="space-y-3">
-                {latestItems.map((item, index) => (
-                    <div key={index} className="flex flex-col mb-2">
-                        <div className="flex items-start gap-2">
-                            <span className="text-gray-500 dark:text-gray-400 mt-1">•</span>
-                            <a 
-                                href={item.url} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-phthalo-green-500 hover:underline text-base"
-                            >
-                                {item.title}
-                            </a>
-                        </div>
-                    </div>
+            <ul className="list-none space-y-3 m-0 p-0">
+                {latestItems.map((item) => (
+                    <li key={item.url}>
+                        <a 
+                            href={item.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-blue-600 dark:text-blue-400 hover:underline text-base"
+                        >
+                            {item.title}
+                        </a>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </section>
     );
 }; 
