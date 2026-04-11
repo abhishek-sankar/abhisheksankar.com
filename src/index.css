@@ -7,6 +7,7 @@
 }
 
 :root {
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -90,10 +91,6 @@ body {
   margin: 2rem 0;
 }
 
-.dark .paper-content hr {
-  border-top-color: rgb(82 82 82);
-}
-
 .paper-content table {
   width: 100%;
   border-collapse: collapse;
@@ -105,11 +102,6 @@ body {
   border-bottom: 1px solid rgb(212 212 212);
   padding: 0.45rem 0.35rem;
   text-align: left;
-}
-
-.dark .paper-content th,
-.dark .paper-content td {
-  border-bottom-color: rgb(82 82 82);
 }
 
 .paper-content .katex-display {
@@ -130,8 +122,4 @@ body {
 .paper-content p em {
   color: rgb(107 114 128);
   font-size: 0.94rem;
-}
-
-.dark .paper-content p em {
-  color: rgb(163 163 163);
 }

@@ -14,9 +14,9 @@ export const PublicEngagements: React.FC = () => {
         <div className="mb-5" key={engagement.id}>
           <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <p>{engagement.title}</p>
-            <DateText date={engagement.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
+            <DateText date={engagement.date} className="text-gray-500 font-normal text-sm" />
           </div>
-          {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
+          {engagement.description ? <div className="text-base text-gray-700">{engagement.description}</div> : null}
           {engagement.links && (
             <div className="text-sm mt-1">
               {engagement.links.map((link: { label: string; url: string }) => (

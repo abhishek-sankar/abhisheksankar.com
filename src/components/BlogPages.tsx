@@ -20,7 +20,7 @@ const BLOG_COMPONENTS = {
 } as const;
 
 function PostFallback() {
-  return <p className="text-gray-700 dark:text-gray-300">Loading post...</p>;
+  return <p className="text-gray-700">Loading post...</p>;
 }
 
 export const BlogList = () => {
@@ -36,13 +36,13 @@ export const BlogList = () => {
           <div key={blog.id} className="mb-5">
           <div className="font-semibold flex items-start justify-between gap-2">
             <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 min-w-0">{blog.title}</Link>
-            <span className="text-gray-500 dark:text-gray-400 font-normal text-sm shrink-0 text-right">
+            <span className="text-gray-500 font-normal text-sm shrink-0 text-right">
               <DateText date={blog.date} />
               <span className="hidden sm:inline"> • </span>
               <span className="block sm:inline">{blog.readTime}</span>
             </span>
           </div>
-          <div className="text-base text-gray-700 dark:text-gray-300">{blog.summary}</div>
+          <div className="text-base text-gray-700">{blog.summary}</div>
           <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 text-sm">Read post</Link>
         </div>
       ))}
@@ -71,7 +71,7 @@ export const BlogDetail = () => {
           <BlogComponent />
         </Suspense>
       ) : (
-        <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{blog.content}</div>
+        <div className="text-xl text-gray-700 mb-6">{blog.content}</div>
       )}
     </section>
   );
