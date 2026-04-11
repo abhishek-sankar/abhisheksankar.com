@@ -11,9 +11,9 @@ export const EngagementList = () => (
       <div className="mb-5" key={engagement.id}>
         <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
           <p>{engagement.title}</p>
-          <DateText date={engagement.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
+          <DateText date={engagement.date} className="text-gray-500 font-normal text-sm" />
         </div>
-        {engagement.description ? <div className="text-base text-gray-700 dark:text-gray-300">{engagement.description}</div> : null}
+        {engagement.description ? <div className="text-base text-gray-700">{engagement.description}</div> : null}
         {engagement.links && (
           <div className="text-sm mt-1">
             {engagement.links.map((link: { label: string; url: string }) => (
@@ -36,12 +36,12 @@ export const EngagementDetail = () => {
     <section className="max-w-3xl mx-auto">
       <Link to="/engagements" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Engagements</Link>
       <h1 className="text-4xl font-bold mb-2">{engagement.title}</h1>
-      <p className="text-lg text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-lg text-gray-500 mb-6">
         <DateText date={engagement.date} />
       </p>
-      {engagement.description && <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{engagement.description}</div>}
+      {engagement.description && <div className="text-xl text-gray-700 mb-6">{engagement.description}</div>}
       {engagement.links && (
-        <div className="text-base text-gray-700 dark:text-gray-300 underline">
+        <div className="text-base text-gray-700 underline">
           {engagement.links.map((link, idx) => (
             <span key={link.url}>
               <a href={link.url} target="_blank" rel="noreferrer" className="text-phthalo-green-500">{link.label}</a>

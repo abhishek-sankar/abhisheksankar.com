@@ -111,7 +111,7 @@ export const ProjectPaper = () => {
           &larr; Projects
         </Link>
         <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-        <p className="text-gray-700 dark:text-gray-300">Paper view is not available for this project yet.</p>
+        <p className="text-gray-700">Paper view is not available for this project yet.</p>
       </section>
     );
   }
@@ -124,18 +124,18 @@ export const ProjectPaper = () => {
 
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">{project.title}</h1>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-sm text-gray-500">
           <a href={paperMeta.originalPdfPath} className="text-phthalo-green-500" target="_blank" rel="noreferrer">
             Original PDF
           </a>
         </div>
       </div>
 
-      {isLoading ? <p className="text-gray-700 dark:text-gray-300">Loading paper...</p> : null}
-      {error ? <p className="text-red-600 dark:text-red-400">{error}</p> : null}
+      {isLoading ? <p className="text-gray-700">Loading paper...</p> : null}
+      {error ? <p className="text-red-600">{error}</p> : null}
 
       {!isLoading && !error ? (
-        <article className="paper-content text-gray-800 dark:text-gray-200">
+        <article className="paper-content text-gray-800">
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkMath]}
             rehypePlugins={[rehypeKatex]}

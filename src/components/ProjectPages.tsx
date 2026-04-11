@@ -19,9 +19,9 @@ export const ProjectList = () => {
             <Link to={`/projects/${project.id}/paper`} className="text-phthalo-green-500 hover:underline">
               {project.title}
             </Link>
-            <DateText date={project.date} className="text-gray-500 dark:text-gray-400 font-normal text-sm" />
+            <DateText date={project.date} className="text-gray-500 font-normal text-sm" />
           </div>
-          <div className="text-base text-gray-700 dark:text-gray-300">{project.description}</div>
+          <div className="text-base text-gray-700">{project.description}</div>
           <div className="text-sm mt-1">
             {project.links.map((link: { label: string; url: string }) => (
               link.url.startsWith("/") ? (
@@ -67,8 +67,8 @@ export const ProjectDetail = () => {
       <p className="text-lg text-gray-500 mb-6">
         <DateText date={project.date} />
       </p>
-      <div className="text-xl text-gray-700 dark:text-gray-300 mb-6">{project.description}</div>
-      <div className="text-base text-gray-700 dark:text-gray-300 underline">
+      <div className="text-xl text-gray-700 mb-6">{project.description}</div>
+      <div className="text-base text-gray-700 underline">
         {project.links.map((link, idx) => (
           <span key={link.url}>
             {link.url.startsWith("/") ? (

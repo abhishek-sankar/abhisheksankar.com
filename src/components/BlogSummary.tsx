@@ -13,13 +13,13 @@ export const BlogSummary: React.FC = () => {
                 <div key={blog.id} className="mb-4">
                     <div className="font-semibold flex items-start justify-between gap-2">
                         <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 min-w-0">{blog.title}</Link>
-                        <span className="text-gray-500 dark:text-gray-400 font-normal text-sm shrink-0 text-right">
+                        <span className="text-gray-500 font-normal text-sm shrink-0 text-right">
                             <DateText date={blog.date} />
                             <span className="hidden sm:inline"> • </span>
                             <span className="block sm:inline">{blog.readTime}</span>
                         </span>
                     </div>
-                    <div className="text-base text-gray-700 dark:text-gray-300">{blog.summary}</div>
+                    <div className="text-base text-gray-700">{blog.summary}</div>
                     <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 text-sm">Read post</Link>
                 </div>
             ))}

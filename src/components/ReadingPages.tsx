@@ -23,7 +23,7 @@ function ScrollspyLine({
     >
       <span
         className={`block h-px w-full rounded-full transition-colors duration-200 ease-out ${
-          isActive ? "bg-phthalo-green-500" : "bg-neutral-300 dark:bg-neutral-600"
+          isActive ? "bg-phthalo-green-500" : "bg-neutral-300"
         }`}
       />
     </div>
@@ -96,7 +96,7 @@ export const ReadingList = () => {
             <div className="flex items-center gap-2">
               <div
                 className={`w-6 py-2 px-1.5 rounded-lg flex flex-col gap-0.5 items-center transition-colors duration-200 ${
-                  popoverOpen ? "bg-neutral-100 dark:bg-neutral-800" : ""
+                  popoverOpen ? "bg-neutral-100" : ""
                 }`}
               >
                 {readings.map((r) => (
@@ -110,15 +110,15 @@ export const ReadingList = () => {
               </div>
 
               {popoverOpen && (
-                <div className="w-max max-w-64 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-lg py-3 px-3 max-h-[60vh] overflow-y-auto">
+                <div className="w-max max-w-64 rounded-2xl border border-neutral-200 bg-white shadow-lg py-3 px-3 max-h-[60vh] overflow-y-auto">
                   {visible.map((r) => (
                     <button
                       key={r.id}
                       onClick={() => scrollTo(r.id)}
-                      className={`block w-full text-left py-2.5 px-3 text-sm transition-colors duration-200 rounded-xl !bg-transparent hover:!bg-neutral-100 dark:hover:!bg-neutral-800 !border-0 hover:!border-0 focus:!border-0 focus-visible:!border-0 !outline-none focus:!outline-none focus-visible:!outline-none !ring-0 focus:!ring-0 focus-visible:!ring-0 !shadow-none ${
+                      className={`block w-full text-left py-2.5 px-3 text-sm transition-colors duration-200 rounded-xl !bg-transparent hover:!bg-neutral-100 !border-0 hover:!border-0 focus:!border-0 focus-visible:!border-0 !outline-none focus:!outline-none focus-visible:!outline-none !ring-0 focus:!ring-0 focus-visible:!ring-0 !shadow-none ${
                         activeId === r.id
                           ? "text-phthalo-green-500 font-medium"
-                          : "text-neutral-600 dark:text-neutral-400"
+                          : "text-neutral-600"
                       }`}
                     >
                       {getPopoverLabel(r.title)}
