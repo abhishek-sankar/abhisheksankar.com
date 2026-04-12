@@ -42,7 +42,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             </a>
           </div>
           <header className="flex items-center mb-10" role="banner">
-            <div className="mr-6 shrink-0">
+            <div className="profile-avatar mr-6">
               <img
                 alt="Profile photo of Abhishek Sankar"
                 width={96}
@@ -51,7 +51,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
                 loading="eager"
                 fetchPriority="high"
                 sizes="96px"
-                className="profile-image block size-24 aspect-square shrink-0 object-cover rounded-full"
+                className="profile-image"
                 src={AbhishekSankar}
                 style={{ color: "transparent" }}
               />
