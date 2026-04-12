@@ -42,7 +42,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             </a>
           </div>
           <header className="flex items-center mb-10" role="banner">
-            <div className="mr-6">
+            <div className="mr-6 shrink-0">
               <img
                 alt="Profile photo of Abhishek Sankar"
                 width={96}
@@ -51,12 +51,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
                 loading="eager"
                 fetchPriority="high"
                 sizes="96px"
-                className="profile-image object-cover rounded-full w-24 h-24"
+                className="profile-image block size-24 aspect-square shrink-0 object-cover rounded-full"
                 src={AbhishekSankar}
                 style={{ color: "transparent" }}
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <p className="text-xl mb-1 font-bold">Abhishek Sankar</p>
               <p className="text-light">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">CMU</a></p>
               <p className="text-light">Prev. Applied AI @ <a href="https://www.bny.com/corporate/global/en/about-us/technology-innovation/artificial-intelligence.html" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">BNY AI Hub</a>, Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
