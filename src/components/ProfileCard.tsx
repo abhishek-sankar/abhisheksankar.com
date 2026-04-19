@@ -11,38 +11,10 @@ interface ProfileCardProps {
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true }) => {
   return (
-        <div className="container relative">
-          <div className="header-actions flex gap-4 absolute right-0 top-0">
-            <a
-              href={TWITTER_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-button no-underline"
-              title="Twitter"
-            >
-              <img src={TwitterIcon} alt="Twitter" />
-            </a>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-button no-underline"
-              title="GitHub"
-            >
-              <img src={GitHubIcon} alt="GitHub" />
-            </a>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon-button no-underline"
-              title="LinkedIn"
-            >
-              <img src={LinkedInIcon} alt="LinkedIn" />
-            </a>
-          </div>
-          <header className="flex items-center mb-10" role="banner">
-            <div className="mr-6">
+        <div className="container">
+          <header className="mb-10" role="banner">
+            <div className="flex items-center gap-4 sm:items-start sm:gap-6">
+              <div className="profile-avatar">
               <img
                 alt="Profile photo of Abhishek Sankar"
                 width={96}
@@ -55,11 +27,43 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
                 src={AbhishekSankar}
                 style={{ color: "transparent" }}
               />
-            </div>
-            <div>
-              <p className="text-xl mb-1 font-bold">Abhishek Sankar</p>
-              <p className="text-light">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">CMU</a></p>
-              <p className="text-light">Prev. Applied AI @ <a href="https://www.bny.com/corporate/global/en/about-us/technology-innovation/artificial-intelligence.html" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">BNY AI Hub</a>, Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
+              </div>
+              <div className="min-w-0 flex-1 self-center sm:self-auto">
+                <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <p className="text-xl font-bold leading-tight">Abhishek Sankar</p>
+                  <div className="header-actions flex gap-4">
+                    <a
+                      href={TWITTER_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-button no-underline"
+                      title="Twitter"
+                    >
+                      <img src={TwitterIcon} alt="Twitter" />
+                    </a>
+                    <a
+                      href={GITHUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-button no-underline"
+                      title="GitHub"
+                    >
+                      <img src={GitHubIcon} alt="GitHub" />
+                    </a>
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="icon-button no-underline"
+                      title="LinkedIn"
+                    >
+                      <img src={LinkedInIcon} alt="LinkedIn" />
+                    </a>
+                  </div>
+                </div>
+                <p className="text-light leading-snug sm:leading-normal">Artificial Intelligence @ <a href="https://www.cmu.edu" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">CMU</a></p>
+                <p className="text-light leading-snug sm:leading-normal">Prev. Applied AI @ <a href="https://www.bny.com/corporate/global/en/about-us/technology-innovation/artificial-intelligence.html" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">BNY AI Hub</a>, Engineering @ <a href="https://www.providence.org" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Providence Health</a></p>
+              </div>
             </div>
           </header>
         {showDescription && (

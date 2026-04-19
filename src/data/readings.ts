@@ -12,6 +12,72 @@ export interface Reading {
 
 export const readings: Reading[] = [
   {
+    id: "april-2026",
+    title: "April 2026",
+    date: "April 2026",
+    items: [
+      {
+        title: "How to Build an Agent",
+        url: "https://ampcode.com/notes/how-to-build-an-agent"
+      },
+      {
+        title: "Notes on Managing ADHD",
+        url: "https://borretti.me/article/notes-on-managing-adhd"
+      },
+      {
+        title: "An AI state of the union: We've passed the inflection point & dark factories are coming",
+        url: "https://www.youtube.com/watch?v=wc8FBhQtdsA"
+      },
+      {
+        title: "If DSPy Is So Great, Why Isn't Anyone Using It?",
+        url: "https://skylarbpayne.com/posts/dspy-engineering-patterns/"
+      },
+      {
+        title: "LLM Architecture Gallery",
+        url: "https://sebastianraschka.com/llm-architecture-gallery/"
+      },
+      {
+        title: "The Design of Getting Hired",
+        url: "https://carly.substack.com/p/the-design-of-getting-hired"
+      },
+      {
+        title: "How does Claude Code actually work?",
+        url: "https://www.youtube.com/watch?v=I82j7AzMU80"
+      }
+    ]
+  },
+  {
+    id: "march-2026",
+    title: "March 2026",
+    date: "March 2026",
+    items: [
+      {
+        title: "The Emperor Has No Clothes: How to Code Claude Code in 200 Lines of Code",
+        url: "https://www.mihaileric.com/The-Emperor-Has-No-Clothes/"
+      },
+      {
+        title: "Good websites",
+        url: "https://brianlovin.com/sites"
+      },
+      {
+        title: "Post-Training 50x Faster",
+        url: "https://www.workshoplabs.ai/blog/post-training-50x-faster"
+      },
+      {
+        title: "Reinforcement Learning environments and how to build them",
+        url: "https://unsloth.ai/blog/rl-environments"
+      },
+      {
+        title: "Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning",
+        url: "https://research.nvidia.com/labs/nemotron/files/NVIDIA-Nemotron-3-Super-Technical-Report.pdf"
+      },
+      {
+        title: "Designers! Designers! Designers!",
+        url: "https://carly.substack.com/p/designers-designers-designers"
+      }
+    ]
+  },
+  {
     id: "february-2026",
     title: "February 2026",
     date: "February 2026",
