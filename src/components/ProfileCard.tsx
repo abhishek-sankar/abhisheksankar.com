@@ -4,6 +4,8 @@ import LinkedInIcon from '../assets/linkedin.svg'
 import AbhishekSankar from '../assets/Abhishek_Sankar_avatar.webp'
 import { TWITTER_URL, GITHUB_URL, LINKEDIN_URL } from '../constants'
 import React from 'react';
+import { StaggerGroup } from './StaggerGroup';
+import { staggerStyle } from './staggerStyle';
 
 interface ProfileCardProps {
   showDescription?: boolean;
@@ -67,12 +69,17 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
             </div>
           </header>
         {showDescription && (
-          <div className="text-base text-gray-700 mb-6">
-            I'm a graduate student at <a href="https://msaii.cs.cmu.edu/directory/students/current/s" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Carnegie Mellon University</a> studying Artificial Intelligence.
-            I'm interested in efforts toward systems that make English the main programming language.
-            
-            Previously, I worked as an Applied AI engineer at the Bank of New York, where I dillydallied with coding agents.
-          </div>
+          <StaggerGroup as="div" className="text-base text-gray-700 mb-6 space-y-3">
+            <p className="stagger-item" style={staggerStyle(0)}>
+              I&apos;m a graduate student at <a href="https://msaii.cs.cmu.edu/directory/students/current/s" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">Carnegie Mellon University</a> studying Artificial Intelligence.
+            </p>
+            <p className="stagger-item" style={staggerStyle(1)}>
+              I&apos;m interested in efforts toward systems that make English the main programming language.
+            </p>
+            <p className="stagger-item" style={staggerStyle(2)}>
+              Previously, I worked as an Applied AI engineer at the Bank of New York, where I played around with coding agents.
+            </p>
+          </StaggerGroup>
         )}
         </div>
   );

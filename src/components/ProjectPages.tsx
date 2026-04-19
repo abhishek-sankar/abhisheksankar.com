@@ -3,6 +3,8 @@ import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
 import { useEffect } from "react";
 import { DateText } from "./DateText";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 export const ProjectList = () => {
   useEffect(() => {
@@ -10,11 +12,17 @@ export const ProjectList = () => {
   }, []);
 
   return (
-    <section className="mb-12">
-      <Link to="/" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home</Link>
-      <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Projects</h2>
-      {projects.map((project: Project) => (
-        <div className="mb-5" key={project.id}>
+    <StaggerGroup as="section" className="mb-12">
+      <Link
+        to="/"
+        className="text-phthalo-green-500 hover:underline block mb-6 stagger-item"
+        style={staggerStyle(0)}
+      >
+        &larr; Home
+      </Link>
+      <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2 stagger-item" style={staggerStyle(1)}>Projects</h2>
+      {projects.map((project: Project, index) => (
+        <div className="mb-5 stagger-item" key={project.id} style={staggerStyle(index + 2)}>
           <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
             <Link to={`/projects/${project.id}/paper`} className="text-phthalo-green-500 hover:underline">
               {project.title}
@@ -37,7 +45,7 @@ export const ProjectList = () => {
           </div>
         </div>
       ))}
-    </section>
+    </StaggerGroup>
   );
 };
 
