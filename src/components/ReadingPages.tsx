@@ -144,10 +144,9 @@ export const ReadingList = () => {
                 <p className="text-neutral-500 text-sm mb-6 stagger-item" style={staggerStyle(1)}>
                   <DateText date={r.date} />
                 </p>
-                <StaggerGroup as="ul" className="space-y-4">
+                <StaggerGroup as="ul" className="list-disc space-y-4 pl-5 marker:text-neutral-400">
                   {r.items.map((item, i) => (
-                    <li key={i} className="flex gap-3 stagger-item" style={staggerStyle(i)}>
-                      <span className="text-neutral-400 mt-1">•</span>
+                    <li key={i} className="stagger-item pl-2" style={staggerStyle(i + 2)}>
                       <a
                         href={item.url}
                         target="_blank"
