@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { readings } from "../data/readings";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 export const ReadingSummary: React.FC = () => {
     // Flatten all items from all readings
@@ -15,13 +17,13 @@ export const ReadingSummary: React.FC = () => {
     const latestItems = allItems.slice(0, 5);
 
     return (
-        <section className="mb-12">
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
+        <StaggerGroup as="section" className="mb-12">
+            <h2 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2 stagger-item" style={staggerStyle(0)}>
                 Reading <Link to="/reading" className="text-emerald-800 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
             </h2>
-            <ul className="list-none space-y-3 m-0 p-0">
-                {latestItems.map((item) => (
-                    <li key={item.url}>
+            <StaggerGroup as="ul" className="list-none space-y-3 m-0 p-0">
+                {latestItems.map((item, index) => (
+                    <li key={item.url} className="stagger-item" style={staggerStyle(index)}>
                         <a 
                             href={item.url} 
                             target="_blank" 
@@ -32,7 +34,7 @@ export const ReadingSummary: React.FC = () => {
                         </a>
                     </li>
                 ))}
-            </ul>
-        </section>
+            </StaggerGroup>
+        </StaggerGroup>
     );
 }; 

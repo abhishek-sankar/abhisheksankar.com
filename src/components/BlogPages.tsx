@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/blogs";
 import type { Blog } from "../data/blogs";
 import { DateText } from "./DateText";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 const BLOG_COMPONENTS = {
   Blog_CET_Placements: lazy(() =>
@@ -29,11 +31,17 @@ export const BlogList = () => {
   }, []);
 
   return (
-    <section className="mb-12">
-      <Link to="/" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home</Link>
-      <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Blog</h2>
-      {blogs.map((blog: Blog) => (
-          <div key={blog.id} className="mb-5">
+    <StaggerGroup as="section" className="mb-12">
+      <Link
+        to="/"
+        className="text-phthalo-green-500 hover:underline block mb-6 stagger-item"
+        style={staggerStyle(0)}
+      >
+        &larr; Home
+      </Link>
+      <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2 stagger-item" style={staggerStyle(1)}>Blog</h2>
+      {blogs.map((blog: Blog, index) => (
+          <div key={blog.id} className="mb-5 stagger-item" style={staggerStyle(index + 2)}>
           <div className="font-semibold flex items-start justify-between gap-2">
             <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 min-w-0">{blog.title}</Link>
             <span className="text-gray-500 font-normal text-sm shrink-0 text-right">
@@ -46,7 +54,7 @@ export const BlogList = () => {
           <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 text-sm">Read post</Link>
         </div>
       ))}
-    </section>
+    </StaggerGroup>
   );
 };
 

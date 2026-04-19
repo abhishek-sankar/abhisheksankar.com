@@ -2,15 +2,17 @@ import { Link } from "react-router-dom";
 import { blogs } from "../data/blogs";
 import type { Blog } from "../data/blogs";
 import { DateText } from "./DateText";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 export const BlogSummary: React.FC = () => {
     return (
-        <section>
-            <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">
+        <StaggerGroup as="section">
+            <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2 stagger-item" style={staggerStyle(0)}>
                 Blog <Link to="/blogs" className="text-phthalo-green-500 text-sm font-normal ml-1 cursor-pointer">View all →</Link>
             </h2>
-            {blogs.slice(0, 3).map((blog: Blog) => (
-                <div key={blog.id} className="mb-4">
+            {blogs.slice(0, 3).map((blog: Blog, index) => (
+                <div key={blog.id} className="mb-4 stagger-item" style={staggerStyle(index + 1)}>
                     <div className="font-semibold flex items-start justify-between gap-2">
                         <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 min-w-0">{blog.title}</Link>
                         <span className="text-gray-500 font-normal text-sm shrink-0 text-right">
@@ -23,6 +25,6 @@ export const BlogSummary: React.FC = () => {
                     <Link to={`/blogs/${blog.id}`} className="text-phthalo-green-500 text-sm">Read post</Link>
                 </div>
             ))}
-        </section>
+        </StaggerGroup>
     );
 };

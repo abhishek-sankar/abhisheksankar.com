@@ -2,13 +2,21 @@ import { Link, useParams } from "react-router-dom";
 import { engagements } from "../data/engagements";
 import type { Engagement } from "../data/engagements";
 import { DateText } from "./DateText";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 export const EngagementList = () => (
-  <section className="mb-12">
-    <Link to="/" className="text-phthalo-green-500 hover:underline block mb-6">&larr; Home</Link>
-    <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2">Volunteering / Engagements</h2>
-    {engagements.map((engagement: Engagement) => (
-      <div className="mb-5" key={engagement.id}>
+  <StaggerGroup as="section" className="mb-12">
+    <Link
+      to="/"
+      className="text-phthalo-green-500 hover:underline block mb-6 stagger-item"
+      style={staggerStyle(0)}
+    >
+      &larr; Home
+    </Link>
+    <h2 className="text-lg sm:text-xl font-semibold mb-2 flex items-center gap-2 stagger-item" style={staggerStyle(1)}>Volunteering / Engagements</h2>
+    {engagements.map((engagement: Engagement, index) => (
+      <div className="mb-5 stagger-item" key={engagement.id} style={staggerStyle(index + 2)}>
         <div className="font-semibold flex flex-col sm:flex-row sm:items-start sm:gap-2">
           <p>{engagement.title}</p>
           <DateText date={engagement.date} className="text-gray-500 font-normal text-sm" />
@@ -23,7 +31,7 @@ export const EngagementList = () => (
         )}
       </div>
     ))}
-  </section>
+  </StaggerGroup>
 );
 
 export const EngagementDetail = () => {

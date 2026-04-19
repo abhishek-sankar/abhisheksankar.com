@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { readings } from "../data/readings";
 import { DateText } from "./DateText";
+import { StaggerGroup } from "./StaggerGroup";
+import { staggerStyle } from "./staggerStyle";
 
 function ScrollspyLine({
   isActive,
@@ -81,12 +83,16 @@ export const ReadingList = () => {
   const visible = readings.slice(start, end + 1);
 
   return (
-    <section className="w-full mb-12">
-      <Link to="/" className="text-phthalo-green-500 hover:underline block mb-8 w-fit whitespace-nowrap">
+    <StaggerGroup as="section" className="w-full mb-12">
+      <Link
+        to="/"
+        className="text-phthalo-green-500 hover:underline block mb-8 w-fit whitespace-nowrap stagger-item"
+        style={staggerStyle(0)}
+      >
         &larr; Home
       </Link>
 
-      <div className="relative md:grid md:grid-cols-[2.5rem_minmax(0,1fr)] md:gap-6">
+      <div className="relative md:grid md:grid-cols-[2.5rem_minmax(0,1fr)] md:gap-6 stagger-item" style={staggerStyle(1)}>
         <aside className="hidden md:block">
           <div
             className="sticky top-1/2 -translate-y-1/2 w-fit"
@@ -131,16 +137,16 @@ export const ReadingList = () => {
         </aside>
 
         <div className="w-full">
-          <div className="space-y-16">
+          <StaggerGroup as="div" className="space-y-16">
             {readings.map((r) => (
-              <section key={r.id} id={r.id} className="scroll-mt-24">
-                <h3 className="text-xl font-semibold mb-1">{r.title}</h3>
-                <p className="text-neutral-500 text-sm mb-6">
+              <StaggerGroup key={r.id} as="section" id={r.id} className="scroll-mt-24">
+                <h3 className="text-xl font-semibold mb-1 stagger-item" style={staggerStyle(0)}>{r.title}</h3>
+                <p className="text-neutral-500 text-sm mb-6 stagger-item" style={staggerStyle(1)}>
                   <DateText date={r.date} />
                 </p>
-                <ul className="space-y-4">
+                <StaggerGroup as="ul" className="space-y-4">
                   {r.items.map((item, i) => (
-                    <li key={i} className="flex gap-3">
+                    <li key={i} className="flex gap-3 stagger-item" style={staggerStyle(i)}>
                       <span className="text-neutral-400 mt-1">•</span>
                       <a
                         href={item.url}
@@ -152,12 +158,12 @@ export const ReadingList = () => {
                       </a>
                     </li>
                   ))}
-                </ul>
-              </section>
+                </StaggerGroup>
+              </StaggerGroup>
             ))}
-          </div>
+          </StaggerGroup>
         </div>
       </div>
-    </section>
+    </StaggerGroup>
   );
 };
