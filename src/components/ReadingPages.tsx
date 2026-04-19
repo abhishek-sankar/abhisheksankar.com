@@ -144,10 +144,16 @@ export const ReadingList = () => {
                 <p className="text-neutral-500 text-sm mb-6 stagger-item" style={staggerStyle(1)}>
                   <DateText date={r.date} />
                 </p>
+<<<<<<< Updated upstream
                 <StaggerGroup as="ul" className="space-y-4">
                   {r.items.map((item, i) => (
                     <li key={i} className="flex gap-3 stagger-item" style={staggerStyle(i)}>
                       <span className="text-neutral-400 mt-1">•</span>
+=======
+                <ul className="list-disc space-y-4 pl-5 marker:text-neutral-400">
+                  {r.items.map((item, i) => (
+                    <li key={i} className="pl-2">
+>>>>>>> Stashed changes
                       <a
                         href={item.url}
                         target="_blank"
