@@ -93,13 +93,13 @@ export const ReadingList = () => {
       </Link>
 
       <div className="relative md:grid md:grid-cols-[2.5rem_minmax(0,1fr)] md:gap-6 stagger-item" style={staggerStyle(1)}>
-        <aside className="hidden md:block">
+        <aside className="relative z-30 hidden md:block">
           <div
-            className="sticky top-1/2 -translate-y-1/2 w-fit"
+            className="sticky top-1/2 z-30 w-fit -translate-y-1/2"
             onMouseEnter={() => setPopoverOpen(true)}
             onMouseLeave={() => setPopoverOpen(false)}
           >
-            <div className="flex items-center gap-2">
+            <div className="relative flex items-center gap-2">
               <div
                 className={`w-6 py-2 px-1.5 rounded-lg flex flex-col gap-0.5 items-center transition-colors duration-200 ${
                   popoverOpen ? "bg-neutral-100" : ""
@@ -116,12 +116,12 @@ export const ReadingList = () => {
               </div>
 
               {popoverOpen && (
-                <div className="w-max max-w-64 rounded-2xl border border-neutral-200 bg-white shadow-lg py-3 px-3 max-h-[60vh] overflow-y-auto">
+                <div className="relative z-20 w-max max-w-64 rounded-2xl border border-neutral-200 bg-white py-3 px-3 shadow-lg max-h-[60vh] overflow-y-auto">
                   {visible.map((r) => (
                     <button
                       key={r.id}
                       onClick={() => scrollTo(r.id)}
-                      className={`block w-full text-left py-2.5 px-3 text-sm transition-colors duration-200 rounded-xl !bg-transparent hover:!bg-neutral-100 !border-0 hover:!border-0 focus:!border-0 focus-visible:!border-0 !outline-none focus:!outline-none focus-visible:!outline-none !ring-0 focus:!ring-0 focus-visible:!ring-0 !shadow-none ${
+                      className={`block w-full rounded-xl border-0 bg-white px-3 py-2.5 text-left text-sm shadow-none outline-none ring-0 transition-colors duration-200 hover:bg-neutral-100 focus:bg-neutral-100 focus:border-0 focus-visible:border-0 focus:!outline-none focus-visible:!outline-none focus:!ring-0 focus-visible:!ring-0 ${
                         activeId === r.id
                           ? "text-phthalo-green-500 font-medium"
                           : "text-neutral-600"
