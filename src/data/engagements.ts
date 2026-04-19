@@ -15,7 +15,7 @@ export const engagements: Engagement[] = [
     description: null,
     links: [
       { label: "Team", url: "https://www.instagram.com/p/B_99lLbJKKV/" },
-      { label: "Charter", url: "" },
+      // { label: "Charter", url: "" },
       { label: "AKCSSC", url: "https://youtu.be/bcTANuecMc0" }
     ]
   },
@@ -25,7 +25,7 @@ export const engagements: Engagement[] = [
     date: "Sep 2020",
     description: "Awarded the IEEE Richard E. Merwin Student Scholar, one of 16 students globally in 2020, for academic excellence and leadership in the field of computer science.",
     links: [
-      { label: "Announcement", url: "https://www.computer.org/volunteering/awards/scholarships/merwin/merwin-winners#fall-2020" }
+      { label: "Announcement", url: "https://www.computer.org/volunteering/awards/scholarships/merwin/merwin-winners#spring-2020" }
     ]
   },
   {

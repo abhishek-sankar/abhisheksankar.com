@@ -62,9 +62,9 @@ function enhanceHtmlForSEO(html, routePath) {
   
   switch (routePath) {
     case '/':
-      title = 'Abhishek Sankar - Software Engineer & Full Stack Developer';
-      description = 'Abhishek Sankar - Software Engineer and Full Stack Developer. Explore my projects, blog posts, reading lists, and public engagements.';
-      keywords = 'Abhishek Sankar, Software Engineer, Full Stack Developer, React, JavaScript, TypeScript';
+      title = 'Abhishek Sankar - Software engineer exploring AI agents';
+      description = 'Abhishek Sankar - Software engineer exploring AI agents. Explore my projects, blog posts, reading lists, and public engagements.';
+      keywords = 'Abhishek Sankar, Software Engineer, AI agents, AI, React, JavaScript, TypeScript';
       break;
     case '/projects':
       title = 'Projects - Abhishek Sankar';
@@ -88,7 +88,7 @@ function enhanceHtmlForSEO(html, routePath) {
       break;
     default:
       title = 'Abhishek Sankar - Software Engineer';
-      description = 'Abhishek Sankar - Software Engineer and Full Stack Developer.';
+      description = 'Abhishek Sankar - Software engineer exploring AI agents.';
       keywords = 'Abhishek Sankar, Software Engineer';
   }
   
