@@ -21,6 +21,10 @@ export const readings: Reading[] = [
         url: "https://ampcode.com/notes/how-to-build-an-agent"
       },
       {
+        title: "Advice on Upskilling",
+        url: "https://docs.google.com/document/d/17qFY5w9uEWL4VVyJSTEmSSRyvegh_Y4N6NMSxwCmGaE/edit?tab=t.0"
+      },
+      {
         title: "Notes on Managing ADHD",
         url: "https://borretti.me/article/notes-on-managing-adhd"
       },
@@ -43,6 +47,22 @@ export const readings: Reading[] = [
       {
         title: "How does Claude Code actually work?",
         url: "https://www.youtube.com/watch?v=I82j7AzMU80"
+      },
+      {
+        title: "How to Build Claude Skills That Actually Work",
+        url: "https://twitter.com/eng_khairallah1/status/2042165607999644099"
+      },
+      {
+        title: "Latent Briefing: Efficient Memory Sharing for Multi-Agent Systems via KV Cache Compaction",
+        url: "https://twitter.com/RampLabs/status/2042660310851449223"
+      },
+      {
+        title: "how to be cool",
+        url: "https://read.isabelunraveled.com/p/how-to-be-cool"
+      },
+      {
+        title: "All Claude skills in my MD file",
+        url: "https://rakshatated.com/notes/claude-skills"
       }
     ]
   },
@@ -54,6 +74,14 @@ export const readings: Reading[] = [
       {
         title: "The Emperor Has No Clothes: How to Code Claude Code in 200 Lines of Code",
         url: "https://www.mihaileric.com/The-Emperor-Has-No-Clothes/"
+      },
+      {
+        title: "Slate: moving beyond ReAct and RLM",
+        url: "https://randomlabs.ai/blog/slate"
+      },
+      {
+        title: "State of RL for reasoning LLMs",
+        url: "https://aweers.de/blog/2026/rl-for-llms/"
       },
       {
         title: "Good websites",
@@ -74,6 +102,10 @@ export const readings: Reading[] = [
       {
         title: "Designers! Designers! Designers!",
         url: "https://carly.substack.com/p/designers-designers-designers"
+      },
+      {
+        title: "RLMs from scratch",
+        url: "https://twitter.com/neural_avb/status/2035040781074145412"
       }
     ]
   },
@@ -93,6 +125,44 @@ export const readings: Reading[] = [
       {
         title: "In defense of attempting hard things",
         url: "https://cathleensdiscoveries.com/livinglifewell/in-defense-of-attempting-hard-things"
+      },
+      {
+        title: "Rachel Chen | Product Designer + Engineer",
+        url: "https://www.rachelchen.tech/"
+      }
+    ]
+  },
+  {
+    id: "january-2026",
+    title: "January 2026",
+    date: "January 2026",
+    items: [
+      {
+        title: "Fun life experiments",
+        url: "https://docs.google.com/document/d/14fzPPAGdscb4wP-2tHTNQHV8BlK1jCSzeCPRn8zDojE/edit?tab=t.0#heading=h.j76vbyod9cno"
+      },
+      {
+        title: "The Smol Training Playbook",
+        url: "https://huggingface.co/spaces/HuggingFaceTB/smol-training-playbook"
+      },
+      {
+        title: "192 Weeks",
+        url: "https://notes.ekzhang.com/reflections/192-weeks"
+      }
+    ]
+  },
+  {
+    id: "december-2025",
+    title: "December 2025",
+    date: "December 2025",
+    items: [
+      {
+        title: "Anthropic’s philosopher answers your questions",
+        url: "https://www.youtube.com/watch?v=I9aGC6Ui3eE"
+      },
+      {
+        title: "My life in five minutes",
+        url: "https://leerob.com/bio"
       }
     ]
   },

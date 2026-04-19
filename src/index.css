@@ -12,6 +12,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --stagger-distance: 8px;
+  --stagger-duration: 380ms;
+  --stagger-step: 50ms;
+  --stagger-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -47,6 +51,21 @@ body {
   display: block;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.stagger-group > .stagger-item {
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  transition:
+    opacity var(--stagger-duration) var(--stagger-easing),
+    transform var(--stagger-duration) var(--stagger-easing);
+  transition-delay: calc(var(--stagger-index, 0) * var(--stagger-step));
+  will-change: opacity, transform;
+}
+
+.stagger-group[data-mounted="true"] > .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (min-width: 640px) {
@@ -156,4 +175,12 @@ body {
 .paper-content p em {
   color: rgb(107 114 128);
   font-size: 0.94rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger-group > .stagger-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
