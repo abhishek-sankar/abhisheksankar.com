@@ -6,6 +6,9 @@ import { DateText } from "./DateText";
 import { StaggerGroup } from "./StaggerGroup";
 import { staggerStyle } from "./staggerStyle";
 
+const isExternalProjectLink = (url: string, external?: boolean) =>
+  external ?? !url.startsWith("/");
+
 export const ProjectList = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,15 +34,15 @@ export const ProjectList = () => {
           </div>
           <div className="text-base text-gray-700">{project.description}</div>
           <div className="text-sm mt-1">
-            {project.links.map((link: { label: string; url: string }) => (
-              link.url.startsWith("/") ? (
-                <Link to={link.url} className="text-phthalo-green-500 mr-3" key={link.url}>
-                  {link.label}
-                </Link>
-              ) : (
+            {project.links.map((link: { label: string; url: string; external?: boolean }) => (
+              isExternalProjectLink(link.url, link.external) ? (
                 <a href={link.url} className="text-phthalo-green-500 mr-3" key={link.url} target="_blank" rel="noreferrer">
                   {link.label}
                 </a>
+              ) : (
+                <Link to={link.url} className="text-phthalo-green-500 mr-3" key={link.url}>
+                  {link.label}
+                </Link>
               )
             ))}
           </div>
@@ -79,14 +82,14 @@ export const ProjectDetail = () => {
       <div className="text-base text-gray-700 underline">
         {project.links.map((link, idx) => (
           <span key={link.url}>
-            {link.url.startsWith("/") ? (
-              <Link to={link.url} className="text-phthalo-green-500">
-                {link.label}
-              </Link>
-            ) : (
+            {isExternalProjectLink(link.url, link.external) ? (
               <a href={link.url} className="text-phthalo-green-500" target="_blank" rel="noreferrer">
                 {link.label}
               </a>
+            ) : (
+              <Link to={link.url} className="text-phthalo-green-500">
+                {link.label}
+              </Link>
             )}
             {idx < project.links.length - 1 && <span> &bull; </span>}
           </span>

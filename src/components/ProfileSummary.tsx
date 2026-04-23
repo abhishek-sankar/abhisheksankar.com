@@ -5,6 +5,9 @@ import { DateText } from "./DateText";
 import { StaggerGroup } from "./StaggerGroup";
 import { staggerStyle } from "./staggerStyle";
 
+const isExternalProjectLink = (url: string, external?: boolean) =>
+  external ?? !url.startsWith("/");
+
 export const ProfileSummary: React.FC = () => {
   return (
     <StaggerGroup as="section" className="mb-12">
@@ -20,15 +23,15 @@ export const ProfileSummary: React.FC = () => {
           </div>
           <div className="text-base text-gray-700">{project.description}</div>
           <div className="text-sm mt-1">
-            {project.links.map((link: { label: string; url: string }) => (
-              link.url.startsWith("/") ? (
-                <Link to={link.url} className="text-phthalo-green-500 mr-3" key={link.url}>
-                  {link.label}
-                </Link>
-              ) : (
+            {project.links.map((link: { label: string; url: string; external?: boolean }) => (
+              isExternalProjectLink(link.url, link.external) ? (
                 <a href={link.url} target="_blank" rel="noreferrer" className="text-phthalo-green-500 mr-3" key={link.url}>
                   {link.label}
                 </a>
+              ) : (
+                <Link to={link.url} className="text-phthalo-green-500 mr-3" key={link.url}>
+                  {link.label}
+                </Link>
               )
             ))}
           </div>
