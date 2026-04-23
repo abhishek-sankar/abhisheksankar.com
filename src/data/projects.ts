@@ -3,10 +3,19 @@ export interface Project {
   title: string;
   date: string;
   description: string;
-  links: { label: string; url: string }[];
+  links: { label: string; url: string; external?: boolean }[];
 }
 
 export const projects: Project[] = [
+  {
+    id: "recursive-language-models-reading-group",
+    title: "Recursive Language Models",
+    date: "April 2026",
+    description: "Slides from my talk on recursive language models for CMU MLD's reading group.",
+    links: [
+      { label: "[Slides]", url: "/Recursive%20Language%20Models.pdf", external: true }
+    ]
+  },
   {
     id: "i-in-attention",
     title: "There is an I in Attention",
