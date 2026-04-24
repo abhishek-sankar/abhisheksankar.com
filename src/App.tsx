@@ -1,5 +1,6 @@
 import './index.css'
-import { Suspense, lazy, useEffect } from 'react'
+import './App.css'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ProfileCard } from './components/ProfileCard'
 import { ProfileSummary } from './components/ProfileSummary'
@@ -55,12 +56,82 @@ function ProfileCardWithRouteControl() {
   return <ProfileCard showDescription={!hideDescription} />;
 }
 
+type ThemePreference = 'system' | 'light' | 'dark'
+
+const THEME_LABELS: Record<ThemePreference, string> = {
+  system: 'System',
+  light: 'Light',
+  dark: 'Dark',
+}
+
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 function App() {
+  const [themePreference, setThemePreference] = useState<ThemePreference>('system')
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('theme-preference') as ThemePreference | null
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    const applyTheme = (preference: ThemePreference) => {
+      const resolvedTheme = preference === 'system' ? getSystemTheme() : preference
+      document.documentElement.dataset.theme = resolvedTheme
+      document.documentElement.style.colorScheme = resolvedTheme
+    }
+
+    const initialPreference = savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'system'
+      ? savedTheme
+      : 'system'
+
+    setThemePreference(initialPreference)
+    applyTheme(initialPreference)
+
+    const handleThemeChange = () => {
+      if ((window.localStorage.getItem('theme-preference') ?? 'system') === 'system') {
+        applyTheme('system')
+      }
+    }
+
+    mediaQuery.addEventListener('change', handleThemeChange)
+    return () => mediaQuery.removeEventListener('change', handleThemeChange)
+  }, [])
+
+  const cycleThemePreference = () => {
+    const nextTheme: ThemePreference = themePreference === 'system'
+      ? 'dark'
+      : themePreference === 'dark'
+        ? 'light'
+        : 'system'
+
+    setThemePreference(nextTheme)
+    window.localStorage.setItem('theme-preference', nextTheme)
+
+    const resolvedTheme = nextTheme === 'system' ? getSystemTheme() : nextTheme
+    document.documentElement.dataset.theme = resolvedTheme
+    document.documentElement.style.colorScheme = resolvedTheme
+  }
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen w-full flex flex-col justify-center items-center bg-white">
-        <main className="w-full max-w-3xl px-4 sm:px-8 py-10 flex-1 flex flex-col">
+      <div className="app-shell min-h-screen w-full flex flex-col justify-center items-center bg-white">
+        <main className="app-main w-full max-w-3xl px-4 sm:px-8 py-10 flex-1 flex flex-col">
+          <div className="theme-toggle-row">
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={cycleThemePreference}
+              aria-label={`Color theme: ${THEME_LABELS[themePreference]}. Click to switch theme.`}
+              title={`Theme: ${THEME_LABELS[themePreference]}`}
+            >
+              <span className="theme-toggle__icon" aria-hidden="true">
+                {themePreference === 'dark' ? '🌙' : themePreference === 'light' ? '☀️' : '🖥️'}
+              </span>
+              <span>{THEME_LABELS[themePreference]}</span>
+            </button>
+          </div>
           <ProfileCardWithRouteControl />
           <Routes>
             <Route path="/" element={<><div className="border-b border-gray-200 mb-10"></div><ProfileSummary /><div className="border-b border-gray-200 mb-10"></div><ReadingSummary /><div className="border-b border-gray-200 mb-10"></div><BlogSummary /><div className="border-b border-gray-200 mb-10"></div><PublicEngagements /></>} />
@@ -76,7 +147,7 @@ function App() {
             <Route path="/engagements/:id" element={<Suspense fallback={<RouteFallback />}><EngagementDetail /></Suspense>} />
           </Routes>
         </main>
-        <footer className="w-full text-center text-gray-500 text-sm mt-16 border-t border-gray-100 pt-6 pb-4">
+        <footer className="app-footer w-full text-center text-gray-500 text-sm mt-16 border-t border-gray-100 pt-6 pb-4">
           © {new Date().getFullYear()} Abhishek Sankar, inspired by <a href="https://aarushsah.com/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">aarushsah.com</a> 
         </footer>
       </div>

@@ -1,0 +1,57 @@
+{
+  "runId": "2026-04-24T15-23-54-242Z",
+  "repo": "abhishek-sankar/abhisheksankar.com",
+  "repoRoot": "/Users/abhisheksankar/Documents/Development/abhisheksankar.com",
+  "createdAt": "2026-04-24T15:23:55.470Z",
+  "branchName": "return-brief/issue-17-add-dark-mode-20260424152355",
+  "title": "Issue #17: Add dark mode",
+  "summary": "Currently, the system does not seem to have a good option for dark mode that respects user preferences. For theming, I would like to implement a global dark mode system where colors are actually from our design system but then still meet all the required accessibility requirements so that the user can read them clearly.",
+  "filesToEdit": [
+    "src/App.tsx",
+    "src/index.css",
+    "src/App.css"
+  ],
+  "acceptanceCriteria": [
+    "The implementation addresses GitHub issue #17.",
+    "The change is visible in the recorded app demo.",
+    "The app still renders meaningful content at APP_BASE_URL.",
+    "The draft PR includes the implementation demo artifact."
+  ],
+  "testCommands": [
+    "npm run lint",
+    "npm run build"
+  ],
+  "beforeSteps": [
+    {
+      "id": "issue-17",
+      "url": "http://localhost:5173/",
+      "description": "Issue #17: Add dark mode",
+      "scrollBehavior": "full",
+      "waitAfterNavMs": 1500,
+      "narrationHint": "Implementation for GitHub issue 17: Add dark mode"
+    }
+  ],
+  "afterSteps": [
+    {
+      "id": "issue-17",
+      "url": "http://localhost:5173/",
+      "description": "Issue #17: Add dark mode",
+      "scrollBehavior": "full",
+      "waitAfterNavMs": 1500,
+      "narrationHint": "Implementation for GitHub issue 17: Add dark mode"
+    }
+  ],
+  "selectedIssue": {
+    "number": 17,
+    "title": "Add dark mode",
+    "author": "abhishek-sankar",
+    "state": "open",
+    "createdAt": "2026-04-24T15:00:00Z",
+    "updatedAt": "2026-04-24T15:00:00Z",
+    "labels": [],
+    "body": "Currently, the system does not seem to have a good option for dark mode that respects user preferences. For theming, I would like to implement a global dark mode system where colors are actually from our design system but then still meet all the required accessibility requirements so that the user can read them clearly.",
+    "url": "https://github.com/abhishek-sankar/abhisheksankar.com/issues/17"
+  },
+  "issueNumber": 17,
+  "issueUrl": "https://github.com/abhishek-sankar/abhisheksankar.com/issues/17"
+}
