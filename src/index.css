@@ -16,24 +16,6 @@
   --stagger-duration: 380ms;
   --stagger-step: 50ms;
   --stagger-easing: cubic-bezier(0.4, 0, 0.2, 1);
-  --app-background: oklch(0.985 0.005 95);
-  --app-surface: oklch(1 0 0);
-  --app-text: oklch(0.24 0.02 245);
-  --app-text-muted: oklch(0.44 0.018 245);
-  --app-text-subtle: oklch(0.56 0.014 245);
-  --app-border: oklch(0.9 0.01 245);
-  --app-link: var(--color-phthalo-green-500);
-}
-
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --app-background: oklch(0.19 0.018 250);
-  --app-surface: oklch(0.24 0.02 248);
-  --app-text: oklch(0.94 0.012 95);
-  --app-text-muted: oklch(0.82 0.016 95);
-  --app-text-subtle: oklch(0.71 0.016 95);
-  --app-border: oklch(0.37 0.018 248);
-  --app-link: oklch(0.82 0.11 160);
 }
 
 body {
@@ -44,62 +26,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Newsreader', Georgia, serif;
-  background: var(--app-background);
-  color: var(--app-text);
-  transition: background-color 240ms ease, color 240ms ease;
-}
-
-* {
-  transition:
-    background-color 240ms ease,
-    border-color 240ms ease,
-    color 240ms ease,
-    fill 240ms ease,
-    stroke 240ms ease;
-}
-
-::selection {
-  background: color-mix(in oklab, var(--app-link) 28%, transparent);
-}
-
-:where(a) {
-  color: var(--app-link);
-}
-
-:where(.text-gray-700, .text-gray-800, .text-neutral-600, .text-base, .text-light, .paper-content) {
-  color: var(--app-text-muted) !important;
-}
-
-:where(.text-gray-500, .text-neutral-500, .marker\:text-neutral-400 li::marker, .marker\:text-neutral-400 ::marker) {
-  color: var(--app-text-subtle) !important;
-}
-
-:where(.border-gray-100, .border-gray-200, .border-neutral-200) {
-  border-color: var(--app-border) !important;
-}
-
-:where(.bg-white, .bg-neutral-100) {
-  background-color: var(--app-surface) !important;
-}
-
-:where(.bg-neutral-300) {
-  background-color: color-mix(in oklab, var(--app-border) 82%, white 18%) !important;
-}
-
-:where(.text-phthalo-green-500, .text-emerald-800) {
-  color: var(--app-link) !important;
-}
-
-:where(.bg-phthalo-green-500) {
-  background-color: var(--app-link) !important;
-}
-
-:where(button, a) {
-  -webkit-tap-highlight-color: transparent;
-}
-
-:where(.container, section, article, .header-actions a, button) {
-  color: inherit;
 }
 
 .profile-avatar {
@@ -252,12 +178,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-  }
-
   .stagger-group > .stagger-item {
     opacity: 1;
     transform: none;
