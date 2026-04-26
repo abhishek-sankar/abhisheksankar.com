@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark mode for Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-mint-500: oklch(0.72 0.11 178);
   --color-pastel-green-500:  oklch(0.65 0.15 145);
@@ -16,6 +19,30 @@
   --stagger-duration: 380ms;
   --stagger-step: 50ms;
   --stagger-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Light mode design tokens */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-border-subtle: #f3f4f6;
+  --color-link: oklch(0.298 0.051 159.699);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Dark mode design tokens — WCAG AA compliant */
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+  --color-border-subtle: #1e293b;
+  --color-link: oklch(0.72 0.11 178);
 }
 
 body {
@@ -26,6 +53,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Newsreader', Georgia, serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-avatar {
@@ -183,4 +213,61 @@ body {
     transform: none;
     transition: none;
   }
+}
+
+/* ============================================================
+   Global dark-mode overrides for hard-coded Tailwind classes
+   ============================================================ */
+
+/* Text colour overrides */
+.dark .text-gray-700 { color: var(--color-text-secondary); }
+.dark .text-gray-600 { color: var(--color-text-secondary); }
+.dark .text-gray-500 { color: var(--color-text-muted); }
+.dark .text-gray-400 { color: var(--color-text-muted); }
+
+/* Background overrides */
+.dark .bg-white { background-color: var(--color-bg-primary) !important; }
+.dark .bg-gray-50 { background-color: var(--color-bg-secondary) !important; }
+.dark .bg-gray-100 { background-color: var(--color-bg-secondary) !important; }
+
+/* Border overrides */
+.dark .border-gray-200 { border-color: var(--color-border) !important; }
+.dark .border-gray-100 { border-color: var(--color-border-subtle) !important; }
+
+/* Link colour override — use mint in dark mode for better contrast */
+.dark .text-phthalo-green-500 { color: oklch(0.72 0.11 178); }
+
+/* Dark mode overrides for paper content */
+.dark .paper-content hr {
+  border-top-color: var(--color-border);
+}
+
+.dark .paper-content th,
+.dark .paper-content td {
+  border-bottom-color: var(--color-border);
+}
+
+.dark .paper-content p em {
+  color: var(--color-text-muted);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
 }

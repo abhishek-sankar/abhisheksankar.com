@@ -1,6 +1,7 @@
 import './index.css'
 import { Suspense, lazy, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { ThemeProvider } from './contexts/ThemeProvider'
 import { ProfileCard } from './components/ProfileCard'
 import { ProfileSummary } from './components/ProfileSummary'
 import { BlogSummary } from './components/BlogSummary'
@@ -57,9 +58,10 @@ function ProfileCardWithRouteControl() {
 
 function App() {
   return (
+    <ThemeProvider>
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen w-full flex flex-col justify-center items-center bg-white">
+      <div className="min-h-screen w-full flex flex-col justify-center items-center" style={{ backgroundColor: 'var(--color-bg-primary)', color: 'var(--color-text-primary)', transition: 'background-color 0.3s ease, color 0.3s ease' }}>
         <main className="w-full max-w-3xl px-4 sm:px-8 py-10 flex-1 flex flex-col">
           <ProfileCardWithRouteControl />
           <Routes>
@@ -76,11 +78,12 @@ function App() {
             <Route path="/engagements/:id" element={<Suspense fallback={<RouteFallback />}><EngagementDetail /></Suspense>} />
           </Routes>
         </main>
-        <footer className="w-full text-center text-gray-500 text-sm mt-16 border-t border-gray-100 pt-6 pb-4">
-          © {new Date().getFullYear()} Abhishek Sankar, inspired by <a href="https://aarushsah.com/" target="_blank" rel="noopener noreferrer" className="text-phthalo-green-500 hover:underline">aarushsah.com</a> 
+        <footer className="w-full text-center text-sm mt-16 pt-6 pb-4" style={{ color: 'var(--color-text-muted)', borderTop: '1px solid var(--color-border)' }}>
+          © {new Date().getFullYear()} Abhishek Sankar, inspired by <a href="https://aarushsah.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-link)' }} className="hover:underline">aarushsah.com</a> 
         </footer>
       </div>
     </Router>
+    </ThemeProvider>
   )
 }
 
