@@ -6,12 +6,16 @@ import { TWITTER_URL, GITHUB_URL, LINKEDIN_URL } from '../constants'
 import React from 'react';
 import { StaggerGroup } from './StaggerGroup';
 import { staggerStyle } from './staggerStyle';
+import { useTheme } from '../contexts/ThemeContext';
 
 interface ProfileCardProps {
   showDescription?: boolean;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true }) => {
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
         <div className="container">
           <header className="mb-10" role="banner">
@@ -33,7 +37,17 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ showDescription = true
               <div className="min-w-0 flex-1 self-center sm:self-auto">
                 <div className="mb-2 flex flex-wrap items-center gap-x-4 gap-y-2">
                   <p className="text-xl font-bold leading-tight">Abhishek Sankar</p>
-                  <div className="header-actions flex gap-4">
+                  <div className="header-actions flex gap-4 items-center">
+                    <button
+                      data-testid="theme-toggle"
+                      data-theme-toggle
+                      onClick={toggleTheme}
+                      className="theme-toggle"
+                      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+                    >
+                      {isDark ? '☀️' : '🌙'}
+                    </button>
                     <a
                       href={TWITTER_URL}
                       target="_blank"

@@ -1,6 +1,7 @@
 import './index.css'
 import { Suspense, lazy, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { ThemeProvider } from './contexts/ThemeContext'
 import { ProfileCard } from './components/ProfileCard'
 import { ProfileSummary } from './components/ProfileSummary'
 import { BlogSummary } from './components/BlogSummary'
@@ -57,6 +58,7 @@ function ProfileCardWithRouteControl() {
 
 function App() {
   return (
+    <ThemeProvider>
     <Router>
       <ScrollToTop />
       <div className="min-h-screen w-full flex flex-col justify-center items-center bg-white">
@@ -81,6 +83,7 @@ function App() {
         </footer>
       </div>
     </Router>
+    </ThemeProvider>
   )
 }
 
