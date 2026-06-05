@@ -12,6 +12,41 @@ export interface Reading {
 
 export const readings: Reading[] = [
   {
+    id: "may-2026",
+    title: "May 2026",
+    date: "May 2026",
+    items: [
+      {
+        title: "How to Walk Through Walls",
+        url: "https://www.henrikkarlsson.xyz/p/hacker-mindset"
+      },
+      {
+        title: "strace-ui, Bonsai_term, and the TUI renaissance",
+        url: "https://blog.janestreet.com/strace-ui-bonsai-term-and-the-tui-renaissance/"
+      },
+      {
+        title: "How to Have People in Your Life",
+        url: "https://divyavenn.substack.com/p/how-to-have-people-in-your-life"
+      },
+      {
+        title: "What's worth making?",
+        url: "https://twitter.com/joellewenstein/status/2046623557875372285"
+      },
+      {
+        title: "One Developer, Two Dozen Agents, Zero Alignment",
+        url: "https://maggieappleton.com/zero-alignment"
+      },
+      {
+        title: "Agents with Taste",
+        url: "https://emilkowal.ski/ui/agents-with-taste"
+      },
+      {
+        title: "How to Enter Side Doors",
+        url: "https://velvetnoise.substack.com/p/how-to-enter-side-doors"
+      }
+    ]
+  },
+  {
     id: "april-2026",
     title: "April 2026",
     date: "April 2026",
