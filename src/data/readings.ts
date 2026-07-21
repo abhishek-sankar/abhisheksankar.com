@@ -12,6 +12,81 @@ export interface Reading {
 
 export const readings: Reading[] = [
   {
+    id: "june-2026",
+    title: "June 2026",
+    date: "June 2026",
+    items: [
+      {
+        title: "2026 Advice",
+        url: "https://jasmi.news/p/2026-advice"
+      },
+      {
+        title: "Maybe You're Not Actually Trying",
+        url: "https://usefulfictions.substack.com/p/maybe-youre-not-actually-trying"
+      },
+      {
+        title: "Everything Is a Win When the Goal Is...",
+        url: "https://yearlyblues.substack.com/p/everything-is-a-win-when-the-goal"
+      },
+      {
+        title: "Sotazine",
+        url: "https://www.sotazine.com/"
+      },
+      {
+        title: "How LLMs Actually Work",
+        url: "https://www.0xkato.xyz/how-llms-actually-work/"
+      },
+      {
+        title: "Shrinking",
+        url: "https://read.isabelunraveled.com/p/shrinking"
+      },
+      {
+        title: "The Non-Negotiables",
+        url: "https://thenonnegotiables.co/"
+      },
+      {
+        title: "Claude Code",
+        url: "https://gist.github.com/ThariqS/1389dcdff9eba4789887a2211370f06b"
+      },
+      {
+        title: "Write First, Design Later",
+        url: "https://karlkoch.me/writing/write-first-design"
+      },
+      {
+        title: "A Harness for Every Task: Dynamic Workflows in Claude Code",
+        url: "https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code"
+      },
+      {
+        title: "ML Interviews",
+        url: "https://silviasapora.github.io/blog/ml-interviews.html"
+      },
+      {
+        title: "Humans Are Not Automatically Strategic",
+        url: "https://www.lesswrong.com/posts/PBRWb2Em5SNeWYwwB/humans-are-not-automatically-strategic"
+      },
+      {
+        title: "Talking Points",
+        url: "https://www.visakanv.com/blog/talking-points/"
+      },
+      {
+        title: "Life-Changing",
+        url: "https://read.isabelunraveled.com/p/life-changing"
+      },
+      {
+        title: "So You Wanna De-Bog Yourself?",
+        url: "https://www.experimental-history.com/p/so-you-wanna-de-bog-yourself?utm_source=substack&utm_medium=email"
+      },
+      {
+        title: "Antirez",
+        url: "https://antirez.com/news/169"
+      },
+      {
+        title: "You Share Other People's Thoughts",
+        url: "https://feifeiwrites.substack.com/p/you-share-other-peoples-thoughts"
+      }
+    ]
+  },
+  {
     id: "may-2026",
     title: "May 2026",
     date: "May 2026",
@@ -775,4 +850,4 @@ export const readings: Reading[] = [
       }
     ]
   }
-]; 
+];
